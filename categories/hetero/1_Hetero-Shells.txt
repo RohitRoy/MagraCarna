@@ -1,0 +1,100 @@
+!
+!==========================================================
+!---------------------- SECTION X -------------------------
+!                   Hetero-Contacts                        
+!==========================================================
+
+Graph:	1Oph_Graph
+	0	MG
+	1	Oph	0	L
+	2	P	1	I
+
+Graph:	1Ob_Graph
+	0	MG
+	1	Ob	0	L
+
+Graph:	1Nb_Graph
+	0	MG
+	1	Nb	0	L
+
+Graph:	1Or_Graph
+	0	MG
+	1	Or	0	L
+
+Graph:	1Pout_Graph
+	0	MG
+	1	Oph	0	LW1
+	2	P	1	I
+
+Graph:	1Bout_Graph
+	0	MG
+	1	b	0	LW1
+	2	N	1	I
+
+Graph:	1Rout_Graph
+	0	MG
+	1	Or	0	LW1
+	2	N	1	I
+
+
+!---------------------- SECTION X.3 -----------------------
+!                      Miscellaneous                       
+
+Graph:	1Oh_Graph
+	0	MG
+	1	Oh 	0	L
+
+Graph:	1Nh_Graph
+	0	MG
+	1	Nh 	0	L
+
+Formula:	Hetero-Inner
+	1Oh_Graph
+	1Nh_Graph
+
+Formula:	RNA-Inner
+	1Oph_Graph and not Hetero-Inner
+	1Ob_Graph and not Hetero-Inner
+	1Nb_Graph and not Hetero-Inner
+	1Or_Graph and not Hetero-Inner
+
+Graph:	Hetero-Outer
+	0	MG
+	1	h 	0	LW1
+
+Formula:	RNA-Outer
+	not RNA-Inner and not Hetero-Outer and not Hetero-Inner and 1Pout_Graph
+	not RNA-Inner and not Hetero-Outer and not Hetero-Inner and 1Bout_Graph
+	not RNA-Inner and not Hetero-Outer and not Hetero-Inner and 1Rout_Graph
+
+
+!---------------------- SECTION X.3 -----------------------
+!                      Miscellaneous                       
+
+Graph:	1N.Oh_Graph
+	0	MG
+	1	Oh 	0	L
+	2	N 	1	I
+
+Graph:	1N.Nh_Graph
+	0	MG
+	1	Nh 	0	L
+	2	N 	1	I
+
+Formula:	Non-RNA-Inner
+	Hetero-Inner and not 1N.Oh_Graph and not 1N.Nh_Graph
+
+Formula:	Modified-RNA-Inner
+	1N.Nh_Graph and not Non-RNA-Inner
+	1N.Oh_Graph and not Non-RNA-Inner
+
+Graph:	1N.Hout_Graph
+	0	MG
+	1	h 	0	LW1
+	2	N 	1	I
+
+Formula:	Non-RNA-Outer
+	not RNA-Inner and not Hetero-Inner and not 1N.Hout_Graph and Hetero-Outer
+
+Formula:	Modified-RNA-Outer
+	not RNA-Inner and not Hetero-Inner and not Non-RNA-Outer and 1N.Hout_Graph

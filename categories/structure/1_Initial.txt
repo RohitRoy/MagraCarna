@@ -1,0 +1,84 @@
+
+Graph:	Base-Phosphate
+0	MG
+1	n 	0	LW*
+2	N	1	I
+3	b 	2	I
+4	Oph	3	HB
+5	N	4	I
+
+Graph:	1-Nt_Bulge
+0	WWC
+1	N 	0	W
+2 	N 	0 	W
+3	P 	1 	Q
+4 	P 	2 	Q
+5 	N 	3	Q
+6 	N 	4 	Q
+7 	P 	6 	Q
+8 	N 	7 	Q
+9 	WWC	8	W 	5 	W
+
+Graph:	2-Nt_Bulge
+0	WWC
+1	N 	0	W
+2 	N 	0 	W
+3	P 	1 	Q
+4 	P 	2 	Q
+5 	N 	3	Q
+6 	N 	4 	Q
+7 	P 	5	Q
+8 	P 	6 	Q
+9 	N 	8 	Q
+10 	P 	9 	Q
+11 	N 	10 	Q
+12 	WWC	11	W 	5 	W
+
+Graph:	UNR_U-Turn_Closed_Minimal
+0	WWC
+1	N  	0	W
+2	N  	0	W
+3	eeo	0	Q
+4	Y	3	E
+5	N  	3	E
+6	P 	4	Q
+7	U 	6	Q
+8	P 	7	Q
+9	N 	8	Q
+10	P 	9	Q
+11 	R 	10 	Q
+12 	P 	11	Q	5	Q
+
+Graph:	GNRA_U-Turn_Minimal
+0	WWC
+1	N  	0	W
+2	N  	0	W
+3	HST	0	Q
+4	G	3	S
+5	A  	3	H
+6	P 	4	Q
+7	N 	6	Q
+8	P 	7	Q
+9	R 	8	Q
+10	P 	9	Q	5	Q
+
+Graph:	Kink-Turn_Minimal
+0	HST
+1	G   	0	S
+2	A   	0	H
+3	P   	1	Q
+4	A    	3	Q
+5	HST   	4	H
+6	G   	5	S
+7	P   	6	Q	2	Q
+8	P   	6	Q
+9	N   	8	Q
+10	P   	9	Q
+11	N   	10	Q
+12	P   	11	Q
+13	N   	12	Q
+14	P   	13	Q
+15	N   	14	Q
+16	WWC 	15	W
+17	N    	16	W
+18	P  	17	Q	4	Q

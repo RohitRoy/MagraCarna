@@ -1,0 +1,9 @@
+10-Member_Ring_Single 10-Member_Ring_Single_Strict 10MRS
+10-Member_Ring_Double 10-Member_Ring_Double_Strict 10MRD
+10-Member_Ring_Adjacent 10-Member_Ring_Adjacent_Strict 10MRA
+10-Member_Ring_Extended 10-Member_Ring_Extended_Strict 10MRE
+10-Member_Ring_Purine-N7_Graph 10-Member_Ring_Purine-N7 10MR_RN7
+Y-Clamp_Graph Y-Clamp YC
+2Oph_Graph Magnesium_Clamp MC
+G-Phosphate_Graph G-Phosphate GP
+U-Phosphate_Graph U-Phosphate UP

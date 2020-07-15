@@ -1,0 +1,444 @@
+!
+!==========================================================
+!---------------------- SECTION 1 -------------------------
+!                 Inner-Shell Classes                      
+!==========================================================
+
+!---------------------- SECTION 1.1 -----------------------
+!                 Phosphate Inner-Shell                    
+
+Graph:	1+_Oph
+	0	MG
+	1	Oph	0	L
+	2	P	1	IPO
+
+Graph:	2+_Oph
+	+	1+_Oph
+	3	Oph	0	L
+	4	P	3	IPO
+
+Graph:	3+_Oph
+	+	2+_Oph
+	5	Oph	0	L
+	6	P	5	IPO
+
+Graph:	4+_Oph
+	+	3+_Oph
+	7	Oph	0	L
+	8	P	7	IPO
+
+Graph:	5+_Oph
+	+	4+_Oph
+	9	Oph	0	L
+	10	P	9	IPO
+
+Graph:	6+_Oph
+	+	5+_Oph
+	11	Oph	0	L
+	12	P	11	IPO
+
+Formula:	0Oph
+	not 1+_Oph
+
+Formula:	1Oph
+	1+_Oph and not 2+_Oph
+
+Formula:	2Oph
+	2+_Oph and not 3+_Oph
+
+Formula:	3Oph
+	3+_Oph and not 4+_Oph
+
+Formula:	4Oph
+	4+_Oph and not 5+_Oph
+
+Formula:	5Oph
+	5+_Oph and not 6+_Oph
+
+Formula:	6Oph
+	6+_Oph
+
+
+!---------------------- SECTION 1.2 -----------------------
+!             Phosphate Inner-Shell Geometry               
+
+Graph:	cis-Oph
+	+	2+_Oph
+	3	Oph 	1	CIS
+
+Graph:	trans-Oph
+	+	2+_Oph
+	3	Oph 	1	TRS
+
+Graph:	mer-Oph
+	+	3+_Oph
+	3	Oph 	1	TRS
+
+Graph:	fac-Oph
+	+	3+_Oph
+	3	Oph 	1	CIS
+	5	Oph 	1	CIS 	3	CIS
+
+Graph:	trans-cis-Oph
+	+	4+_Oph
+	3	Oph 	1	TRS
+	7	Oph 	5	CIS
+
+Graph:	trans-trans-Oph
+	+	4+_Oph
+	3	Oph 	1	TRS
+	7	Oph 	5	TRS
+
+
+!---------------------- SECTION 1.3 -----------------------
+!              Nucleobase Inner-Shell Oxygen               
+
+
+Graph:	1+_Ob
+	0	MG
+	1	Ob	0	L
+
+Graph:	2+_Ob
+	+	1+_Ob
+	2	Ob	0	L
+
+Graph:	3+_Ob
+	+	2+_Ob
+	3	Ob	0	L
+
+Graph:	4+_Ob
+	+	3+_Ob
+	4	Ob	0	L
+
+Graph:	5+_Ob
+	+	4+_Ob
+	5	Ob	0	L
+
+Graph:	6+_Ob
+	+	5+_Ob
+	6	Ob	0	L
+
+Formula:	0Ob
+	not 1+_Ob
+
+Formula:	1Ob
+	1+_Ob and not 2+_Ob
+
+Formula:	2Ob
+	2+_Ob and not 3+_Ob
+
+Formula:	3Ob
+	3+_Ob and not 4+_Ob
+
+Formula:	4Ob
+	4+_Ob and not 5+_Ob
+
+Formula:	5Ob
+	5+_Ob and not 6+_Ob
+
+Formula:	6Ob
+	6+_Ob
+
+
+!---------------------- SECTION 1.4 -----------------------
+!             Nucleobase Inner-Shell Nitrogen              
+
+Graph:	1+_Nb
+	0	MG
+	1	Nb	0	L
+
+Graph:	2+_Nb
+	+	1+_Nb
+	2	Nb	0	L
+
+Graph:	3+_Nb
+	+	2+_Nb
+	3	Nb	0	L
+
+Graph:	4+_Nb
+	+	3+_Nb
+	4	Nb	0	L
+
+Graph:	5+_Nb
+	+	4+_Nb
+	5	Nb	0	L
+
+Graph:	6+_Nb
+	+	5+_Nb
+	6	Nb	0	L
+
+Formula:	0Nb
+	not 1+_Nb
+
+Formula:	1Nb
+	1+_Nb and not 2+_Nb
+
+Formula:	2Nb
+	2+_Nb and not 3+_Nb
+
+Formula:	3Nb
+	3+_Nb and not 4+_Nb
+
+Formula:	4Nb
+	4+_Nb and not 5+_Nb
+
+Formula:	5Nb
+	5+_Nb and not 6+_Nb
+
+Formula:	6Nb
+	6+_Nb
+
+
+!---------------------- SECTION 1.5 -----------------------
+!                   Ribose Inner-Shell                     
+
+Graph:	1+_Or
+	0	MG
+	1	Or	0	L
+
+Graph:	2+_Or
+	+	1+_Or
+	2	Or	0	L
+
+Graph:	3+_Or
+	+	2+_Or
+	3	Or	0	L
+
+Graph:	4+_Or
+	+	3+_Or
+	4	Or	0	L
+
+Graph:	5+_Or
+	+	4+_Or
+	5	Or	0	L
+
+Graph:	6+_Or
+	+	5+_Or
+	6	Or	0	L
+
+Formula:	0Or
+	not 1+_Or
+
+Formula:	1Or
+	1+_Or and not 2+_Or
+
+Formula:	2Or
+	2+_Or and not 3+_Or
+
+Formula:	3Or
+	3+_Or and not 4+_Or
+
+Formula:	4Or
+	4+_Or and not 5+_Or
+
+Formula:	5Or
+	5+_Or and not 6+_Or
+
+Formula:	6Or
+	6+_Or
+
+
+!
+!==========================================================
+!---------------------- SECTION 2 -------------------------
+!                 Outer-Shell Classes                      
+!==========================================================
+
+
+!---------------------- SECTION 2.1 -----------------------
+!                  Phosphate Inner-Shell                   
+
+Graph:	1+_Pout
+	0	MG
+	1	Oph	0	LW1
+	2	P	1	IPO
+
+Graph:	2+_Pout
+	+	1+_Pout
+	3	Oph	0	LW1
+	4	P	3	IPO
+
+Graph:	3+_Pout
+	+	2+_Pout
+	5	Oph	0	LW1
+	6	P	5	IPO
+
+Graph:	4+_Pout
+	+	3+_Pout
+	7	Oph	0	LW1
+	8	P	7	IPO
+
+Graph:	5+_Pout
+	+	4+_Pout
+	9	Oph	0	LW1
+	10	P	9	IPO
+
+Graph:	6+_Pout
+	+	5+_Pout
+	11	Oph	0	LW1
+	12	P	11	IPO
+
+Formula:	0Pout
+	not 1+_Pout
+
+Formula:	1Pout
+	1+_Pout and not 2+_Pout
+
+Formula:	2Pout
+	2+_Pout and not 3+_Pout
+
+Formula:	3Pout
+	3+_Pout and not 4+_Pout
+
+Formula:	4Pout
+	4+_Pout and not 5+_Pout
+
+Formula:	5Pout
+	5+_Pout and not 6+_Pout
+
+Formula:	6Pout
+	6+_Pout
+
+!---------------------- SECTION 2.2 -----------------------
+!                 Nucleobase Outer-Shell                   
+
+Graph:	1+_Bout
+	0	MG
+	1	Xb	0	LW1
+	2	5Nu	1	IPO
+
+Graph:	2+_Bout
+	+	1+_Bout
+	3	Xb	0	LW1
+	4	5Nu	3	IPO
+
+Graph:	3+_Bout
+	+	2+_Bout
+	5	Xb	0	LW1
+	6	5Nu	5	IPO
+
+Graph:	4+_Bout
+	+	3+_Bout
+	7	Xb	0	LW1
+	8	5Nu	7	IPO
+
+Graph:	5+_Bout
+	+	4+_Bout
+	9	Xb	0	LW1
+	10	5Nu	9	IPO
+
+Graph:	6+_Bout
+	+	5+_Bout
+	11	Xb	0	LW1
+	12	5Nu	11	IPO
+
+Formula:	0Bout
+	not 1+_Bout
+
+Formula:	1Bout
+	1+_Bout and not 2+_Bout
+
+Formula:	2Bout
+	2+_Bout and not 3+_Bout
+
+Formula:	3Bout
+	3+_Bout and not 4+_Bout
+
+Formula:	4Bout
+	4+_Bout and not 5+_Bout
+
+Formula:	5Bout
+	5+_Bout and not 6+_Bout
+
+Formula:	6Bout
+	6+_Bout
+
+
+!---------------------- SECTION 2.3 -----------------------
+!                    Ribose Outer-Shell                    
+
+Graph:	1+_Rout
+	0	MG
+	1	Or	0	LW1
+	2	5Nu	1	IPO
+
+Graph:	2+_Rout
+	+	1+_Rout
+	3	Or	0	LW1
+	4	5Nu	3	IPO
+
+Graph:	3+_Rout
+	+	2+_Rout
+	5	Or	0	LW1
+	6	5Nu	5	IPO
+
+Graph:	4+_Rout
+	+	3+_Rout
+	7	Or	0	LW1
+	8	5Nu	7	IPO
+
+Graph:	5+_Rout
+	+	4+_Rout
+	9	Or	0	LW1
+	10	5Nu	9	IPO
+
+Graph:	6+_Rout
+	+	5+_Rout
+	11	Or	0	LW1
+	12	5Nu	11	IPO
+
+Formula:	0Rout
+	not 1+_Rout
+
+Formula:	1Rout
+	1+_Rout and not 2+_Rout
+
+Formula:	2Rout
+	2+_Rout and not 3+_Rout
+
+Formula:	3Rout
+	3+_Rout and not 4+_Rout
+
+Formula:	4Rout
+	4+_Rout and not 5+_Rout
+
+Formula:	5Rout
+	5+_Rout and not 6+_Rout
+
+Formula:	6Rout
+	6+_Rout
+
+
+!
+!==========================================================
+!---------------------- SECTION 3 -------------------------
+!                RNA and Non-RNA Classes                   
+!==========================================================
+
+
+Graph:	1+_O*
+	0	MG
+	1	O* 	0	L
+
+Graph:	1+_N*
+	0	MG
+	1	N* 	0	L
+
+Formula:	Other-Inner
+	1+_O*
+	1+_N*
+
+Formula:	RNA-Inner
+	1+_Oph and not Other-Inner
+	1+_Ob and not Other-Inner
+	1+_Nb and not Other-Inner
+	1+_Or and not Other-Inner
+
+Graph:	1+_*out
+	0	MG
+	1	X* 	0	LW1
+
+Formula:	RNA-Outer
+	not RNA-Inner and not 1+_*out and not Other-Inner and 1+_Pout
+	not RNA-Inner and not 1+_*out and not Other-Inner and 1+_Bout
+	not RNA-Inner and not 1+_*out and not Other-Inner and 1+_Rout

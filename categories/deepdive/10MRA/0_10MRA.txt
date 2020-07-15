@@ -1,0 +1,11 @@
+
+Graph:	1xMRA
+	0	MG
+	1	Oph	0	LW*
+	2	P	1	I
+	3	Oph	0	LW*
+	4	P	3	I
+	5	Oph	0	LW*
+	6	P	5	I
+	7	N	6	I	4	Q
+	8	N	4	I	2	Q

@@ -1,0 +1,135 @@
+!
+!==========================================================
+!---------------------- SECTION 1 -------------------------
+!                 Recurrent Base Pairs                     
+!==========================================================
+
+
+!-------------------- G-U Wobble Pair ---------------------
+
+Graph:	Single_G-U_Wobble_Pair
+	0	MG
+	1	WWC	0	LBP
+	2	G 	1	W
+	3	U 	1	W
+
+Graph:	Tandem_G-U_Wobble_Pairs
+	+	Single_G-U_Wobble_Pair
+	4	WWC	1	CON
+	5	G	4	W
+	6	U	4	W
+
+Graph:	Tandem_G-U_G-Y_Pairs
+	+	Single_G-U_Wobble_Pair
+	4	WWC	1	CON
+	5	G	4	W
+	6	Y	4	W
+
+!------------------ Sheared G-A Pair ----------------------
+
+Graph:	Single_Sheared_G-A_Pair
+	0	MG
+	1	HST	0	LBP
+	2	G 	1 	S
+	3 	A 	1 	H
+
+Graph:	Tandem_Sheared_G-A_Pairs
+	+	Single_Sheared_G-A_Pair
+	4	HST	1	CON
+	5	G	4	S
+	6	A	4	H
+
+!
+!==========================================================
+!---------------------- SECTION 2 -------------------------
+!               Mg-Stabilised Base Pairs                   
+!==========================================================
+
+Graph:	GA_swT
+	0	MG
+	1	Xb	0	LW*
+	2	G 	1	IPO
+	3	SWT	2	HBC	2	S
+	4	A 	3	HBC	3	W
+
+Graph:	GA_ssC
+	0	MG
+	1	Xb	0	LW*
+	2	G 	1	IPO
+	3	SSC	2	HBC	2	S
+	4	A 	3	HBC	3	S
+
+Graph:	AA_shT
+	0	MG
+	1	Xb	0	LW*
+	2	A 	1	IPO
+	3	HST	2	HBC	2	S
+	4	A 	3	HBC	3	H
+
+Graph:	GA_swC
+	0	MG
+	1	Xb	0	LW*
+	2	G 	1	IPO
+	3	SWC	2	HBC	2	S
+	4	A 	3	HBC	3	W
+
+Graph:	AU_ssC
+	0	MG
+	1	Xb	0	LW*
+	2	A 	1	IPO
+	3	SSC	2	HBC	2	S
+	4	U	3	HBC	3	S
+
+Graph:	GG_WHC
+	0	MG
+	1	Xb	0	LW*
+	2	G 	1	IPO
+	3	HWC	2	W
+	4	G 	3	H
+
+Graph:	GC_WWT
+	0	MG
+	1	Xb	0	LW*
+	2	G 	1	IPO
+	3	WWT	2	W
+	4	C 	3	W
+
+Graph:	GG_SHT
+	0	MG
+	1	Xb	0	LW*
+	2	G 	1	IPO
+	3	HST	2	S
+	4	G 	3	H
+
+!
+!==========================================================
+!---------------------- SECTION 3 -------------------------
+!                 Other Recurrent Motifs                   
+!==========================================================
+
+Graph:	UA_WHT_U-Phosphate_Motif
+	0	MG
+	1	Oph	0	LW*
+	2	A 	1	IPO
+	3	HWT	2	H
+	4	U	3	W
+	5	O4	4	IPO	0	LW*
+
+Graph:	RA_SHT_R-Phosphate_Motif
+	0	MG
+	1	R.H	0	LW*
+	2	R 	1	IPO
+	3	HST	2	S
+	4	A	3	H
+	5	P 	4	IPO
+	6	5Nu	5	SEQ
+	7	Oph	6	IPO
+	8	R.W	7	HB	2	IPO
+
+Graph:	Purine_Seat
+	0	MG
+	1	R.H	0	LW*
+	2	R	1	IPO
+	3	R.H	0	LW*
+	4 	R 	3	IPO
+

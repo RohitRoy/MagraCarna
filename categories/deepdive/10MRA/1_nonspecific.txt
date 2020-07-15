@@ -1,0 +1,2912 @@
+Graph:	AC1v_0S
+	0	MG
+	1	Oph	0	LW*
+	2	P	1	I
+	3	C	2	I
+	4	P	3	Q
+	5	Oph	4	I	0	LW*
+	6	R	4	I
+	7	P	6	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC1v_0L
+	0	MG
+	1	Oph	0	LW*
+	2	C	1	I
+	3	P	2	I	1	I	2	Q
+	4	P	2	Q
+	5	Oph	4	I	0	LW*
+	6	R	5	I	4	I	4	Q
+	7	P	6	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC1v_0T
+	0	MG
+	1	Oph	0	LW*
+	2	C	1	I
+	3	P	2	I	1	I	2	Q
+	4	P	2	Q
+	5	Oph	4	I	0	LW*
+	6	R	5	I	4	I	4	Q
+	7	P	6	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC1v_1E
+	0	MG
+	1	WWC	0	LBP
+	2	Oph	0	LW*
+	3	C	2	I
+	4	N3	3	I
+	5	N4	3	I
+	6	O2	3	I
+	7	Or	3	I
+	8	P	3	I	2	I	3	Q
+	9	Oph	8	I
+	10	N	8	Q
+	11	P	3	Q
+	12	Oph	11	I	0	LW*
+	13	R	12	I	11	I	11	Q
+	14	N1	13	I
+	15	P	13	Q
+	16	Oph	15	I	0	LW*
+	17	R	16	I
+	18	WWC	13	W
+	19	WWC	3	W
+	20	Oph	0	LW*
+
+Graph:	AC1v_1L
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	N3	2	I
+	4	N4	2	I
+	5	O2	2	I
+	6	Oph	2	I	0	LW*
+	7	P	6	I	2	I	2	Q
+	8	Oph	7	I	2	I
+	9	N	7	Q
+	10	Or	2	I
+	11	P	2	Q
+	12	Oph	11	I	0	LW*
+	13	R	12	I	11	I	11	Q
+	14	N1	13	I
+	15	P	13	Q
+	16	Oph	15	I	0	LW*
+	17	R	16	I	15	I	15	Q
+	18	WWC	13	W	0	LBP
+	19	WWC	0	LBP
+	20	Oph	0	LW*
+
+Graph:	AC1v_1T
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	Oph	2	I	0	LW*
+	4	P	3	I	2	I	2	Q
+	5	N	4	Q
+	6	P	2	Q
+	7	Oph	6	I	0	LW*
+	8	R	7	I	6	I	6	Q
+	9	P	8	Q
+	10	Oph	9	I	0	LW*
+	11	R	10	I	9	I	9	Q
+	12	WWC	8	W	0	LBP
+	13	WWC	0	LBP
+	14	Oph	0	LW*
+
+Graph:	AC1v_2E
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	G	1	W
+	4	WWC	0	LBP
+	5	C	4	W
+	6	N3	5	I
+	7	N1	6	HB
+	8	N4	5	I
+	9	Nb	8	HB
+	10	O6	8	HB
+	11	O2	5	I
+	12	N2	11	HB
+	13	Oph	5	I	0	LW*
+	14	P	13	I	5	I	5	Q
+	15	Oph	14	I	5	I
+	16	O2'	15	HB
+	17	N	14	Q
+	18	Or	17	I
+	19	P	17	Q
+	20	Or	5	I
+	21	P	5	Q
+	22	Oph	21	I	0	LW*
+	23	R	22	I	21	I	21	Q
+	24	N1	23	I
+	25	N3	24	HB
+	26	P	23	Q
+	27	Oph	26	I	0	LW*
+	28	R	27	I	26	I	26	Q
+	29	N3	28	I
+	30	Nb	28	I
+	31	O2'	28	I
+	32	O4'	28	I
+	33	P	28	Q
+	34	WWC	23	W	0	LBP
+	35	Y	34	W
+	36	G	4	W
+	37	Oph	0	LW*
+	38	P	37	I
+	39	Y	37	I
+
+Graph:	AC1v_2L
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	G	1	W
+	4	Y	1	W
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	WWC	0	LBP
+	8	C	7	W
+	9	N3	8	I
+	10	N1	9	HB
+	11	G	10	I	7	W
+	12	N2	11	I
+	13	O2	12	HB	8	I
+	14	O6	11	I
+	15	N4	14	HB	8	I
+	16	Nb	15	HB
+	17	Oph	8	I	0	LW*
+	18	P	17	I	8	I	8	Q
+	19	Oph	18	I	8	I
+	20	O2'	19	HB
+	21	N	18	Q
+	22	Or	21	I
+	23	P	21	I	21	Q
+	24	Or	8	I
+	25	P	8	Q
+	26	Oph	25	I	0	LW*
+	27	R	26	I	25	I	25	Q
+	28	N1	27	I
+	29	N3	28	HB
+	30	P	27	Q
+	31	Oph	30	I	0	LW*
+	32	R	31	I	30	I	30	Q
+	33	N3	32	I
+	34	Nb	32	I
+	35	O2'	32	I
+	36	O4'	32	I
+	37	P	32	Q
+	38	WWC	27	W	0	LBP
+	39	Y	38	W
+
+Graph:	AC1v_2T
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	G	1	W
+	4	Y	1	W
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	WWC	0	LBP
+	8	C	7	W
+	9	N3	8	I
+	10	N1	9	HB
+	11	G	10	I	7	W
+	12	N2	11	I
+	13	O2	12	HB	8	I
+	14	O6	11	I
+	15	N4	14	HB	8	I
+	16	Nb	15	HB
+	17	Oph	8	I	0	LW*
+	18	P	17	I	8	I	8	Q
+	19	Oph	18	I	8	I
+	20	O2'	19	HB
+	21	N	18	Q
+	22	P	21	I	21	Q
+	23	P	8	Q
+	24	Oph	23	I	0	LW*
+	25	R	24	I	23	I	23	Q
+	26	N1	25	I
+	27	N3	26	HB
+	28	P	25	Q
+	29	Oph	28	I	0	LW*
+	30	R	29	I	28	I	28	Q
+	31	P	30	Q
+	32	WWC	25	W	0	LBP
+	33	Y	32	W
+
+Graph:	AC1v_3E
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	N	2	W
+	4	G	1	W
+	5	N1	4	I
+	6	N2	4	I
+	7	N3	4	I
+	8	O2'	4	I
+	9	O6	4	I
+	10	P	4	I
+	11	P	4	Q
+	12	Y	1	W
+	13	N3	12	I
+	14	O2	12	I
+	15	Oph	12	I	0	LW*
+	16	P	15	I	12	I	12	Q
+	17	N	16	Q
+	18	P	12	Q
+	19	WWC	0	LBP
+	20	C	19	W
+	21	N3	20	I
+	22	N1	21	HB
+	23	b	22	HB
+	24	G	22	I	19	W
+	25	N2	24	I
+	26	Nb	25	HB
+	27	O2	25	HB	20	I
+	28	O2	25	HB
+	29	N3	24	I
+	30	O2'	24	I
+	31	O6	24	I
+	32	N4	31	HB	20	I
+	33	Nb	32	HB
+	34	N	33	I
+	35	Oph	20	I	0	LW*
+	36	P	35	I	20	I	20	Q
+	37	Oph	36	I	20	I
+	38	O2'	37	HB
+	39	N	36	Q
+	40	Or	39	I
+	41	P	39	I	39	Q
+	42	R	41	Q
+	43	Or	20	I
+	44	P	20	Q
+	45	Oph	44	I	0	LW*
+	46	R	45	I	44	I	44	Q
+	47	N1	46	I
+	48	N3	47	HB
+	49	P	46	Q
+	50	Oph	49	I	0	LW*
+	51	R	50	I	49	I	49	Q
+	52	N3	51	I
+	53	Nb	51	I
+	54	O2'	51	I
+	55	O2	54	HB
+	56	O2'	54	HB
+	57	O4'	51	I
+	58	N2	57	HB
+	59	P	51	Q
+	60	A	59	Q
+	61	WWC	46	W	0	LBP
+	62	Y	61	W
+	63	P	62	I
+	64	P	62	Q
+
+Graph:	AC1v_3L
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	N	2	W
+	4	P	3	I	3	Q
+	5	G	4	Q	1	W
+	6	N1	5	I
+	7	O2	6	HB
+	8	Y	7	I	1	W
+	9	N3	8	I
+	10	Oph	8	I	0	LW*
+	11	P	10	I	8	I	8	Q
+	12	N	11	Q	2	W
+	13	P	8	Q
+	14	N2	5	I
+	15	N3	5	I
+	16	O2'	5	I
+	17	O6	5	I
+	18	P	5	I	5	Q
+	19	WWC	0	LBP
+	20	C	19	W
+	21	N3	20	I
+	22	N1	21	HB
+	23	b	22	HB
+	24	G	22	I	19	W
+	25	N2	24	I
+	26	Nb	25	HB
+	27	O2	25	HB	20	I
+	28	O2	25	HB
+	29	N3	24	I
+	30	O2'	24	I
+	31	O6	24	I
+	32	N4	31	HB	20	I
+	33	Nb	32	HB
+	34	N	33	I
+	35	Oph	20	I	0	LW*
+	36	P	35	I	20	I	20	Q
+	37	Oph	36	I	20	I
+	38	O2'	37	HB
+	39	N	36	Q
+	40	Or	39	I
+	41	P	39	I	39	Q
+	42	R	41	Q
+	43	Or	20	I
+	44	P	20	Q
+	45	Oph	44	I	0	LW*
+	46	R	45	I	44	I	44	Q
+	47	N1	46	I
+	48	N3	47	HB
+	49	P	46	Q
+	50	Oph	49	I	0	LW*
+	51	R	50	I	49	I	49	Q
+	52	N3	51	I
+	53	N2	52	HB
+	54	O4'	53	HB	51	I
+	55	Nb	51	I
+	56	O2'	51	I
+	57	O2	56	HB
+	58	O2'	56	HB
+	59	P	51	Q
+	60	A	59	I	59	Q
+	61	WWC	46	W	0	LBP
+	62	Y	61	W
+	63	P	62	I	62	Q
+	64	P	62	Q
+
+Graph:	AC1v_3T
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	N	2	W
+	4	P	3	I	3	Q
+	5	G	4	Q	1	W
+	6	N1	5	I
+	7	O2	6	HB
+	8	Y	7	I	1	W
+	9	Oph	8	I	0	LW*
+	10	P	9	I	8	I	8	Q
+	11	N	10	Q	2	W
+	12	P	8	Q
+	13	P	5	I	5	Q
+	14	WWC	0	LBP
+	15	C	14	W
+	16	N3	15	I
+	17	N1	16	HB
+	18	b	17	HB
+	19	G	17	I	14	W
+	20	N2	19	I
+	21	Nb	20	HB
+	22	O2	20	HB	15	I
+	23	O2	20	HB
+	24	O6	19	I
+	25	N4	24	HB	15	I
+	26	Nb	25	HB
+	27	N	26	I
+	28	Oph	15	I	0	LW*
+	29	P	28	I	15	I	15	Q
+	30	Oph	29	I	15	I
+	31	O2'	30	HB
+	32	N	29	Q
+	33	P	32	I	32	Q
+	34	R	33	Q
+	35	P	15	Q
+	36	Oph	35	I	0	LW*
+	37	R	36	I	35	I	35	Q
+	38	N1	37	I
+	39	N3	38	HB
+	40	P	37	Q
+	41	Oph	40	I	0	LW*
+	42	R	41	I	40	I	40	Q
+	43	N3	42	I
+	44	N2	43	HB
+	45	O4'	44	HB	42	I
+	46	O2'	42	I
+	47	O2	46	HB
+	48	O2'	46	HB
+	49	P	42	Q
+	50	A	49	I	49	Q
+	51	WWC	37	W	0	LBP
+	52	Y	51	W
+	53	P	52	I	52	Q
+	54	P	52	Q
+
+
+Graph:	AC2v_0S
+	0	MG
+	1	Oph	0	LW*
+	2	P	1	I
+	3	C	2	I
+	4	P	3	Q
+	5	G	4	I
+	6	P	5	Q
+	7	Oph	6	I	0	LW*
+	8	Oph	4	I	0	LW*
+
+Graph:	AC2v_0L
+	0	MG
+	1	Oph	0	LW*
+	2	C	1	I
+	3	P	2	I	1	I	2	Q
+	4	P	2	Q
+	5	G	4	I	4	Q
+	6	Oph	5	I	0	LW*	4	I
+	7	P	5	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC2v_0T
+	0	MG
+	1	Oph	0	LW*
+	2	C	1	I
+	3	P	2	I	1	I	2	Q
+	4	P	2	Q
+	5	G	4	I	4	Q
+	6	Oph	5	I	0	LW*	4	I
+	7	P	5	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC2v_1E
+	0	MG
+	1	WWC	0	LBP
+	2	HOH	0	LW*
+	3	Oph	0	LW*
+	4	HOH	3	HB
+	5	P	3	I
+	6	G	5	Q
+	7	N1	6	I
+	8	N2	6	I
+	9	N7	6	I
+	10	O2'	6	I
+	11	O6	6	I
+	12	Oph	6	I	0	LW*
+	13	P	12	I	6	I	6	Q
+	14	C	13	Q
+	15	Oph	14	I	0	LW*
+	16	P	15	I	14	I	14	Q
+	17	Oph	16	I
+	18	N	16	Q
+	19	WWC	6	W
+	20	Y	3	I
+	21	Oph	0	LW*
+
+Graph:	AC2v_1L
+	0	MG
+	1	WWC	0	LBP
+	2	G	1	W
+	3	N1	2	I
+	4	N2	2	I
+	5	N7	2	I
+	6	O2'	2	I
+	7	O6	2	I
+	8	Oph	2	I	0	LW*
+	9	P	8	I	2	I	2	Q
+	10	C	9	Q
+	11	Oph	10	I	0	LW*
+	12	P	11	I	10	I	10	Q
+	13	Oph	12	I	10	I
+	14	N	12	Q
+	15	P	2	Q
+	16	Oph	15	I	0	LW*
+	17	HOH	16	HB
+	18	Y	16	I	15	I	15	Q
+	19	WWC	0	LBP
+	20	HOH	0	LW*
+	21	Oph	0	LW*
+
+Graph:	AC2v_1T
+	0	MG
+	1	WWC	0	LBP
+	2	G	1	W
+	3	Oph	2	I	0	LW*
+	4	P	3	I	2	I	2	Q
+	5	C	4	Q
+	6	Oph	5	I	0	LW*
+	7	P	6	I	5	I	5	Q
+	8	N	7	Q
+	9	P	2	Q
+	10	Oph	9	I	0	LW*
+	11	HOH	10	HB
+	12	Y	10	I	9	I	9	Q
+	13	WWC	0	LBP
+	14	HOH	0	LW*
+	15	Oph	0	LW*
+
+Graph:	AC2v_2E
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	G	1	W
+	4	N1	3	I
+	5	O2	4	HB
+	6	b	4	HB
+	7	N2	3	I
+	8	C.W	7	HB
+	9	N7	3	I
+	10	O2'	3	I
+	11	Oph	10	HB
+	12	O6	3	I
+	13	N4	12	HB
+	14	Oph	3	I	0	LW*
+	15	P	14	I	3	I	3	Q
+	16	C	15	Q
+	17	Oph	16	I	0	LW*
+	18	P	17	I	16	I	16	Q
+	19	Oph	18	I	16	I
+	20	N	18	Q
+	21	O2'	20	I
+	22	O4'	20	I
+	23	Oph	20	I
+	24	P	20	Q
+	25	P	3	Q
+	26	Oph	25	I	0	LW*
+	27	HOH	26	HB
+	28	Y	26	I	25	I	25	Q
+	29	N3	28	I
+	30	O2'	28	I
+	31	P	28	Q
+	32	WWC	0	LBP
+	33	N	32	W
+	34	HOH	0	LW*
+	35	Oph	0	LW*
+
+Graph:	AC2v_2L
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	G	1	W
+	4	N1	3	I
+	5	O2	4	HB
+	6	b	4	HB
+	7	N2	3	I
+	8	C.W	7	HB
+	9	N7	3	I
+	10	O2'	3	I
+	11	Oph	10	HB
+	12	N	11	I
+	13	O2'	12	I
+	14	Oph	13	HB
+	15	C	14	I
+	16	Oph	15	I	0	LW*
+	17	P	16	I	12	Q	14	I	15	I	15	Q
+	18	P	15	Q	3	I	3	Q
+	19	Oph	18	I	0	LW*	3	I
+	20	O4'	12	I
+	21	Oph	12	I
+	22	P	21	I	11	I	12	I	12	Q
+	23	O6	3	I
+	24	N4	23	HB
+	25	P	3	Q
+	26	Oph	25	I	0	LW*
+	27	HOH	26	HB
+	28	Y	26	I	25	I	25	Q
+	29	N3	28	I
+	30	O2'	28	I
+	31	P	28	Q
+	32	WWC	0	LBP
+	33	N	32	W
+	34	HOH	0	LW*
+	35	Oph	0	LW*
+
+Graph:	AC2v_2T
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	G	1	W
+	4	N1	3	I
+	5	O2	4	HB
+	6	b	4	HB
+	7	N2	3	I
+	8	C.W	7	HB
+	9	O2'	3	I
+	10	Oph	9	HB
+	11	N	10	I
+	12	O2'	11	I
+	13	Oph	12	HB
+	14	C	13	I
+	15	Oph	14	I	0	LW*
+	16	P	15	I	11	Q	13	I	14	I	14	Q
+	17	P	14	Q	3	I	3	Q
+	18	Oph	17	I	0	LW*	3	I
+	19	P	11	I	10	I	11	Q
+	20	O6	3	I
+	21	N4	20	HB
+	22	P	3	Q
+	23	Oph	22	I	0	LW*
+	24	HOH	23	HB
+	25	Y	23	I	22	I	22	Q
+	26	P	25	Q
+	27	WWC	0	LBP
+	28	N	27	W
+	29	HOH	0	LW*
+	30	Oph	0	LW*
+
+Graph:	AC2v_3E
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	O2'	2	I
+	4	P	2	Q
+	5	G	1	W
+	6	N1	5	I
+	7	O2	6	HB
+	8	b	6	HB
+	9	N2	5	I
+	10	C.W	9	HB
+	11	N7	5	I
+	12	O2'	5	I
+	13	Oph	12	HB
+	14	N	13	I
+	15	O2'	14	I
+	16	Oph	15	HB
+	17	C	16	I
+	18	Oph	17	I	0	LW*
+	19	P	18	I	14	Q	16	I	17	I	17	Q
+	20	P	17	Q	5	I	5	Q
+	21	Oph	20	I	0	LW*	5	I
+	22	O4'	14	I
+	23	N1	22	HB
+	24	Oph	14	I
+	25	P	24	I	13	I	14	I	14	Q
+	26	N	25	Q
+	27	O6	5	I
+	28	N4	27	HB
+	29	P	5	Q
+	30	Oph	29	I	0	LW*
+	31	HOH	30	HB
+	32	Y	30	I	29	I	29	Q
+	33	N3	32	I
+	34	O2'	32	I
+	35	N7	34	HB
+	36	P	32	Q
+	37	G	36	Q
+	38	WWC	0	LBP
+	39	N	38	W
+	40	P	39	I
+	41	P	39	Q
+	42	HOH	0	LW*
+	43	Oph	0	LW*
+
+Graph:	AC2v_3L
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	O2'	2	I
+	4	P	2	Q
+	5	G	1	W
+	6	N1	5	I
+	7	O2	6	HB
+	8	b	6	HB
+	9	N2	5	I
+	10	C.W	9	HB
+	11	N7	5	I
+	12	O2'	5	I
+	13	Oph	12	HB
+	14	N	13	I
+	15	O2'	14	I
+	16	Oph	15	HB
+	17	C	16	I
+	18	Oph	17	I	0	LW*
+	19	P	18	I	14	Q	16	I	17	I	17	Q
+	20	P	17	Q	5	I	5	Q
+	21	Oph	20	I	0	LW*	5	I
+	22	O4'	14	I
+	23	N1	22	HB
+	24	Oph	14	I
+	25	P	24	I	13	I	14	I	14	Q
+	26	N	25	Q
+	27	O6	5	I
+	28	N4	27	HB
+	29	P	5	Q
+	30	Oph	29	I	0	LW*
+	31	HOH	30	HB
+	32	Y	30	I	29	I	29	Q
+	33	N3	32	I
+	34	O2'	32	I
+	35	N7	34	HB
+	36	P	32	Q
+	37	G	36	I	36	Q
+	38	WWC	0	LBP
+	39	N	38	W
+	40	P	39	I	39	Q
+	41	P	39	Q
+	42	HOH	0	LW*
+	43	Oph	0	LW*
+
+Graph:	AC2v_3T
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	P	2	Q
+	4	G	1	W
+	5	N1	4	I
+	6	O2	5	HB
+	7	b	5	HB
+	8	N2	4	I
+	9	C.W	8	HB
+	10	O2'	4	I
+	11	Oph	10	HB
+	12	N	11	I
+	13	O2'	12	I
+	14	Oph	13	HB
+	15	C	14	I
+	16	Oph	15	I	0	LW*
+	17	P	16	I	12	Q	14	I	15	I	15	Q
+	18	P	15	Q	4	I	4	Q
+	19	Oph	18	I	0	LW*	4	I
+	20	O4'	12	I
+	21	N1	20	HB
+	22	P	12	I	11	I	12	Q
+	23	N	22	Q
+	24	O6	4	I
+	25	N4	24	HB
+	26	P	4	Q
+	27	Oph	26	I	0	LW*
+	28	HOH	27	HB
+	29	Y	27	I	26	I	26	Q
+	30	O2'	29	I
+	31	N7	30	HB
+	32	P	29	Q
+	33	G	32	I	32	Q
+	34	WWC	0	LBP
+	35	N	34	W
+	36	P	35	I	35	Q
+	37	P	35	Q
+	38	HOH	0	LW*
+	39	Oph	0	LW*
+
+
+Graph:	AC3v_0S
+	0	MG
+	1	Oph	0	LW*
+	2	P	1	I
+	3	A	2	I
+	4	P	3	Q
+	5	A	4	I
+	6	P	5	Q
+	7	Oph	6	I	0	LW*
+	8	Oph	4	I	0	LW*
+
+Graph:	AC3v_0L
+	0	MG
+	1	Oph	0	LW*
+	2	A	1	I
+	3	P	2	I	1	I	2	Q
+	4	A	3	Q
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	P	2	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC3v_0T
+	0	MG
+	1	Oph	0	LW*
+	2	A	1	I
+	3	P	2	I	1	I	2	Q
+	4	A	3	Q
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	P	2	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC3v_1E
+	0	MG
+	1	WWC	0	LBP
+	2	eeo	0	LBP
+	3	HOH	0	LW*
+	4	Oph	0	LW*
+	5	A	4	I
+	6	N1	5	I
+	7	O2'	5	I
+	8	O3'	5	I
+	9	P	5	I	4	I	5	Q
+	10	U	9	Q
+	11	P	5	Q
+	12	A	11	I	11	Q
+	13	N3	12	I
+	14	N6	12	I
+	15	O2'	12	I
+	16	Oph	12	I	0	LW*	11	I
+	17	P	12	Q
+	18	Oph	17	I	0	LW*
+	19	A	18	I
+	20	Oph	0	LW*
+
+Graph:	AC3v_1L
+	0	MG
+	1	WWC	0	LBP
+	2	eeo	0	LBP
+	3	HOH	0	LW*
+	4	Oph	0	LW*
+	5	A	4	I
+	6	N1	5	I
+	7	O2'	5	I
+	8	O3'	5	I
+	9	P	5	I	4	I	5	Q
+	10	U	9	Q
+	11	P	5	Q
+	12	A	11	I	11	Q
+	13	N3	12	I
+	14	N6	12	I
+	15	O2'	12	I
+	16	Oph	12	I	0	LW*	11	I
+	17	P	12	Q
+	18	A	17	I	17	Q
+	19	Oph	18	I	0	LW*	17	I
+	20	Oph	0	LW*
+
+Graph:	AC3v_1T
+	0	MG
+	1	WWC	0	LBP
+	2	eeo	0	LBP
+	3	HOH	0	LW*
+	4	Oph	0	LW*
+	5	A	4	I
+	6	P	5	I	4	I	5	Q
+	7	A	6	Q
+	8	Oph	7	I	0	LW*
+	9	P	8	I	7	I	7	Q
+	10	A	9	Q
+	11	Oph	10	I	0	LW*
+	12	P	11	I	10	I	10	Q
+	13	U	12	Q
+	14	Oph	0	LW*
+
+Graph:	AC3v_2E
+	0	MG
+	1	WWC	0	LBP
+	2	A	1	W
+	3	eeo	0	LBP
+	4	HOH	0	LW*
+	5	Oph	0	LW*
+	6	A	5	I
+	7	N1	6	I
+	8	O2'	7	HB
+	9	O2'	6	I
+	10	O2'	9	HB
+	11	O3'	6	I
+	12	P	6	I	5	I	6	Q
+	13	U	12	Q
+	14	N3	13	I
+	15	O2	13	I
+	16	O2'	13	I
+	17	O4	13	I
+	18	P	13	Q
+	19	P	6	Q
+	20	A	19	I	19	Q
+	21	N3	20	I
+	22	O2'	21	HB
+	23	N6	20	I
+	24	N6	23	HB
+	25	O2'	20	I
+	26	O3'	25	HB
+	27	O4'	25	HB
+	28	Oph	20	I	0	LW*	19	I
+	29	P	20	Q
+	30	A	29	I	29	Q
+	31	N1	30	I
+	32	N3	30	I
+	33	O2'	30	I
+	34	Oph	30	I	0	LW*	29	I
+	35	P	30	Q
+	36	Oph	0	LW*
+
+Graph:	AC3v_2L
+	0	MG
+	1	WWC	0	LBP
+	2	A	1	W
+	3	U	1	W
+	4	N3	3	I
+	5	O2	3	I
+	6	O2'	3	I
+	7	O4	3	I
+	8	P	3	I	3	Q
+	9	P	3	Q
+	10	A	9	I	9	Q
+	11	N1	10	I
+	12	O2'	11	HB
+	13	O2'	10	I
+	14	O2'	13	HB
+	15	O3'	14	HB	10	I
+	16	Oph	10	I	0	LW*	9	I
+	17	P	10	Q
+	18	A	17	I	17	Q
+	19	N3	18	I
+	20	O2'	19	HB
+	21	O2'	20	HB	18	I
+	22	O3'	21	HB
+	23	O4'	21	HB
+	24	A	23	I
+	25	N1	24	I
+	26	N3	24	I
+	27	N6	24	I
+	28	N6	27	HB	18	I
+	29	O2'	24	I
+	30	Oph	24	I	0	LW*
+	31	P	30	I	18	Q	24	I	24	Q
+	32	P	24	Q
+	33	Oph	18	I	0	LW*	17	I
+	34	eeo	0	LBP
+	35	HOH	0	LW*
+	36	Oph	0	LW*
+
+Graph:	AC3v_2T
+	0	MG
+	1	WWC	0	LBP
+	2	A	1	W
+	3	U	1	W
+	4	P	3	I	3	Q
+	5	P	3	Q
+	6	A	5	I	5	Q
+	7	N1	6	I
+	8	O2'	7	HB
+	9	O2'	6	I
+	10	O2'	9	HB
+	11	O3'	10	HB	6	I
+	12	Oph	6	I	0	LW*	5	I
+	13	P	6	Q
+	14	A	13	I	13	Q
+	15	N3	14	I
+	16	O2'	15	HB
+	17	O2'	16	HB	14	I
+	18	O3'	17	HB
+	19	O4'	17	HB
+	20	A	19	I
+	21	N6	20	I
+	22	N6	21	HB	14	I
+	23	Oph	20	I	0	LW*
+	24	P	23	I	14	Q	20	I	20	Q
+	25	P	20	Q
+	26	Oph	14	I	0	LW*	13	I
+	27	eeo	0	LBP
+	28	HOH	0	LW*
+	29	Oph	0	LW*
+
+Graph:	AC3v_3E
+	0	MG
+	1	WWC	0	LBP
+	2	A	1	W
+	3	N3	2	I
+	4	N7	2	I
+	5	O2'	2	I
+	6	O4'	2	I
+	7	P	2	I
+	8	P	2	Q
+	9	U	1	W
+	10	N3	9	I
+	11	N1	10	HB
+	12	N6	10	HB
+	13	O2	9	I
+	14	G.S	13	HB
+	15	O2'	9	I
+	16	Oph	15	HB
+	17	O4	9	I
+	18	N6	17	HB
+	19	P	9	I	9	Q
+	20	G	19	Q
+	21	P	9	Q
+	22	A	21	I	21	Q
+	23	N1	22	I
+	24	O2'	23	HB
+	25	O4'	24	HB
+	26	N	24	I
+	27	O2'	22	I
+	28	O2'	27	HB
+	29	O3'	28	HB	22	I
+	30	N	28	I
+	31	Oph	22	I	0	LW*	21	I
+	32	P	22	Q
+	33	A	32	I	32	Q
+	34	N3	33	I
+	35	O2'	34	HB
+	36	O2'	35	HB	33	I
+	37	O3'	36	HB
+	38	O4'	36	HB
+	39	A	38	I
+	40	N1	39	I
+	41	O2'	40	HB
+	42	N3	39	I
+	43	N2	42	HB
+	44	N6	39	I
+	45	N6	44	HB	33	I
+	46	O2'	39	I
+	47	O2	46	HB
+	48	O2'	46	HB
+	49	Oph	39	I	0	LW*
+	50	P	49	I	33	Q	39	I	39	Q
+	51	P	39	Q
+	52	G	51	Q
+	53	C	35	I
+	54	Oph	33	I	0	LW*	32	I
+	55	eeo	0	LBP
+	56	HOH	0	LW*
+	57	Oph	0	LW*
+
+Graph:	AC3v_3L
+	0	MG
+	1	WWC	0	LBP
+	2	A	1	W
+	3	N1	2	I
+	4	N3	3	HB
+	5	N6	4	HB
+	6	O4	5	HB
+	7	N6	6	HB
+	8	U	6	I	1	W	4	I
+	9	O2	8	I
+	10	G.S	9	HB
+	11	O2'	8	I
+	12	Oph	11	HB
+	13	P	8	I	8	Q
+	14	G	13	Q
+	15	P	8	Q
+	16	A	15	I	15	Q
+	17	N1	16	I
+	18	O2'	17	HB
+	19	O4'	18	HB
+	20	N	18	I
+	21	O2'	16	I
+	22	O2'	21	HB
+	23	O3'	22	HB	16	I
+	24	N	22	I
+	25	Oph	16	I	0	LW*	15	I
+	26	P	16	Q
+	27	A	26	I	26	Q
+	28	N3	27	I
+	29	O2'	28	HB
+	30	O2'	29	HB	27	I
+	31	O3'	30	HB
+	32	C	31	I	29	I
+	33	O4'	30	HB
+	34	A	33	I
+	35	N1	34	I
+	36	O2'	35	HB
+	37	N3	34	I
+	38	N2	37	HB
+	39	N6	34	I
+	40	N6	39	HB	27	I
+	41	O2'	34	I
+	42	O2	41	HB
+	43	O2'	41	HB
+	44	Oph	34	I	0	LW*
+	45	P	44	I	27	Q	34	I	34	Q
+	46	P	34	Q
+	47	G	46	I	46	Q
+	48	Oph	27	I	0	LW*	26	I
+	49	N3	2	I
+	50	N7	2	I
+	51	O2'	2	I
+	52	O4'	2	I
+	53	P	2	I	2	Q
+	54	P	2	Q
+	55	eeo	0	LBP
+	56	HOH	0	LW*
+	57	Oph	0	LW*
+
+Graph:	AC3v_3T
+	0	MG
+	1	WWC	0	LBP
+	2	A	1	W
+	3	N1	2	I
+	4	N3	3	HB
+	5	N6	4	HB
+	6	O4	5	HB
+	7	N6	6	HB
+	8	U	6	I	1	W	4	I
+	9	O2	8	I
+	10	G.S	9	HB
+	11	O2'	8	I
+	12	Oph	11	HB
+	13	P	8	I	8	Q
+	14	G	13	Q
+	15	P	8	Q
+	16	A	15	I	15	Q
+	17	N1	16	I
+	18	O2'	17	HB
+	19	O4'	18	HB
+	20	N	18	I
+	21	O2'	16	I
+	22	O2'	21	HB
+	23	O3'	22	HB	16	I
+	24	N	22	I
+	25	Oph	16	I	0	LW*	15	I
+	26	P	16	Q
+	27	A	26	I	26	Q
+	28	N3	27	I
+	29	O2'	28	HB
+	30	O2'	29	HB	27	I
+	31	O3'	30	HB
+	32	C	31	I	29	I
+	33	O4'	30	HB
+	34	A	33	I
+	35	N1	34	I
+	36	O2'	35	HB
+	37	N3	34	I
+	38	N2	37	HB
+	39	N6	34	I
+	40	N6	39	HB	27	I
+	41	O2'	34	I
+	42	O2	41	HB
+	43	O2'	41	HB
+	44	Oph	34	I	0	LW*
+	45	P	44	I	27	Q	34	I	34	Q
+	46	P	34	Q
+	47	G	46	I	46	Q
+	48	Oph	27	I	0	LW*	26	I
+	49	P	2	I	2	Q
+	50	P	2	Q
+	51	eeo	0	LBP
+	52	HOH	0	LW*
+	53	Oph	0	LW*
+
+
+Graph:	AC4v_0S
+	0	MG
+	1	Oph	0	LW*
+	2	P	1	I
+	3	A	2	I
+	4	P	3	Q
+	5	Oph	4	I	0	LW*
+	6	C	2	Q
+	7	P	6	I
+	8	Oph	7	I	0	LW*
+
+Graph:	AC4v_0L
+	0	MG
+	1	Oph	0	LW*
+	2	A	1	I
+	3	P	2	I	1	I	2	Q
+	4	C	3	Q
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	P	2	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC4v_0T
+	0	MG
+	1	Oph	0	LW*
+	2	A	1	I
+	3	P	2	I	1	I	2	Q
+	4	C	3	Q
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	P	2	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC4v_1E
+	0	MG
+	1	WWC	0	LBP
+	2	HOH	0	LW*
+	3	N6	0	LW*
+	4	N7	0	LW*
+	5	N7	0	LW*
+	6	Oph	0	LW*
+	7	HOH	6	HB
+	8	A	6	I
+	9	P	6	I
+	10	A	9	Q
+	11	N6	10	I
+	12	Oph	10	I	0	LW*
+	13	P	12	I	10	I	10	Q
+	14	C	13	Q
+	15	N3	14	I
+	16	N4	14	I
+	17	O2	14	I
+	18	O2'	14	I
+	19	Oph	14	I	0	LW*
+	20	N6	19	HB
+	21	P	19	I	14	I	14	Q
+	22	G	21	Q
+
+Graph:	AC4v_1L
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	N3	2	I
+	4	N4	2	I
+	5	O2	2	I
+	6	O2'	2	I
+	7	Oph	2	I	0	LW*
+	8	N6	7	HB	0	LW*
+	9	P	7	I	2	I	2	Q
+	10	G	9	Q
+	11	P	2	Q
+	12	A	11	I	11	Q
+	13	N6	12	I
+	14	Oph	12	I	0	LW*	11	I
+	15	P	12	Q
+	16	A	15	I	15	Q
+	17	Oph	16	I	0	LW*	15	I
+	18	HOH	17	HB	0	LW*
+	19	HOH	17	HB	0	LW*
+	20	HOH	17	HB	0	LW*
+	21	N6	0	LW*
+	22	N7	0	LW*
+	23	N7	0	LW*
+
+Graph:	AC4v_1T
+	0	MG
+	1	WWC	0	LBP
+	2	C	1	W
+	3	Oph	2	I	0	LW*
+	4	N6	3	HB	0	LW*
+	5	P	3	I	2	I	2	Q
+	6	G	5	Q
+	7	P	2	Q
+	8	A	7	I	7	Q
+	9	Oph	8	I	0	LW*	7	I
+	10	P	8	Q
+	11	A	10	I	10	Q
+	12	Oph	11	I	0	LW*	10	I
+	13	HOH	12	HB	0	LW*
+	14	HOH	12	HB	0	LW*
+	15	HOH	12	HB	0	LW*
+	16	N6	0	LW*
+	17	N7	0	LW*
+	18	N7	0	LW*
+
+Graph:	AC4v_2E
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	C	1	W
+	4	N3	3	I
+	5	N1	4	HB
+	6	N4	3	I
+	7	N1	6	HB
+	8	O6	6	HB
+	9	O2	3	I
+	10	N2	9	HB
+	11	O2'	9	HB
+	12	O2'	3	I
+	13	Oph	12	HB
+	14	Oph	3	I	0	LW*
+	15	N6	14	HB	0	LW*
+	16	N1	15	HB
+	17	A	15	I
+	18	P	14	I	3	I	3	Q
+	19	G	18	Q
+	20	SST	19	HBC
+	21	N2	19	I
+	22	N7	19	I
+	23	O2'	19	I
+	24	O4'	19	I
+	25	O6	19	I
+	26	P	19	Q
+	27	P	3	Q
+	28	A	27	I	27	Q
+	29	N6	28	I
+	30	N1	29	HB
+	31	Oph	28	I	0	LW*	27	I
+	32	P	28	Q
+	33	A	32	I	32	Q
+	34	N6	33	I
+	35	Oph	33	I	0	LW*	32	I
+	36	HOH	35	HB	0	LW*
+	37	HOH	35	HB	0	LW*
+	38	HOH	35	HB	0	LW*
+	39	P	33	Q
+	40	G	1	W
+	41	N6	0	LW*
+	42	N1	41	HB
+	43	A	41	I
+	44	N7	0	LW*
+	45	N7	0	LW*
+
+Graph:	AC4v_2L
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	G	2	W
+	4	SST	3	HBC	3	S
+	5	N2	3	I
+	6	N7	3	I
+	7	O2'	3	I
+	8	O4'	3	I
+	9	O6	3	I
+	10	N4	9	HB
+	11	N1	10	HB
+	12	N3	11	HB
+	13	N1	12	HB
+	14	C	12	I	1	W	10	I
+	15	O2	14	I
+	16	N2	15	HB
+	17	G	16	I	1	W
+	18	O2'	15	HB
+	19	O2'	14	I
+	20	Oph	19	HB
+	21	Oph	14	I	0	LW*
+	22	N6	21	HB	0	LW*
+	23	N1	22	HB
+	24	A	22	I
+	25	P	21	I	3	Q	14	I	14	Q
+	26	P	14	Q
+	27	A	26	I	26	Q
+	28	N6	27	I
+	29	N1	28	HB
+	30	Oph	27	I	0	LW*	26	I
+	31	P	27	Q
+	32	A	31	I	31	Q
+	33	N6	32	I
+	34	Oph	32	I	0	LW*	31	I
+	35	HOH	34	HB	0	LW*
+	36	HOH	34	HB	0	LW*
+	37	HOH	34	HB	0	LW*
+	38	P	32	Q
+	39	O6	10	HB
+	40	P	3	I	3	Q
+	41	N6	0	LW*
+	42	N1	41	HB
+	43	A	41	I
+	44	N7	0	LW*
+	45	N7	0	LW*
+
+Graph:	AC4v_2T
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	G	2	W
+	4	SST	3	HBC	3	S
+	5	O6	3	I
+	6	N4	5	HB
+	7	N1	6	HB
+	8	N3	7	HB
+	9	N1	8	HB
+	10	C	8	I	1	W	6	I
+	11	O2	10	I
+	12	N2	11	HB
+	13	G	12	I	1	W
+	14	O2'	11	HB
+	15	O2'	10	I
+	16	Oph	15	HB
+	17	Oph	10	I	0	LW*
+	18	N6	17	HB	0	LW*
+	19	N1	18	HB
+	20	A	18	I
+	21	P	17	I	3	Q	10	I	10	Q
+	22	P	10	Q
+	23	A	22	I	22	Q
+	24	N6	23	I
+	25	N1	24	HB
+	26	Oph	23	I	0	LW*	22	I
+	27	P	23	Q
+	28	A	27	I	27	Q
+	29	Oph	28	I	0	LW*	27	I
+	30	HOH	29	HB	0	LW*
+	31	HOH	29	HB	0	LW*
+	32	HOH	29	HB	0	LW*
+	33	P	28	Q
+	34	O6	6	HB
+	35	P	3	I	3	Q
+	36	N6	0	LW*
+	37	N1	36	HB
+	38	A	36	I
+	39	N7	0	LW*
+	40	N7	0	LW*
+
+Graph:	AC4v_3E
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	WWC	2	Q
+	4	C	2	W
+	5	G	2	W
+	6	SST	5	HBC	5	S
+	7	A	6	HBC
+	8	N2	5	I
+	9	N3	8	HB
+	10	O2	8	HB
+	11	N7	5	I
+	12	N1	11	HB
+	13	O2'	5	I
+	14	A.W	13	HB
+	15	A.W	13	HB
+	16	O6	13	HB
+	17	O4'	5	I
+	18	O2'	17	HB
+	19	O6	5	I
+	20	N4	19	HB
+	21	N1	20	HB
+	22	N3	21	HB
+	23	N1	22	HB
+	24	O2	23	HB
+	25	O6	23	HB
+	26	C	22	I	1	W	20	I
+	27	O2	26	I
+	28	N2	27	HB
+	29	N3	28	HB
+	30	G	28	I	1	W
+	31	N3	30	I
+	32	N7	30	I
+	33	P	30	I
+	34	P	30	Q
+	35	O2'	27	HB
+	36	O2'	35	HB
+	37	O5'	35	HB
+	38	O2'	26	I
+	39	Oph	38	HB
+	40	A	39	I
+	41	P	39	I
+	42	Oph	26	I	0	LW*
+	43	N6	42	HB	0	LW*
+	44	N1	43	HB
+	45	A	43	I
+	46	P	45	Q
+	47	P	42	I	5	Q	26	I	26	Q
+	48	P	26	Q
+	49	A	48	I	48	Q
+	50	N6	49	I
+	51	N1	50	HB
+	52	Oph	49	I	0	LW*	48	I
+	53	P	49	Q
+	54	A	53	I	53	Q
+	55	N6	54	I
+	56	Oph	54	I	0	LW*	53	I
+	57	HOH	56	HB	0	LW*
+	58	HOH	56	HB	0	LW*
+	59	HOH	56	HB	0	LW*
+	60	P	54	Q
+	61	N3	21	HB
+	62	N3	21	HB
+	63	O6	20	HB
+	64	N4	63	HB
+	65	N4	19	HB
+	66	P	5	I	5	Q
+	67	G	66	Q
+	68	N6	0	LW*
+	69	N1	68	HB
+	70	A	68	I
+	71	P	70	Q
+	72	N7	0	LW*
+	73	N7	0	LW*
+
+Graph:	AC4v_3L
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	WWC	2	Q
+	4	G	3	W
+	5	N1	4	I
+	6	N7	5	HB
+	7	G	6	I	2	W
+	8	SST	7	HBC	7	S
+	9	A	8	HBC	8	S
+	10	N3	9	I
+	11	N2	10	HB	7	I
+	12	N3	11	HB
+	13	N1	12	HB	7	I
+	14	N3	13	HB	11	HB
+	15	N3	13	HB
+	16	N1	15	HB
+	17	O2	16	HB	11	HB
+	18	O2'	17	HB	9	I
+	19	O2	18	HB	16	HB
+	20	N2	19	HB
+	21	N3	20	HB
+	22	O5'	20	HB	18	HB
+	23	G	20	I	1	W	16	I
+	24	N3	23	I
+	25	N7	23	I
+	26	N4	25	HB
+	27	O6	26	HB	16	HB
+	28	O6	26	HB	23	I
+	29	N4	28	HB	13	HB
+	30	O6	29	HB	7	I
+	31	N4	30	HB	13	HB	28	HB
+	32	C	31	I	1	W	15	I	19	I
+	33	O2'	32	I
+	34	Oph	33	HB
+	35	A	34	I
+	36	P	35	I	34	I	35	Q
+	37	Oph	32	I	0	LW*
+	38	N6	37	HB	0	LW*
+	39	N1	38	HB
+	40	A	38	I
+	41	P	40	Q
+	42	P	37	I	7	Q	32	I	32	Q
+	43	P	32	Q
+	44	A	43	I	43	Q
+	45	N6	44	I
+	46	N1	45	HB
+	47	Oph	44	I	0	LW*	43	I
+	48	P	44	Q
+	49	A	48	I	48	Q
+	50	N6	49	I
+	51	Oph	49	I	0	LW*	48	I
+	52	HOH	51	HB	0	LW*
+	53	HOH	51	HB	0	LW*
+	54	HOH	51	HB	0	LW*
+	55	P	49	Q
+	56	C	29	I	2	W	17	I
+	57	O2'	56	I	18	HB
+	58	P	56	I	23	Q	56	Q
+	59	P	23	I	23	Q
+	60	O2	11	HB
+	61	O2'	7	I
+	62	A.W	61	HB
+	63	A.W	61	HB
+	64	O6	61	HB
+	65	O4'	7	I
+	66	O2'	65	HB	4	I
+	67	P	7	I	4	Q	7	Q
+	68	N6	0	LW*
+	69	N1	68	HB
+	70	A	68	I
+	71	P	70	Q
+	72	N7	0	LW*
+	73	N7	0	LW*
+
+Graph:	AC4v_3T
+	0	MG
+	1	WWC	0	LBP
+	2	WWC	1	Q
+	3	WWC	2	Q
+	4	G	3	W
+	5	N1	4	I
+	6	N7	5	HB
+	7	G	6	I	2	W
+	8	SST	7	HBC	7	S
+	9	A	8	HBC	8	S
+	10	N3	9	I
+	11	N2	10	HB	7	I
+	12	N3	11	HB
+	13	N1	12	HB	7	I
+	14	N3	13	HB	11	HB
+	15	N3	13	HB
+	16	N1	15	HB
+	17	O2	16	HB	11	HB
+	18	O2'	17	HB	9	I
+	19	O2	18	HB	16	HB
+	20	N2	19	HB
+	21	N3	20	HB
+	22	O5'	20	HB	18	HB
+	23	G	20	I	1	W	16	I
+	24	N7	23	I
+	25	N4	24	HB
+	26	O6	25	HB	16	HB
+	27	O6	25	HB	23	I
+	28	N4	27	HB	13	HB
+	29	O6	28	HB	7	I
+	30	N4	29	HB	13	HB	27	HB
+	31	C	30	I	1	W	15	I	19	I
+	32	O2'	31	I
+	33	Oph	32	HB
+	34	A	33	I
+	35	P	34	I	33	I	34	Q
+	36	Oph	31	I	0	LW*
+	37	N6	36	HB	0	LW*
+	38	N1	37	HB
+	39	A	37	I
+	40	P	39	Q
+	41	P	36	I	7	Q	31	I	31	Q
+	42	P	31	Q
+	43	A	42	I	42	Q
+	44	N6	43	I
+	45	N1	44	HB
+	46	Oph	43	I	0	LW*	42	I
+	47	P	43	Q
+	48	A	47	I	47	Q
+	49	Oph	48	I	0	LW*	47	I
+	50	HOH	49	HB	0	LW*
+	51	HOH	49	HB	0	LW*
+	52	HOH	49	HB	0	LW*
+	53	P	48	Q
+	54	C	28	I	2	W	17	I
+	55	O2'	54	I	18	HB
+	56	P	54	I	23	Q	54	Q
+	57	P	23	I	23	Q
+	58	O2	11	HB
+	59	O2'	7	I
+	60	A.W	59	HB
+	61	A.W	59	HB
+	62	O6	59	HB
+	63	O4'	7	I
+	64	O2'	63	HB	4	I
+	65	P	7	I	4	Q	7	Q
+	66	N6	0	LW*
+	67	N1	66	HB
+	68	A	66	I
+	69	P	68	Q
+	70	N7	0	LW*
+	71	N7	0	LW*
+
+
+Graph:	AC5v_0S
+	0	MG
+	1	Oph	0	LW*
+	2	P	1	I
+	3	A	2	I
+	4	P	3	Q
+	5	A	4	I
+	6	P	5	Q
+	7	Oph	6	I	0	LW*
+	8	Oph	4	I	0	LW*
+
+Graph:	AC5v_0L
+	0	MG
+	1	Oph	0	LW*
+	2	A	1	I
+	3	P	2	I	1	I	2	Q
+	4	A	3	Q
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	P	2	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC5v_0T
+	0	MG
+	1	Oph	0	LW*
+	2	A	1	I
+	3	P	2	I	1	I	2	Q
+	4	A	3	Q
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	P	2	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC5v_1E
+	0	MG
+	1	SST	0	LBP
+	2	eeo	0	LBP
+	3	Oph	0	LW*
+	4	A	3	I
+	5	HWC	4	H
+	6	N1	4	I
+	7	N6	4	I
+	8	N7	4	I
+	9	O2'	4	I
+	10	P	4	I	3	I	4	Q
+	11	A	10	Q
+	12	N1	11	I
+	13	N3	11	I
+	14	N6	11	I
+	15	O2'	11	I
+	16	Oph	11	I	0	LW*
+	17	P	16	I	11	I	11	Q
+	18	U	17	Q
+	19	Or	11	I
+	20	P	4	Q
+	21	Oph	20	I	0	LW*
+	22	G	21	I
+	23	Oph	20	I
+	24	Oph	0	LW*
+
+Graph:	AC5v_1L
+	0	MG
+	1	HWC	0	LBP
+	2	A	1	H
+	3	N1	2	I
+	4	N6	2	I
+	5	N7	2	I
+	6	O2'	2	I
+	7	Oph	2	I	0	LW*
+	8	P	7	I	2	I	2	Q
+	9	A	8	Q
+	10	N1	9	I
+	11	N3	9	I
+	12	N6	9	I
+	13	O2'	9	I
+	14	Oph	9	I	0	LW*
+	15	P	14	I	9	I	9	Q
+	16	U	15	Q
+	17	Or	9	I
+	18	P	2	Q
+	19	G	18	I	18	Q
+	20	Oph	19	I	0	LW*	18	I
+	21	Oph	19	I	18	I
+	22	SST	0	LBP
+	23	eeo	0	LBP
+	24	Oph	0	LW*
+
+Graph:	AC5v_1T
+	0	MG
+	1	HWC	0	LBP
+	2	A	1	H
+	3	Oph	2	I	0	LW*
+	4	P	3	I	2	I	2	Q
+	5	A	4	Q
+	6	Oph	5	I	0	LW*
+	7	P	6	I	5	I	5	Q
+	8	U	7	Q
+	9	P	2	Q
+	10	G	9	I	9	Q
+	11	Oph	10	I	0	LW*	9	I
+	12	SST	0	LBP
+	13	eeo	0	LBP
+	14	Oph	0	LW*
+
+Graph:	AC5v_2E
+	0	MG
+	1	HWC	0	LBP
+	2	A	1	H
+	3	N1	2	I
+	4	N3	3	HB
+	5	N6	2	I
+	6	N4	5	HB
+	7	N6	5	HB
+	8	O4	5	HB
+	9	b	5	HB
+	10	b	5	HB
+	11	N7	2	I
+	12	N3	11	HB
+	13	O2'	2	I
+	14	O4'	13	HB
+	15	Oph	2	I	0	LW*
+	16	P	15	I	2	I	2	Q
+	17	A	16	Q
+	18	N1	17	I
+	19	O2'	18	HB
+	20	N3	17	I
+	21	G.S	20	HB
+	22	G.S	20	HB
+	23	N6	17	I
+	24	N6	23	HB
+	25	O2'	23	HB
+	26	O2'	17	I
+	27	O2	26	HB
+	28	O2	26	HB
+	29	Or	26	HB
+	30	Oph	17	I	0	LW*
+	31	P	30	I	17	I	17	Q
+	32	U	31	Q
+	33	O2'	32	I
+	34	P	32	Q
+	35	Or	17	I
+	36	O2'	35	HB
+	37	P	2	Q
+	38	G	37	I	37	Q
+	39	N1	38	I
+	40	N2	38	I
+	41	O2'	38	I
+	42	Oph	38	I	0	LW*	37	I
+	43	Oph	38	I	37	I
+	44	Or	38	I
+	45	P	38	Q
+	46	U	1	W
+	47	SST	0	LBP
+	48	G	47	HBC
+	49	eeo	0	LBP
+	50	G	49	S
+	51	Oph	0	LW*
+	52	A	51	I
+	53	P	51	I
+
+Graph:	AC5v_2L
+	0	MG
+	1	HWC	0	LBP
+	2	A	1	H
+	3	N1	2	I
+	4	N3	3	HB
+	5	N6	2	I
+	6	N4	5	HB
+	7	N6	5	HB
+	8	O4	7	HB	5	HB
+	9	b	5	HB
+	10	b	5	HB
+	11	N7	2	I
+	12	N3	11	HB
+	13	U	12	I	1	W
+	14	O2'	2	I
+	15	O4'	14	HB
+	16	Oph	2	I	0	LW*
+	17	P	16	I	2	I	2	Q
+	18	A	17	Q
+	19	N1	18	I
+	20	O2'	19	HB
+	21	N3	18	I
+	22	G.S	21	HB
+	23	G.S	21	HB
+	24	N6	18	I
+	25	N6	24	HB
+	26	O2'	24	HB
+	27	O2'	18	I
+	28	O2	27	HB
+	29	O2	27	HB
+	30	Or	27	HB
+	31	Oph	18	I	0	LW*
+	32	P	31	I	18	I	18	Q
+	33	U	32	Q
+	34	O2'	33	I
+	35	P	33	I	33	Q
+	36	A	35	Q
+	37	Oph	36	I	0	LW*
+	38	P	37	I	36	I	36	Q
+	39	Or	18	I
+	40	O2'	39	HB
+	41	P	2	Q
+	42	G	41	I	41	Q
+	43	N1	42	I
+	44	N2	42	I
+	45	O2'	42	I
+	46	Oph	42	I	0	LW*	41	I
+	47	Oph	42	I	41	I
+	48	Or	42	I
+	49	P	42	Q
+	50	SST	0	LBP
+	51	G	50	HBC	50	S
+	52	eeo	0	LBP
+	53	G	52	S
+
+Graph:	AC5v_2T
+	0	MG
+	1	HWC	0	LBP
+	2	A	1	H
+	3	N1	2	I
+	4	N3	3	HB
+	5	N6	2	I
+	6	N4	5	HB
+	7	N6	5	HB
+	8	O4	7	HB	5	HB
+	9	b	5	HB
+	10	b	5	HB
+	11	N7	2	I
+	12	N3	11	HB
+	13	U	12	I	1	W
+	14	O2'	2	I
+	15	O4'	14	HB
+	16	Oph	2	I	0	LW*
+	17	P	16	I	2	I	2	Q
+	18	A	17	Q
+	19	N1	18	I
+	20	O2'	19	HB
+	21	N3	18	I
+	22	G.S	21	HB
+	23	G.S	21	HB
+	24	N6	18	I
+	25	N6	24	HB
+	26	O2'	24	HB
+	27	O2'	18	I
+	28	O2	27	HB
+	29	O2	27	HB
+	30	Or	27	HB
+	31	Oph	18	I	0	LW*
+	32	P	31	I	18	I	18	Q
+	33	U	32	Q
+	34	P	33	I	33	Q
+	35	A	34	Q
+	36	Oph	35	I	0	LW*
+	37	P	36	I	35	I	35	Q
+	38	Or	18	I
+	39	O2'	38	HB
+	40	P	2	Q
+	41	G	40	I	40	Q
+	42	Oph	41	I	0	LW*	40	I
+	43	P	41	Q
+	44	SST	0	LBP
+	45	G	44	HBC	44	S
+	46	eeo	0	LBP
+	47	G	46	S
+
+Graph:	AC5v_3E
+	0	MG
+	1	HWC	0	LBP
+	2	A	1	H
+	3	N1	2	I
+	4	N3	3	HB
+	5	N6	2	I
+	6	N4	5	HB
+	7	O4	6	HB
+	8	b	6	HB
+	9	N6	5	HB
+	10	N4	9	HB
+	11	O4	9	HB	5	HB
+	12	N1	11	HB
+	13	U.W	9	HB
+	14	A	9	I
+	15	b	5	HB
+	16	b	5	HB
+	17	N7	2	I
+	18	N3	17	HB
+	19	N2	18	HB
+	20	N7	18	HB
+	21	U	18	I	1	W
+	22	O2	21	I
+	23	O4'	21	I
+	24	P	21	I
+	25	P	21	Q
+	26	O2'	2	I
+	27	O4'	26	HB
+	28	Oph	2	I	0	LW*
+	29	P	28	I	2	I	2	Q
+	30	A	29	Q
+	31	N1	30	I
+	32	O2'	31	HB
+	33	N3	30	I
+	34	G.S	33	HB
+	35	N3	34	HB
+	36	O2	34	HB
+	37	G.S	33	HB
+	38	N6	30	I
+	39	N6	38	HB
+	40	O4'	39	HB
+	41	O2'	38	HB
+	42	O2'	30	I
+	43	O2	42	HB
+	44	U	43	I
+	45	O2	42	HB
+	46	Or	42	HB
+	47	Oph	30	I	0	LW*
+	48	P	47	I	30	I	30	Q
+	49	U	48	Q
+	50	O2'	49	I
+	51	P	49	I	49	Q
+	52	A	51	Q
+	53	N1	52	I
+	54	N3	52	I
+	55	N6	52	I
+	56	O2'	52	I
+	57	O4'	52	I
+	58	Oph	52	I	0	LW*
+	59	P	58	I	52	I	52	Q
+	60	A	59	Q
+	61	Or	30	I
+	62	O2'	61	HB
+	63	N	62	I
+	64	P	2	Q
+	65	G	64	I	64	Q
+	66	N1	65	I
+	67	O4'	66	HB
+	68	N2	65	I
+	69	O4	68	HB
+	70	O2'	65	I
+	71	Oph	65	I	0	LW*	64	I
+	72	Oph	65	I	64	I
+	73	Or	65	I
+	74	P	65	Q
+	75	Oph	74	I
+	76	C	74	Q
+	77	SST	0	LBP
+	78	G	77	HBC	77	S
+	79	N1	78	I
+	80	N3	78	I
+	81	O5'	78	I
+	82	O6	78	I
+	83	Oph	78	I
+	84	P	78	I
+	85	P	78	Q
+	86	WWC	78	W
+	87	eeo	0	LBP
+	88	G	87	S
+	89	N1	88	I
+	90	N2	88	I
+	91	O2'	88	I
+	92	O6	88	I
+	93	P	88	I
+	94	P	88	Q
+	95	WWC	88	W
+
+Graph:	AC5v_3L
+	0	MG
+	1	HWC	0	LBP
+	2	A	1	H
+	3	N1	2	I
+	4	N3	3	HB
+	5	U	4	I
+	6	O2	5	I
+	7	O2'	6	HB
+	8	O2	7	HB
+	9	N1	8	HB
+	10	N3	9	HB
+	11	N2	10	HB	8	HB
+	12	N3	11	HB
+	13	G.S	12	HB
+	14	A	12	I	7	I
+	15	SST	14	HBC	0	LBP	14	S
+	16	G	15	HBC	9	I	11	I	15	S
+	17	N3	16	I
+	18	O5'	16	I
+	19	O6	16	I
+	20	N4	19	HB	9	HB
+	21	N6	20	HB
+	22	N6	21	HB	2	I
+	23	N4	22	HB
+	24	N1	23	HB
+	25	O4	24	HB	21	HB	22	HB
+	26	U	25	I	1	W
+	27	N3	26	I
+	28	N2	27	HB
+	29	N7	27	HB	2	I
+	30	N7	27	HB
+	31	A	30	I	21	I
+	32	P	31	I	26	Q	31	Q
+	33	O2	26	I
+	34	O4'	26	I
+	35	P	26	I	26	Q
+	36	O4	23	HB
+	37	b	23	HB
+	38	C	23	I
+	39	O4'	38	I
+	40	O2'	39	HB	2	I
+	41	Oph	38	I
+	42	O2'	41	HB
+	43	G	42	I
+	44	N1	43	I
+	45	O4	44	HB
+	46	N2	45	HB	43	I
+	47	O4'	46	HB	44	HB
+	48	A	47	I
+	49	P	48	Q
+	50	A	49	I	49	Q
+	51	eeo	50	E	0	LBP
+	52	G	51	S
+	53	N1	52	I
+	54	N2	52	I
+	55	N3	54	HB	50	I
+	56	O2'	52	I
+	57	O6	52	I
+	58	P	52	I	52	Q
+	59	P	52	Q
+	60	WWC	52	W
+	61	N1	50	I
+	62	N6	50	I
+	63	O2'	50	I
+	64	O4'	50	I
+	65	Oph	50	I	0	LW*	49	I
+	66	P	50	Q
+	67	U	66	I	66	Q
+	68	O2'	67	I
+	69	P	67	Q	14	I	14	Q
+	70	Oph	69	I	0	LW*	14	I
+	71	Oph	43	I	0	LW*
+	72	P	71	I	2	Q	43	I	43	Q
+	73	Oph	72	I	43	I
+	74	Or	43	I
+	75	P	43	Q	38	I	38	Q	41	I
+	76	b	22	HB
+	77	b	22	HB
+	78	U.W	21	HB	9	HB
+	79	Oph	16	I
+	80	P	79	I	16	I	16	Q
+	81	P	16	Q	5	I	5	Q
+	82	WWC	16	W
+	83	N1	14	I
+	84	O2'	83	HB
+	85	N6	14	I
+	86	N6	85	HB
+	87	O4'	86	HB
+	88	O2'	85	HB
+	89	Or	14	I
+	90	O2'	89	HB
+	91	N	90	I
+	92	P	14	Q	2	I	2	Q
+	93	Oph	92	I	0	LW*	2	I
+	94	O2	11	HB
+	95	Or	7	HB
+
+Graph:	AC5v_3T
+	0	MG
+	1	HWC	0	LBP
+	2	A	1	H
+	3	N1	2	I
+	4	N3	3	HB
+	5	U	4	I
+	6	O2	5	I
+	7	O2'	6	HB
+	8	O2	7	HB
+	9	N1	8	HB
+	10	N3	9	HB
+	11	N2	10	HB	8	HB
+	12	N3	11	HB
+	13	G.S	12	HB
+	14	A	12	I	7	I
+	15	SST	14	HBC	0	LBP	14	S
+	16	G	15	HBC	9	I	11	I	15	S
+	17	O6	16	I
+	18	N4	17	HB	9	HB
+	19	N6	18	HB
+	20	N6	19	HB	2	I
+	21	N4	20	HB
+	22	N1	21	HB
+	23	O4	22	HB	19	HB	20	HB
+	24	U	23	I	1	W
+	25	N3	24	I
+	26	N2	25	HB
+	27	N7	25	HB	2	I
+	28	N7	25	HB
+	29	A	28	I	19	I
+	30	P	29	I	24	Q	29	Q
+	31	P	24	I	24	Q
+	32	O4	21	HB
+	33	b	21	HB
+	34	C	21	I
+	35	O4'	34	I
+	36	O2'	35	HB	2	I
+	37	Oph	34	I
+	38	O2'	37	HB
+	39	G	38	I
+	40	N1	39	I
+	41	O4	40	HB
+	42	N2	41	HB	39	I
+	43	O4'	42	HB	40	HB
+	44	A	43	I
+	45	P	44	Q
+	46	A	45	I	45	Q
+	47	eeo	46	E	0	LBP
+	48	G	47	S
+	49	N2	48	I
+	50	N3	49	HB	46	I
+	51	P	48	I	48	Q
+	52	P	48	Q
+	53	WWC	48	W
+	54	Oph	46	I	0	LW*	45	I
+	55	P	46	Q
+	56	U	55	I	55	Q
+	57	P	56	Q	14	I	14	Q
+	58	Oph	57	I	0	LW*	14	I
+	59	Oph	39	I	0	LW*
+	60	P	59	I	2	Q	39	I	39	Q
+	61	P	39	Q	34	I	34	Q	37	I
+	62	b	20	HB
+	63	b	20	HB
+	64	U.W	19	HB	9	HB
+	65	P	16	I	16	Q
+	66	P	16	Q	5	I	5	Q
+	67	WWC	16	W
+	68	N1	14	I
+	69	O2'	68	HB
+	70	N6	14	I
+	71	N6	70	HB
+	72	O4'	71	HB
+	73	O2'	70	HB
+	74	Or	14	I
+	75	O2'	74	HB
+	76	N	75	I
+	77	P	14	Q	2	I	2	Q
+	78	Oph	77	I	0	LW*	2	I
+	79	O2	11	HB
+	80	Or	7	HB
+
+
+Graph:	AC6v_0S
+	0	MG
+	1	Oph	0	LW*
+	2	P	1	I
+	3	G	2	I
+	4	P	3	Q
+	5	G	4	I
+	6	P	5	Q
+	7	Oph	6	I	0	LW*
+	8	Oph	4	I	0	LW*
+
+Graph:	AC6v_0L
+	0	MG
+	1	Oph	0	LW*
+	2	G	1	I
+	3	P	2	I	1	I	2	Q
+	4	G	3	Q
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	P	2	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC6v_0T
+	0	MG
+	1	Oph	0	LW*
+	2	G	1	I
+	3	P	2	I	1	I	2	Q
+	4	G	3	Q
+	5	Oph	4	I	0	LW*
+	6	P	5	I	4	I	4	Q
+	7	P	2	Q
+	8	Oph	7	I	0	LW*
+
+Graph:	AC6v_1E
+	0	MG
+	1	SST	0	LBP
+	2	WWC	0	LBP
+	3	WWC	0	LBP
+	4	HOH	0	LW*
+	5	Oph	0	LW*
+	6	A	5	I
+	7	P	5	I
+	8	G	7	Q
+	9	N1	8	I
+	10	N2	8	I
+	11	N3	8	I
+	12	O2'	8	I
+	13	O6	8	I
+	14	Oph	8	I	0	LW*
+	15	P	14	I	8	I	8	Q
+	16	G	15	Q
+	17	N1	16	I
+	18	N2	16	I
+	19	N3	16	I
+	20	O2'	16	I
+	21	Oph	16	I	0	LW*
+	22	P	21	I	16	I	16	Q
+	23	Oph	22	I
+	24	G	22	Q
+	25	HST	16	S
+	26	HWT	8	W
+	27	Oph	0	LW*
+	28	Oph	0	LW*
+	29	Oph	0	LW*
+
+Graph:	AC6v_1L
+	0	MG
+	1	HST	0	LBP
+	2	HWT	1	Q	0	LBP
+	3	G	2	W
+	4	N1	3	I
+	5	N2	4	HB
+	6	O6	5	HB	3	I
+	7	N1	6	HB
+	8	G	7	I	1	S	5	I
+	9	N3	8	I	4	HB
+	10	O2'	8	I
+	11	Oph	8	I	0	LW*
+	12	HOH	11	HB	0	LW*
+	13	Oph	12	HB	0	LW*
+	14	A	13	I
+	15	SST	14	HBC	0	LBP	14	S
+	16	P	14	I	3	Q	13	I	14	Q
+	17	Oph	12	HB	0	LW*
+	18	Oph	12	HB	0	LW*
+	19	Oph	12	HB	0	LW*
+	20	Oph	12	HB	0	LW*
+	21	P	11	I	8	I	8	Q
+	22	Oph	21	I	8	I
+	23	O2'	22	HB	3	I
+	24	G	21	Q
+	25	P	8	Q	3	I	3	Q
+	26	Oph	25	I	0	LW*	3	I
+	27	N2	3	I
+	28	N3	3	I
+	29	WWC	0	LBP
+	30	WWC	0	LBP
+
+Graph:	AC6v_1T
+	0	MG
+	1	HST	0	LBP
+	2	HWT	1	Q	0	LBP
+	3	G	2	W
+	4	N1	3	I
+	5	N2	4	HB
+	6	O6	5	HB	3	I
+	7	N1	6	HB
+	8	G	7	I	1	S	5	I
+	9	N3	8	I	4	HB
+	10	Oph	8	I	0	LW*
+	11	HOH	10	HB	0	LW*
+	12	Oph	11	HB	0	LW*
+	13	A	12	I
+	14	SST	13	HBC	0	LBP	13	S
+	15	P	13	I	3	Q	12	I	13	Q
+	16	Oph	11	HB	0	LW*
+	17	Oph	11	HB	0	LW*
+	18	Oph	11	HB	0	LW*
+	19	Oph	11	HB	0	LW*
+	20	P	10	I	8	I	8	Q
+	21	Oph	20	I	8	I
+	22	O2'	21	HB	3	I
+	23	G	20	Q
+	24	P	8	Q	3	I	3	Q
+	25	Oph	24	I	0	LW*	3	I
+	26	WWC	0	LBP
+	27	WWC	0	LBP
+
+Graph:	AC6v_2E
+	0	MG
+	1	HST	0	LBP
+	2	A	1	H
+	3	HWT	1	Q	0	LBP
+	4	G	3	H
+	5	G	3	W
+	6	N1	5	I
+	7	N2	6	HB
+	8	N4	7	HB
+	9	N7	7	HB
+	10	O6	7	HB	5	I
+	11	N1	10	HB
+	12	O6	11	HB
+	13	G	11	I	1	S	7	I
+	14	N3	13	I	6	HB
+	15	N1	14	HB
+	16	O2'	13	I
+	17	N6	16	HB
+	18	Oph	13	I	0	LW*
+	19	HOH	18	HB	0	LW*
+	20	Oph	19	HB	0	LW*
+	21	N6	20	HB
+	22	O2'	20	HB
+	23	G	20	I
+	24	P	20	I
+	25	Oph	19	HB	0	LW*
+	26	A	25	I
+	27	SST	26	HBC	0	LBP	26	S
+	28	G	27	HBC
+	29	N1	26	I
+	30	N3	26	I
+	31	N6	26	I
+	32	O2'	26	I
+	33	O3'	26	I
+	34	P	26	I	5	Q	25	I	26	Q
+	35	P	26	Q
+	36	Oph	19	HB	0	LW*
+	37	C	36	I
+	38	P	36	I
+	39	Oph	19	HB	0	LW*
+	40	G	39	I
+	41	P	39	I
+	42	Oph	19	HB	0	LW*
+	43	P	42	I
+	44	U	42	I
+	45	P	18	I	13	I	13	Q
+	46	Oph	45	I	13	I
+	47	O2'	46	HB	5	I
+	48	G	45	Q
+	49	N2	48	I
+	50	N7	48	I
+	51	O4'	48	I
+	52	P	48	Q
+	53	WWC	48	W
+	54	P	13	Q	5	I	5	Q
+	55	Oph	54	I	0	LW*	5	I
+	56	Oph	7	HB
+	57	N7	6	HB
+	58	N7	6	HB
+	59	N2	5	I
+	60	O6	59	HB
+	61	N3	5	I
+	62	N3	61	HB
+	63	WWC	0	LBP
+	64	WWC	63	Q
+	65	C	63	W
+	66	WWC	0	LBP
+	67	WWC	66	Q
+	68	C	66	W
+
+Graph:	AC6v_2L
+	0	MG
+	1	HST	0	LBP
+	2	A	1	H
+	3	N6	2	I
+	4	N2	3	HB
+	5	N1	4	HB
+	6	N3	5	HB	3	HB
+	7	N1	6	HB
+	8	N4	7	HB	4	HB
+	9	O6	8	HB
+	10	N1	9	HB
+	11	O6	10	HB	4	HB
+	12	G	11	I	5	I
+	13	N2	12	I
+	14	O6	13	HB	3	HB
+	15	G	14	I
+	16	HWT	15	H	0	LBP	1	Q	12	W
+	17	Oph	15	I	4	HB	10	HB
+	18	N3	12	I
+	19	N3	18	HB
+	20	O2'	12	I
+	21	Oph	20	HB
+	22	G	21	I	1	S	4	I	6	I	10	I
+	23	O2'	22	I	3	HB
+	24	Oph	22	I	0	LW*
+	25	HOH	24	HB	0	LW*
+	26	Oph	25	HB	0	LW*
+	27	N6	26	HB
+	28	O2'	27	HB	26	HB
+	29	G	28	I
+	30	Oph	29	I	0	LW*	25	HB
+	31	P	30	I	29	I	29	Q
+	32	P	29	Q
+	33	Oph	32	I	0	LW*	25	HB
+	34	U	33	I	32	I	32	Q
+	35	G	26	I
+	36	P	35	I	26	I	35	Q
+	37	C	36	Q
+	38	Oph	37	I	0	LW*	25	HB
+	39	P	38	I	37	I	37	Q
+	40	Oph	25	HB	0	LW*
+	41	A	40	I
+	42	SST	41	HBC	0	LBP	41	S
+	43	G	42	HBC	42	S
+	44	N1	41	I
+	45	N3	41	I
+	46	N6	41	I
+	47	O2'	41	I
+	48	O3'	41	I
+	49	P	41	I	12	Q	40	I	41	Q
+	50	P	41	Q
+	51	P	24	I	21	I	22	I	22	Q
+	52	G	51	Q	7	I	9	I
+	53	N2	52	I
+	54	N7	52	I
+	55	O4'	52	I
+	56	P	52	I	52	Q
+	57	WWC	52	W	1	Q
+	58	P	22	Q	12	I	12	Q
+	59	Oph	58	I	0	LW*	12	I
+	60	N7	5	HB
+	61	N7	5	HB
+	62	N7	4	HB	2	I
+	63	WWC	0	LBP
+	64	WWC	63	Q
+	65	C	63	W
+	66	WWC	0	LBP
+	67	WWC	66	Q
+	68	C	66	W
+
+Graph:	AC6v_2T
+	0	MG
+	1	HST	0	LBP
+	2	A	1	H
+	3	N6	2	I
+	4	N2	3	HB
+	5	N1	4	HB
+	6	N3	5	HB	3	HB
+	7	N1	6	HB
+	8	N4	7	HB	4	HB
+	9	O6	8	HB
+	10	N1	9	HB
+	11	O6	10	HB	4	HB
+	12	G	11	I	5	I
+	13	N2	12	I
+	14	O6	13	HB	3	HB
+	15	G	14	I
+	16	HWT	15	H	0	LBP	1	Q	12	W
+	17	Oph	15	I	4	HB	10	HB
+	18	N3	12	I
+	19	N3	18	HB
+	20	O2'	12	I
+	21	Oph	20	HB
+	22	G	21	I	1	S	4	I	6	I	10	I
+	23	O2'	22	I	3	HB
+	24	Oph	22	I	0	LW*
+	25	HOH	24	HB	0	LW*
+	26	Oph	25	HB	0	LW*
+	27	N6	26	HB
+	28	O2'	27	HB	26	HB
+	29	G	28	I
+	30	Oph	29	I	0	LW*	25	HB
+	31	P	30	I	29	I	29	Q
+	32	P	29	Q
+	33	Oph	32	I	0	LW*	25	HB
+	34	U	33	I	32	I	32	Q
+	35	G	26	I
+	36	P	35	I	26	I	35	Q
+	37	C	36	Q
+	38	Oph	37	I	0	LW*	25	HB
+	39	P	38	I	37	I	37	Q
+	40	Oph	25	HB	0	LW*
+	41	A	40	I
+	42	SST	41	HBC	0	LBP	41	S
+	43	G	42	HBC	42	S
+	44	P	41	I	12	Q	40	I	41	Q
+	45	P	41	Q
+	46	P	24	I	21	I	22	I	22	Q
+	47	G	46	Q	7	I	9	I
+	48	P	47	I	47	Q
+	49	WWC	47	W	1	Q
+	50	P	22	Q	12	I	12	Q
+	51	Oph	50	I	0	LW*	12	I
+	52	N7	5	HB
+	53	N7	5	HB
+	54	N7	4	HB	2	I
+	55	WWC	0	LBP
+	56	WWC	55	Q
+	57	C	55	W
+	58	WWC	0	LBP
+	59	WWC	58	Q
+	60	C	58	W
+
+Graph:	AC6v_3E
+	0	MG
+	1	HST	0	LBP
+	2	A	1	H
+	3	N3	2	I
+	4	N6	2	I
+	5	N2	4	HB
+	6	N1	5	HB
+	7	N3	6	HB	4	HB
+	8	N1	7	HB
+	9	N3	8	HB
+	10	N4	8	HB	5	HB
+	11	O6	10	HB
+	12	N1	11	HB
+	13	O6	12	HB	5	HB
+	14	G	13	I	6	I
+	15	N2	14	I
+	16	O6	15	HB	4	HB
+	17	G	16	I
+	18	HWT	17	H	0	LBP	1	Q	14	W
+	19	N1	17	I
+	20	Oph	17	I	5	HB	12	HB
+	21	P	17	Q
+	22	N3	14	I
+	23	N3	22	HB
+	24	N7	23	HB
+	25	U	23	I
+	26	O2'	14	I
+	27	Oph	26	HB
+	28	G	27	I	1	S	5	I	7	I	12	I
+	29	O2'	28	I	4	HB
+	30	Oph	28	I	0	LW*
+	31	HOH	30	HB	0	LW*
+	32	Oph	31	HB	0	LW*
+	33	N6	32	HB
+	34	N4	33	HB
+	35	O2'	33	HB	32	HB
+	36	O4'	35	HB
+	37	G	35	I
+	38	N1	37	I
+	39	N2	37	I
+	40	N3	37	I
+	41	N7	37	I
+	42	O5'	37	I
+	43	O6	37	I
+	44	Oph	37	I	0	LW*	31	HB
+	45	P	44	I	37	I	37	Q
+	46	C	45	Q
+	47	P	37	Q
+	48	Oph	47	I	0	LW*	31	HB
+	49	U	48	I	47	I	47	Q
+	50	N3	49	I
+	51	O4	49	I
+	52	P	49	Q
+	53	Oph	47	I
+	54	O3'	33	HB
+	55	O5'	33	HB
+	56	A	33	I
+	57	G	32	I
+	58	N1	57	I
+	59	N2	57	I
+	60	O2'	57	I
+	61	O6	57	I
+	62	P	57	I	32	I	57	Q
+	63	C	62	Q
+	64	N4	63	I
+	65	O5'	63	I
+	66	Oph	63	I	0	LW*	31	HB
+	67	P	66	I	63	I	63	Q
+	68	Oph	67	I
+	69	U	67	Q
+	70	P	57	Q
+	71	Oph	31	HB	0	LW*
+	72	A	71	I
+	73	SST	72	HBC	0	LBP	72	S
+	74	G	73	HBC	73	S
+	75	N1	74	I
+	76	N3	74	I
+	77	O2'	74	I
+	78	O5'	74	I
+	79	O6	74	I
+	80	P	74	I
+	81	P	74	Q
+	82	N1	72	I
+	83	N3	72	I
+	84	N2	83	HB
+	85	N6	72	I
+	86	O2	85	HB
+	87	O4'	85	HB
+	88	O2'	72	I
+	89	N2	88	HB
+	90	N3	88	HB
+	91	O2	88	HB
+	92	O2'	88	HB
+	93	O3'	72	I
+	94	P	72	I	14	Q	71	I	72	Q
+	95	P	72	Q
+	96	Oph	95	I
+	97	G	95	Q
+	98	P	30	I	27	I	28	I	28	Q
+	99	G	98	Q	8	I	11	I
+	100	N2	99	I
+	101	O2	100	HB
+	102	N7	99	I
+	103	N1	102	HB
+	104	O4'	99	I
+	105	O2'	104	HB
+	106	P	99	I	99	Q
+	107	G	106	Q
+	108	WWC	99	W	1	Q
+	109	WWC	108	Q
+	110	C	108	W
+	111	P	28	Q	14	I	14	Q
+	112	Oph	111	I	0	LW*	14	I
+	113	N7	6	HB
+	114	N7	6	HB
+	115	N7	5	HB	2	I
+	116	N3	4	HB
+	117	O2	4	HB
+	118	P	2	I
+	119	P	2	Q
+	120	WWC	0	LBP
+	121	WWC	120	Q
+	122	WWC	121	Q
+	123	A	121	W
+	124	U	121	W
+	125	C	120	W
+	126	N3	125	I
+	127	N4	125	I
+	128	O2	125	I
+	129	O2'	125	I
+	130	O4'	125	I
+	131	P	125	I
+	132	P	125	Q
+	133	WWC	0	LBP
+	134	WWC	133	Q
+	135	WWC	134	Q
+	136	C	133	W
+	137	N3	136	I
+	138	N4	136	I
+	139	O2	136	I
+	140	O2'	136	I
+	141	O4'	136	I
+
+Graph:	AC6v_3L
+	0	MG
+	1	HST	0	LBP
+	2	A	1	H
+	3	N3	2	I
+	4	N1	3	HB
+	5	G	4	I
+	6	HWT	5	H	0	LBP	1	Q
+	7	G	6	W
+	8	N1	7	I
+	9	N2	8	HB
+	10	N4	9	HB
+	11	N1	10	HB
+	12	N3	11	HB	8	HB
+	13	N6	12	HB	2	I	9	HB
+	14	N3	13	HB	11	HB
+	15	N2	14	HB
+	16	N3	15	HB	11	HB
+	17	N1	16	HB
+	18	N7	17	HB
+	19	G	18	I	11	I	15	I
+	20	O4'	19	I
+	21	O2'	20	HB
+	22	G	21	I	17	I
+	23	P	22	Q	19	I	19	Q
+	24	WWC	22	W
+	25	WWC	24	Q	1	Q	19	W
+	26	C	25	W	10	I	14	I
+	27	O2	26	I	13	HB	15	HB
+	28	P	26	I	2	Q	26	Q
+	29	O6	19	I	10	HB
+	30	N1	29	HB
+	31	O6	30	HB	7	I	9	HB
+	32	Oph	30	HB	5	I	9	HB
+	33	P	32	I	5	I	5	Q
+	34	G	30	I	1	S	9	I	12	I
+	35	O2'	34	I	13	HB
+	36	Oph	34	I	0	LW*
+	37	HOH	36	HB	0	LW*
+	38	Oph	37	HB	0	LW*
+	39	N6	38	HB
+	40	N4	39	HB
+	41	O2'	40	HB	38	HB	39	HB
+	42	O4'	41	HB	40	HB
+	43	G	42	I	38	I
+	44	N1	43	I
+	45	N3	44	HB
+	46	N1	45	HB
+	47	N3	46	HB
+	48	N2	47	HB
+	49	O2	48	HB
+	50	N2	49	HB	43	I	45	HB
+	51	O2	50	HB	44	HB
+	52	C	51	I
+	53	N3	52	I	44	HB
+	54	N4	53	HB	44	HB
+	55	N4	54	HB	52	I
+	56	O6	55	HB	43	I	54	HB
+	57	O6	54	HB
+	58	N1	57	HB
+	59	O2	58	HB
+	60	N2	59	HB
+	61	N3	60	HB
+	62	A	61	I
+	63	SST	62	HBC	0	LBP	62	S
+	64	G	63	HBC	47	I	58	I	60	I	63	S
+	65	O2'	64	I
+	66	N1	65	HB	62	I
+	67	N3	66	HB
+	68	U	67	I
+	69	O2	68	I
+	70	N6	69	HB	62	I
+	71	O4'	70	HB
+	72	O4	68	I	48	HB
+	73	Oph	68	I	0	LW*	37	HB
+	74	P	73	I	68	I	68	Q
+	75	Oph	74	I	39	HB	68	I
+	76	G	74	Q	41	I	46	I	48	I	57	I
+	77	N3	76	I	60	HB
+	78	N7	76	I	60	HB
+	79	O3'	76	I	39	HB
+	80	O5'	76	I
+	81	O2'	80	HB
+	82	O2'	81	HB	59	HB	62	I
+	83	N2	82	HB	59	HB
+	84	N3	82	HB
+	85	Oph	82	HB
+	86	G	85	I
+	87	P	86	I	62	Q	85	I	86	Q
+	88	O3'	81	HB	62	I
+	89	C	81	I	59	I
+	90	P	89	Q	76	I	76	Q
+	91	Oph	90	I	0	LW*	37	HB	76	I
+	92	WWC	89	W	64	W
+	93	WWC	92	Q	0	LBP	76	W
+	94	C	93	W	45	I	49	I	54	I
+	95	O2'	94	I
+	96	O5'	95	HB	64	I
+	97	O4'	94	I
+	98	O2'	97	HB	52	I
+	99	P	94	I	52	Q	94	Q
+	100	P	94	Q	64	I	64	Q
+	101	WWC	92	Q
+	102	P	68	Q
+	103	O6	64	I
+	104	P	64	Q
+	105	Oph	62	I	0	LW*	37	HB
+	106	P	105	I	7	Q	62	I	62	Q
+	107	O4'	52	I
+	108	P	52	I	52	Q
+	109	A	108	Q
+	110	WWC	109	W
+	111	WWC	110	Q	0	LBP	43	W	52	W
+	112	WWC	110	Q
+	113	U	110	W
+	114	P	113	I	43	Q	113	Q
+	115	O2'	43	I	40	HB
+	116	O5'	43	I	39	HB	41	HB
+	117	P	43	I	38	I	43	Q
+	118	C	117	Q
+	119	N4	118	I
+	120	O5'	118	I	39	HB
+	121	Oph	118	I	0	LW*	37	HB
+	122	P	121	I	118	I	118	Q
+	123	Oph	122	I	39	HB	118	I
+	124	U	122	Q
+	125	A	39	I
+	126	P	36	I	19	Q	34	I	34	Q
+	127	Oph	126	I	34	I
+	128	O2'	127	HB	7	I
+	129	P	34	Q	7	I	7	Q
+	130	Oph	129	I	0	LW*	7	I
+	131	O2	15	HB
+	132	O6	13	HB	5	I
+	133	N2	132	HB	7	I
+	134	N7	9	HB	2	I
+	135	N7	8	HB
+	136	N7	8	HB
+	137	N3	7	I
+	138	N3	137	HB
+	139	N7	138	HB
+	140	U	138	I
+	141	P	5	Q	2	I	2	Q
+
+Graph:	AC6v_3T
+	0	MG
+	1	HST	0	LBP
+	2	A	1	H
+	3	N3	2	I
+	4	N1	3	HB
+	5	G	4	I
+	6	HWT	5	H	0	LBP	1	Q
+	7	G	6	W
+	8	N1	7	I
+	9	N2	8	HB
+	10	N4	9	HB
+	11	N1	10	HB
+	12	N3	11	HB	8	HB
+	13	N6	12	HB	2	I	9	HB
+	14	N3	13	HB	11	HB
+	15	N2	14	HB
+	16	N3	15	HB	11	HB
+	17	N1	16	HB
+	18	N7	17	HB
+	19	G	18	I	11	I	15	I
+	20	O4'	19	I
+	21	O2'	20	HB
+	22	G	21	I	17	I
+	23	P	22	Q	19	I	19	Q
+	24	WWC	22	W
+	25	WWC	24	Q	1	Q	19	W
+	26	C	25	W	10	I	14	I
+	27	O2	26	I	13	HB	15	HB
+	28	P	26	I	2	Q	26	Q
+	29	O6	19	I	10	HB
+	30	N1	29	HB
+	31	O6	30	HB	7	I	9	HB
+	32	Oph	30	HB	5	I	9	HB
+	33	P	32	I	5	I	5	Q
+	34	G	30	I	1	S	9	I	12	I
+	35	O2'	34	I	13	HB
+	36	Oph	34	I	0	LW*
+	37	HOH	36	HB	0	LW*
+	38	Oph	37	HB	0	LW*
+	39	N6	38	HB
+	40	N4	39	HB
+	41	O2'	40	HB	38	HB	39	HB
+	42	O4'	41	HB	40	HB
+	43	G	42	I	38	I
+	44	N1	43	I
+	45	N3	44	HB
+	46	N1	45	HB
+	47	N3	46	HB
+	48	N2	47	HB
+	49	O2	48	HB
+	50	N2	49	HB	43	I	45	HB
+	51	O2	50	HB	44	HB
+	52	C	51	I
+	53	N3	52	I	44	HB
+	54	N4	53	HB	44	HB
+	55	N4	54	HB	52	I
+	56	O6	55	HB	43	I	54	HB
+	57	O6	54	HB
+	58	N1	57	HB
+	59	O2	58	HB
+	60	N2	59	HB
+	61	N3	60	HB
+	62	A	61	I
+	63	SST	62	HBC	0	LBP	62	S
+	64	G	63	HBC	47	I	58	I	60	I	63	S
+	65	O2'	64	I
+	66	N1	65	HB	62	I
+	67	N3	66	HB
+	68	U	67	I
+	69	O2	68	I
+	70	N6	69	HB	62	I
+	71	O4'	70	HB
+	72	O4	68	I	48	HB
+	73	Oph	68	I	0	LW*	37	HB
+	74	P	73	I	68	I	68	Q
+	75	Oph	74	I	39	HB	68	I
+	76	G	74	Q	41	I	46	I	48	I	57	I
+	77	N3	76	I	60	HB
+	78	N7	76	I	60	HB
+	79	O3'	76	I	39	HB
+	80	O5'	76	I
+	81	O2'	80	HB
+	82	O2'	81	HB	59	HB	62	I
+	83	N2	82	HB	59	HB
+	84	N3	82	HB
+	85	Oph	82	HB
+	86	G	85	I
+	87	P	86	I	62	Q	85	I	86	Q
+	88	O3'	81	HB	62	I
+	89	C	81	I	59	I
+	90	P	89	Q	76	I	76	Q
+	91	Oph	90	I	0	LW*	37	HB	76	I
+	92	WWC	89	W	64	W
+	93	WWC	92	Q	0	LBP	76	W
+	94	C	93	W	45	I	49	I	54	I
+	95	O2'	94	I
+	96	O5'	95	HB	64	I
+	97	O4'	94	I
+	98	O2'	97	HB	52	I
+	99	P	94	I	52	Q	94	Q
+	100	P	94	Q	64	I	64	Q
+	101	WWC	92	Q
+	102	P	68	Q
+	103	P	64	Q
+	104	Oph	62	I	0	LW*	37	HB
+	105	P	104	I	7	Q	62	I	62	Q
+	106	P	52	I	52	Q
+	107	A	106	Q
+	108	WWC	107	W
+	109	WWC	108	Q	0	LBP	43	W	52	W
+	110	WWC	108	Q
+	111	U	108	W
+	112	P	111	I	43	Q	111	Q
+	113	O2'	43	I	40	HB
+	114	O5'	43	I	39	HB	41	HB
+	115	P	43	I	38	I	43	Q
+	116	C	115	Q
+	117	O5'	116	I	39	HB
+	118	Oph	116	I	0	LW*	37	HB
+	119	P	118	I	116	I	116	Q
+	120	Oph	119	I	39	HB	116	I
+	121	U	119	Q
+	122	A	39	I
+	123	P	36	I	19	Q	34	I	34	Q
+	124	Oph	123	I	34	I
+	125	O2'	124	HB	7	I
+	126	P	34	Q	7	I	7	Q
+	127	Oph	126	I	0	LW*	7	I
+	128	O2	15	HB
+	129	O6	13	HB	5	I
+	130	N2	129	HB	7	I
+	131	N7	9	HB	2	I
+	132	N7	8	HB
+	133	N7	8	HB
+	134	N3	7	I
+	135	N3	134	HB
+	136	N7	135	HB
+	137	U	135	I
+	138	P	5	Q	2	I	2	Q

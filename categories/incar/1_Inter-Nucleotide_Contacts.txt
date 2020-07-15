@@ -1,0 +1,72 @@
+!
+!==========================================================
+!---------------------- SECTION 1 -------------------------
+!                 Base Pair Interaction                    
+!==========================================================
+
+
+Graph:	BP_Graph
+	0	MG
+	1	eeo	0	LBP
+	2	N 	1	E
+	3	N 	1	E
+
+Graph:	NP_Graph
+	0	MG
+	1	nt	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+
+Graph:	nP_Graph
+	0	MG
+	1	ns	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+
+Graph:	bP_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+
+
+!
+!==========================================================
+!---------------------- SECTION 2 -------------------------
+!              Inter-Nucleotide Interaction                
+!==========================================================
+
+Graph:	N_NN_Graph
+	0	MG
+	1	nt	0	LW*
+	2	N 	1	I
+	3	nt	2	I
+	4	nt	3	HB
+	5	N 	4	I
+
+Graph:	NN_Graph
+	0	MG
+	1	nt	0	LW*
+	2	N 	1	I
+	3	nt	1	HB
+	4	N 	3	I
+
+Graph:	N_NWN_Graph
+	0	MG
+	1	nt	0	LW*
+	2	N 	1	I
+	3	nt	2	I
+	4	HOH	3	HB
+	5	nt	4	HB
+	6	N 	5	I
+
+Graph:	NWN_Graph
+	0	MG
+	1	nt	0	LW*
+	2	N 	1	I
+	3	HOH	1	HB
+	4	nt	3	HB
+	5	N 	4	I

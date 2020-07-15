@@ -1,0 +1,316 @@
+!
+!==========================================================
+!---------------------- SECTION 1 -------------------------
+!                   Inner-Shell Motifs                     
+!==========================================================
+
+
+!-------------------- Magnesium Clamp ---------------------
+
+Graph:	10-Member_Ring_Single
+	+	2Oph_Graph
+	5	N	4	I	2	Q
+
+Formula:	Distant_Clamp
+	2Oph and not 10-Member_Ring_Single
+
+Formula:	Magnesium_Clamp
+	Distant_Clamp and 0Or and 0Ob and 0Nb and RNA-Inner
+
+Formula:	10-Member_Ring_Single_Strict
+	10-Member_Ring_Single and 2Oph and 0Ob and 0Nb and 0Or and RNA-Inner
+
+Graph:	10-Member_Ring_Double
+	+	4Oph_Graph
+	9	N	8	I	6	Q
+	10	N	4	I	2	Q
+
+Formula:	10-Member_Ring_Double_Strict
+	10-Member_Ring_Double and 4Oph and 0Ob and 0Nb and 0Or and RNA-Inner
+
+Graph:	10-Member_Ring_Adjacent
+	+	3Oph_Graph
+	7	N	6	I	4	Q
+	8	N	4	I	2	Q
+
+Formula:	10-Member_Ring_Adjacent_Strict
+	10-Member_Ring_Adjacent and 3Oph and 0Ob and 0Nb and 0Or and RNA-Inner
+
+Graph:	10-Member_Ring_Extended
+	+	3Oph_Graph
+	7	N	6	Q	4	Q
+	8	N	4	Q
+	9	P 	8	Q
+	10	N 	9	Q	2	Q
+
+Formula:	10-Member_Ring_Extended_Strict
+	10-Member_Ring_Extended and 3Oph and 0Ob and 0Nb and 0Or and RNA-Inner
+
+Formula:	10-Member_Ring_Cases
+	10-Member_Ring_Single
+	10-Member_Ring_Double
+	10-Member_Ring_Adjacent
+	10-Member_Ring_Extended
+
+Formula:	10-Member_Ring
+	10-Member_Ring_Single_Strict
+	10-Member_Ring_Double_Strict
+	10-Member_Ring_Adjacent_Strict
+	10-Member_Ring_Extended_Strict
+
+
+!------------------------ Y-Clamp -------------------------
+
+Graph:	Y-Clamp_Graph
+	+	1Oph_Graph
+	3	Oph	0	L	1	C
+	4	P	3	I
+	5	N	4	Q	2	Q
+	6	Oph	0	L	1	C	3	T
+	7	P	6	I
+
+Formula:	Y-Clamp_Distant
+	Y-Clamp_Graph and not 10-Member_Ring_Adjacent and not 10-Member_Ring_Extended
+
+Formula:	Y-Clamp
+	Y-Clamp_Distant and 3Oph and 0Ob and 0Nb and 0Or and RNA-Inner
+
+
+!------------- 10-Member Ring with Purine N7 --------------
+
+Graph:	10-Member_Ring_Purine-N7_Graph
+	+	2Oph_Graph
+	5	N	4	Q	2	Q
+	6	N 	4	Q
+	7	P 	6	Q
+	8	R 	7	Q
+	9	N7 	8	I 	0 	L
+
+Formula:	10-Member_Ring_Purine-N7
+	10-Member_Ring_Purine-N7_Graph and 2Oph and 1Nb and 0Ob and 0Or and RNA-Inner
+
+
+!---------------------- N-Phosphate -----------------------
+
+Graph:	G-Phosphate_Graph
+	+	1Oph_Graph
+	3	Ob	0	L
+	4	G	3	I
+
+Formula:	G-Phosphate
+	G-Phosphate_Graph and 1Oph and 1Ob and 0Nb and 0Or and RNA-Inner
+
+Graph:	U-Phosphate_Graph
+	+	1Oph_Graph
+	3	Ob	0	L
+	4	U	3	I
+
+Formula:	U-Phosphate
+	U-Phosphate_Graph and 1Oph and 1Ob and 0Nb and 0Or and RNA-Inner
+
+
+!-------------------- Purine-N7 Seat ----------------------
+
+Graph:	Purine-N7_Seat_Graph
+	0	MG
+	1	N7 	0	L
+	2	R 	1 	I
+	3	N7 	0	L
+	4	R 	3 	I
+
+Formula:	Purine-N7_Seat
+	Purine-N7_Seat_Graph and 0Oph and 2Nb and 0Ob and 0Or and RNA-Inner
+
+!------------------ G-N7 MacroChelate I -------------------
+
+Graph:	G-N7_MacroChelate_I_Graph
+	0	MG
+	1	N7 	0	L
+	2	G 	1	I
+	3	P 	2	I
+	4	Oph	3	I	0	LW1
+
+Formula:	G-N7_MacroChelate_I_Outer
+	G-N7_MacroChelate_I_Graph and 0Oph and 1Nb and 0Ob and 0Or and RNA-Inner and not Hetero-Outer
+
+Formula:	G-N7_MacroChelate_I
+	G-N7_MacroChelate_I_Outer and 1Pout
+
+
+!==========================================================
+!---------------------- SECTION 2 -------------------------
+!                   Outer-Shell Motifs                     
+!==========================================================
+
+
+!------------------- Metal Ion Zipper ---------------------
+
+Graph:	12-Member_Ring_Graph
+	+	2Pout_Graph
+	5	N 	4 	I 	2	Q
+
+Formula:	Distant_Zipper
+	2Pout and not 12-Member_Ring_Graph
+
+Formula:	Metal_Ion_Zipper_Outer
+	Distant_Zipper and RNA-Outer
+
+Formula:	Metal_Ion_Zipper
+	Metal_Ion_Zipper_Outer and 0Bout and 0Rout
+
+Formula:	12-Member_Ring_Outer
+	12-Member_Ring_Graph and RNA-Outer
+
+Formula:	12-Member_Ring
+	12-Member_Ring_Outer and 2Pout and 0Bout and 0Rout
+
+
+!----------------- G-N7 MacroChelate II -------------------
+
+Graph:	G-N7_MacroChelate_II_Graph
+	0	MG
+	1	N7 	0	LW1
+	2	G 	1	I
+	3	P 	2	I
+	4	Oph	3	I 	0	LW1
+
+Formula:	G-N7_MacroChelate_II_Outer
+	G-N7_MacroChelate_II_Graph and RNA-Outer
+
+Formula:	G-N7_MacroChelate_II
+	G-N7_MacroChelate_II_Outer and 1Bout and 1Pout
+
+
+!----------------- G-G Metal Binding Site ------------------
+
+Graph:	G-G_Metal_Binding_Site_Base-Only
+	0	MG
+	1	b 	0	LW1
+	2	G 	1 	I
+	3 	b 	0	LW1
+	4 	G 	3 	I
+	5	P 	2 	Q 	4	I
+
+Formula:	G-G_Metal_Binding_Site_Base-Only_Strict
+	G-G_Metal_Binding_Site_Base-Only and 2Bout and 0Pout and 0Rout and RNA-Outer
+
+Graph:	G-G_Metal_Binding_Site_Backbone
+	+ 	G-G_Metal_Binding_Site_Base-Only
+	6	P 	2 	I
+	7	N	6	Q
+	8	P 	7	I
+	9	Oph	8	I 	0	LW1
+	10	Oph	6	I 	0	LW1
+
+Formula:	G-G_Metal_Binding_Site_Backbone_Strict
+	G-G_Metal_Binding_Site_Backbone and 2Bout and 2Pout and 0Rout and RNA-Outer
+
+Graph:	G-G_Metal_Binding_Site_Distant
+	+	G-G_Metal_Binding_Site_Base-Only
+	6	P 	2 	I
+	7	P 	4 	Q 
+	8	Oph	0	LW1
+	9 	P 	8 	I
+	10	N 	9	I
+	11	P 	10	Q
+
+Formula:	G-G_Metal_Binding_Site_Distant_Strict
+	G-G_Metal_Binding_Site_Distant and 2Bout and 1Pout and 0Rout and RNA-Outer
+
+Formula:	G-G_Metal_Binding_Site_Cases
+	G-G_Metal_Binding_Site_Base-Only
+	G-G_Metal_Binding_Site_Backbone
+	G-G_Metal_Binding_Site_Distant
+
+
+Formula:	G-G_Metal_Binding_Site_Outer
+	G-G_Metal_Binding_Site_Cases and RNA-Outer
+
+Formula:	G-G_Metal_Binding_Site
+	G-G_Metal_Binding_Site_Base-Only_Strict
+	G-G_Metal_Binding_Site_Backbone_Strict
+	G-G_Metal_Binding_Site_Distant_Strict
+
+
+!-------------------- Triple-G Motif ----------------------
+
+Graph:	Triple-G_Motif_Graph
+	+	G-G_Metal_Binding_Site_Base-Only
+	6 	P 	4 	Q
+	7	G 	6 	I
+	8	b 	7 	I 	0	LW1
+
+Formula:	Triple-G_Motif_Outer
+	Triple-G_Motif_Graph and RNA-Outer
+
+Formula:	Triple-G_Motif
+	Triple-G_Motif_Outer and 3Bout and 0Pout and 0Rout
+
+
+!==========================================================
+!---------------------- SECTION 1 -------------------------
+!                     Other Motifs                         
+!==========================================================
+
+
+!--------------- Tandem G-U Wobble Pair -------------------
+
+Graph:	G-U_Wobble_Pair_Single
+	0	MG
+	1	WWC	0	LBP
+	2	G 	1	W
+	3	U 	1	W
+
+Graph:	G-U_Wobble_Pair_Above_G-U
+	+	G-U_Wobble_Pair_Single
+	4	P 	2	Q
+	5	P 	3	Q
+	6	G 	4	Q
+	7 	U 	5	Q
+	8	WWC	6	W 	7	W
+
+Graph:	G-U_Wobble_Pair_Above_U-G
+	+	G-U_Wobble_Pair_Single
+	4	P 	2	Q
+	5	P 	3	Q
+	6	U 	4	Q
+	7 	G 	5	Q
+	8	WWC	6	W 	7	W
+
+Graph:	G-U_Wobble_Pair_Double
+	+	G-U_Wobble_Pair_Single
+	4	WWC	1	Q
+	5	G	4	W
+	6	U	4	W
+
+
+!------------------ Sheared_G-A_Pair ----------------------
+
+Graph:	Sheared_G-A_Pair_Single
+	0	MG
+	1	HST	0	LBP
+	2	G 	1 	S
+	3 	A 	1 	H
+
+Graph:	Sheared_G-A_Pair_Above_G-A
+	+	Sheared_G-A_Pair_Single
+	4	P 	2	Q
+	5	P 	3	Q
+	6	G 	4	Q
+	7 	A 	5	Q
+	8	HST	6	S 	7	H
+
+Graph:	Sheared_G-A_Pair_Above_A-G
+	+	Sheared_G-A_Pair_Single
+	4	P 	2	Q
+	5	P 	3	Q
+	6	A 	4	Q
+	7 	G 	5	Q
+	8	HST	6	H 	7	S
+
+Graph:	Sheared_G-A_Pair_Double
+	+	Sheared_G-A_Pair_Single
+	4	HST	1	Q
+	5	G	4	S
+	6	A	4	H
+

@@ -1,0 +1,7 @@
+
+Graph:	UPx
+	0	MG
+	1	Oph	0	LW*
+	2	P	1	I
+	3	Ob	0	LW*
+	4	U	3	I

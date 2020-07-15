@@ -1,0 +1,1054 @@
+!==========================================================
+!----------------------- SECTION 1 ------------------------
+!                    Common Base Pairs                     
+!==========================================================
+
+
+!---------------------- SECTION 1.1 -----------------------
+!                   General Base Pairs                     
+
+Graph:	NNeeo
+	0	MG
+	1	nt	0	LW*
+	2	N	1	I
+	3	eeo	2	E
+	4	N	3	E
+
+
+Graph:	RReeo
+	0	MG
+	1	nt	0	LW*
+	2	R	1	I
+	3	eeo	2	E
+	4	R	3	E
+
+Graph:	AGeeo
+	0	MG
+	1	nt	0	LW*
+	2	A	1	I
+	3	eeo	2	E
+	4	G	3	E
+
+Graph:	GAeeo
+	0	MG
+	1	nt	0	LW*
+	2	G	1	I
+	3	eeo	2	E
+	4	A	3	E
+
+Graph:	AAeeo
+	0	MG
+	1	nt	0	LW*
+	2	A	1	I
+	3	eeo	2	E
+	4	A	3	E
+
+Graph:	GGeeo
+	0	MG
+	1	nt	0	LW*
+	2	G	1	I
+	3	eeo	2	E
+	4	G	3	E
+
+
+Graph:	YYeeo
+	0	MG
+	1	nt	0	LW*
+	2	Y	1	I
+	3	eeo	2	E
+	4	Y	3	E
+
+Graph:	CCeeo
+	0	MG
+	1	nt	0	LW*
+	2	C	1	I
+	3	eeo	2	E
+	4	C	3	E
+
+Graph:	CUeeo
+	0	MG
+	1	nt	0	LW*
+	2	C	1	I
+	3	eeo	2	E
+	4	U	3	E
+
+Graph:	UCeeo
+	0	MG
+	1	nt	0	LW*
+	2	U	1	I
+	3	eeo	2	E
+	4	C	3	E
+
+Graph:	UUeeo
+	0	MG
+	1	nt	0	LW*
+	2	U	1	I
+	3	eeo	2	E
+	4	U	3	E
+
+
+Graph:	YReeo
+	0	MG
+	1	nt	0	LW*
+	2	Y	1	I
+	3	eeo	2	E
+	4	R	3	E
+
+Graph:	CAeeo
+	0	MG
+	1	nt	0	LW*
+	2	C	1	I
+	3	eeo	2	E
+	4	A	3	E
+
+Graph:	CGeeo
+	0	MG
+	1	nt	0	LW*
+	2	C	1	I
+	3	eeo	2	E
+	4	G	3	E
+
+Graph:	UAeeo
+	0	MG
+	1	nt	0	LW*
+	2	U	1	I
+	3	eeo	2	E
+	4	A	3	E
+
+Graph:	UGeeo
+	0	MG
+	1	nt	0	LW*
+	2	U	1	I
+	3	eeo	2	E
+	4	G	3	E
+
+
+Graph:	RYeeo
+	0	MG
+	1	nt	0	LW*
+	2	R	1	I
+	3	eeo	2	E
+	4	Y	3	E
+
+Graph:	ACeeo
+	0	MG
+	1	nt	0	LW*
+	2	A	1	I
+	3	eeo	2	E
+	4	C	3	E
+
+Graph:	AUeeo
+	0	MG
+	1	nt	0	LW*
+	2	A	1	I
+	3	eeo	2	E
+	4	U	3	E
+
+Graph:	GCeeo
+	0	MG
+	1	nt	0	LW*
+	2	G	1	I
+	3	eeo	2	E
+	4	C	3	E
+
+Graph:	GUeeo
+	0	MG
+	1	nt	0	LW*
+	2	G	1	I
+	3	eeo	2	E
+	4	U	3	E
+
+
+Formula:	ANeeo
+	AAeeo
+	ACeeo
+	AGeeo
+	AUeeo
+
+Formula:	CNeeo
+	CAeeo
+	CCeeo
+	CGeeo
+	CUeeo
+
+Formula:	GNeeo
+	GAeeo
+	GCeeo
+	GGeeo
+	GUeeo
+
+Formula:	UNeeo
+	UAeeo
+	UCeeo
+	UGeeo
+	UUeeo
+
+
+!---------------------- SECTION 1.2 -----------------------
+!                  Canonical Base Pairs                         
+
+Graph:	GCWWC
+	0	MG
+	1	nt	0	LW*
+	2	G	1	I
+	3	WWC	2	W
+	4	C	3	W
+
+Graph:	CGWWC
+	0	MG
+	1	nt	0	LW*
+	2	C	1	I
+	3	WWC	2	W
+	4	G	3	W
+
+Graph:	AUWWC
+	0	MG
+	1	nt	0	LW*
+	2	A	1	I
+	3	WWC	2	W
+	4	U	3	W
+
+Graph:	UAWWC
+	0	MG
+	1	nt	0	LW*
+	2	U	1	I
+	3	WWC	2	W
+	4	A	3	W
+
+Formula:	[CGWWC]
+	GCWWC
+	CGWWC
+
+Formula:	[AUWWC]
+	AUWWC
+	UAWWC
+
+Formula:	Canonical
+	[CGWWC]
+	[AUWWC]
+
+Formula:	Non-Canonical_Only
+	NNeeo and not Canonical
+
+
+!---------------------- SECTION 1.3 -----------------------
+!                  R:Y W:WC Base Pairs                     
+
+Graph:	GUWWC
+	0	MG
+	1	nt	0	LW*
+	2	G	1	I
+	3	WWC	2	W
+	4	U	3	W
+
+Graph:	UGWWC
+	0	MG
+	1	nt	0	LW*
+	2	U	1	I
+	3	WWC	2	W
+	4	G	3	W
+
+Formula:	[GUWWC]
+	GUWWC
+	UGWWC
+
+Graph:	ACWWC
+	0	MG
+	1	nt	0	LW*
+	2	A	1	I
+	3	WWC	2	W
+	4	C	3	W
+
+Graph:	CAWWC
+	0	MG
+	1	nt	0	LW*
+	2	C	1	I
+	3	WWC	2	W
+	4	A	3	W
+
+Formula:	[ACWWC]
+	ACWWC
+	CAWWC
+
+
+!---------------------- SECTION 1.4 -----------------------
+!                Non-Canonical Base Pairs                  
+
+Graph:	NNHeo
+	0	MG
+	1	nt	0	LW*
+	2	N	1	I
+	3	eeo	2	H
+	4	N	3	E
+
+Graph:	NNeHo
+	0	MG
+	1	nt	0	LW*
+	2	N	1	I
+	3	eeo	2	E
+	4	N	3	H
+
+Graph:	NNSeo
+	0	MG
+	1	nt	0	LW*
+	2	N	1	I
+	3	eeo	2	S
+	4	N	3	E
+
+Graph:	NNeSo
+	0	MG
+	1	nt	0	LW*
+	2	N	1	I
+	3	eeo	2	E
+	4	N	3	S
+
+Graph:	NNWWT
+	0	MG
+	1	nt	0	LW*
+	2	N	1	I
+	3	WWT	2	W
+	4	N	3	W
+
+Formula:	Non-Watson-Crick
+	NNHeo
+	NNeHo
+	NNSeo
+	NNeSo
+	NNWWT
+
+Formula:	Non-Canonical
+	Non-Watson-Crick
+	[GUWWC]
+	[ACWWC]
+
+Formula:	Canonical_Only
+	NNeeo and not Non-Canonical
+
+
+!==========================================================
+!----------------------- SECTION 2 ------------------------
+!             Magnesium-Bound In Base Pairs                
+!==========================================================
+
+!---------------------- SECTION 2.1 -----------------------
+!                 Antarip's Stable List 0                  
+
+Graph:	AGHST
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HST	2	H
+	4	G	3	S
+
+Graph:	GASHT
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HST	2	S
+	4	A	3	H
+
+Graph:	AGsST
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SST	2	S	2	HBC
+	4	G	3	S
+
+Graph:	GASsT
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SST	2	S
+	4	A	3	S	3	HBC
+
+Graph:	AUHWT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HWT	2	H
+	4	U	3	W
+
+Graph:	UAWHT
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	HWT	2	W
+	4	A	3	H
+
+Graph:	AGWST
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWT	2	W
+	4	G	3	S
+
+Graph:	GASWT
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SWT	2	S
+	4	A	3	W
+
+Graph:	AGWWC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	WWC	2	W
+	4	G	3	W
+
+Graph:	GAWWC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	WWC	2	W
+	4	A	3	W
+
+Graph:	ACsSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SSC	2	S	2	HBC
+	4	C	3	S
+
+Graph:	CASsC
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	SSC	2	S
+	4	A	3	S	2	HBC
+
+Graph:	GGSST
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SST	2	S
+	4	G	3	S
+
+Graph:	AGSSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SSC	2	S
+	4	G	3	S
+
+Graph:	GASSC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SSC	2	S
+	4	A	3	S
+
+Graph:	AAWSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWC	2	W
+	4	A	3	S
+
+Graph:	AASWC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWC	2	S
+	4	A	3	W
+
+Graph:	UUWWC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	WWC	2	W
+	4	U	3	W
+
+Graph:	GUShC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HSC	2	S
+	4	U	3	H	3	HBC
+
+Graph:	UGhSC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	HSC	2	H	2	HBC
+	4	G	3	S
+
+Graph:	AAHWT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HWT	2	H
+	4	A	3	W
+
+Graph:	AAWHT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HWT	2	W
+	4	A	3	H
+
+Graph:	AUwST
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWT	2	W	2	HBC
+	4	U	3	S
+
+Graph:	UASwT
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SWT	2	S
+	4	A	3	W	3	HBC
+
+Graph:	AAWWT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	WWT	2	W
+	4	A	3	W
+
+Graph:	AUWWT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	WWT	2	W
+	4	U	3	W
+
+Graph:	UAWWT
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	WWT	2	W
+	4	A	3	W
+
+Graph:	AUHWC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HWC	2	H
+	4	U	3	W
+
+Graph:	UAWHC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	HWC	2	W
+	4	A	3	H
+
+Graph:	GUSWC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SWC	2	S
+	4	U	3	W
+
+Graph:	UGWSC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SWC	2	W
+	4	G	3	S
+
+Graph:	ACWWT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	WWT	2	W
+	4	C	3	W
+
+Graph:	CAWWT
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	WWT	2	W
+	4	A	3	W
+
+Graph:	GUSSC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SSC	2	S
+	4	U	3	S
+
+Graph:	UGSSC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SSC	2	S
+	4	G	3	S
+
+Graph:	ACWSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWC	2	W
+	4	C	3	S
+
+Graph:	CASWC
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	SWC	2	S
+	4	A	3	W
+
+Graph:	AAHHT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HHT	2	H
+	4	A	3	H
+
+Graph:	CUWSC
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	SWC	2	W
+	4	U	3	S
+
+Graph:	UCSWC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SWC	2	S
+	4	C	3	W
+
+Graph:	CGSSC
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	SSC	2	S
+	4	G	3	S
+
+Graph:	GCSSC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SSC	2	S
+	4	C	3	S
+
+Graph:	AUWSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWC	2	W
+	4	U	3	S
+
+Graph:	UASWC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SWC	2	S
+	4	A	3	W
+
+Graph:	GGHWT
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HWT	2	H
+	4	G	3	W
+
+Graph:	GGWHT
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HWT	2	W
+	4	G	3	H
+
+Graph:	CUWWC
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	WWC	2	W
+	4	U	3	W
+
+Graph:	UCWWC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	WWC	2	W
+	4	C	3	W
+
+Graph:	GUhWC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HWC	2	H	2	HBC
+	4	U	3	W
+
+Graph:	UGWhC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	HWC	2	W
+	4	G	3	H	3	HBC
+
+Graph:	AUsWC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWC	2	S	2	HBC
+	4	U	3	W
+
+Graph:	UAWsC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SWC	2	W
+	4	A	3	S	3	HBC
+
+Graph:	AAwWC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	WWC	2	W	2	HBC
+	4	A	3	W
+
+Graph:	AAWwC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	WWC	2	W
+	4	A	3	W	3	HBC
+
+
+!---------------------- SECTION 2.2 -----------------------
+!                Antarip's Unstable List 1                 
+
+!---------------------- SECTION 2.2.1 ---------------------
+!                   Geometry-Changing 1A                   
+
+Graph:	AAHSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HSC	2	H
+	4	A	3	S
+
+Graph:	AASHC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HSC	2	S
+	4	A	3	H
+
+Graph:	CGSWC
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	SWC	2	S
+	4	G	3	W
+
+Graph:	GCWSC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SWC	2	W
+	4	C	3	S
+
+
+
+!---------------------- SECTION 2.3.2 ---------------------
+!                  Unchanged Geometry 1B                   
+
+Graph:	AUhST
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HST	2	H	2	HBC
+	4	U	3	S
+
+Graph:	UAShT
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	HST	2	S
+	4	A	3	H	3	HBC
+
+Graph:	GGSSC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SSC	2	S
+	4	G	3	S
+
+Graph:	CGSWT
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	SWT	2	S
+	4	G	3	W
+
+Graph:	GCWST
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SWT	2	W
+	4	C	3	S
+
+Graph:	GUWSC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SWC	2	W
+	4	U	3	S
+
+Graph:	UGSWC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SWC	2	S
+	4	G	3	W
+
+
+
+!---------------------- SECTION 2.3 -----------------------
+!              Antarip's Mg-Stabilised List 2              
+
+!---------------------- SECTION 2.3.1 ---------------------
+!                   Geometry-Changing 2A                    
+
+Graph:	GGWHC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HWC	2	W
+	4	G	3	H
+
+Graph:	AAsHT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HST	2	S
+	4	A	3	H	3	HBC
+
+Graph:	AUsSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SSC	2	S	2	HBC
+	4	U	3	S
+
+Graph:	GCWWT
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	WWT	2	W
+	4	C	3	W
+
+Graph:	GGSHT
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HST	2	S
+	4	G	3	H
+
+
+!---------------------- SECTION 2.3.2 ---------------------
+!                  Unchanged Geometry 2B                   
+
+Graph:	GASwT
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SWT	2	S
+	4	A	3	W	3	HBC
+
+Graph:	GASsC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SSC	2	S
+	4	A	3	S	3	HBC
+
+Graph:	GASwC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SWC	2	S
+	4	A	3	W	3	HBC
+
+
+!---------------------- SECTION 2.4 -----------------------
+!       Antarip's Mg-Stabilised Mirror Pair List  2'       
+
+
+!---------------------- SECTION 2.4.1 ---------------------
+!                   Geometry-Changing 2A'                   
+
+Graph:	GGHWC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HWC	2	H
+	4	G	3	W
+
+Graph:	AAHsT
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	HST	2	H	2	HBC
+	4	A	3	S
+
+Graph:	UASsC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SSC	2	S
+	4	A	3	S	3	HBC
+
+Graph:	CGWWT
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	WWT	2	W
+	4	G	3	W
+
+Graph:	GGHST
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HST	2	H
+	4	G	3	S
+
+
+!---------------------- SECTION 2.4.2 ---------------------
+!                 Unchanged Geometry 2B'                   
+
+Graph:	AGwST
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWT	2	W	2	HBC
+	4	G	3	S
+
+Graph:	AGsSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SSC	2	S	2	HBC
+	4	G	3	S
+
+Graph:	AGwSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWC	2	W	2	HBC
+	4	G	3	S
+
+
+!---------------------- SECTION 2.5 -----------------------
+!         Unaddressed Alternate H-Bonding Pattern          
+
+!---------------------- SECTION 2.5.1 ---------------------
+!                    Antarip's List 0                      
+
+Graph:	AGSST
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SST	2	S
+	4	G	3	S
+
+Graph:	GASST
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SST	2	S
+	4	A	3	S
+
+Graph:	ACSSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SSC	2	S
+	4	C	3	S
+
+Graph:	CASSC
+	0	MG
+	1	b	0	LW*
+	2	C	1	I
+	3	SSC	2	S
+	4	A	3	S
+
+Graph:	GUSHC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HSC	2	S
+	4	U	3	H
+
+Graph:	UGHSC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	HSC	2	H
+	4	G	3	S
+
+Graph:	AUWST
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWT	2	W
+	4	U	3	S
+
+Graph:	UASWT
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SWT	2	S
+	4	A	3	W
+
+Graph:	GUHWC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	HWC	2	H
+	4	U	3	W
+
+Graph:	UGWHC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	HWC	2	W
+	4	G	3	H
+
+Graph:	AUSWC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWC	2	S
+	4	U	3	W
+
+Graph:	UAWSC
+	0	MG
+	1	b	0	LW*
+	2	U	1	I
+	3	SWC	2	W
+	4	A	3	S
+
+Graph:	AAWWC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	WWC	2	W
+	4	A	3	W
+
+
+!---------------------- SECTION 2.5.2 ---------------------
+!                   Antarip's List 2B                      
+
+Graph:	AGWSC
+	0	MG
+	1	b	0	LW*
+	2	A	1	I
+	3	SWC	2	W
+	4	G	3	S
+
+Graph:	GASWC
+	0	MG
+	1	b	0	LW*
+	2	G	1	I
+	3	SWC	2	S
+	4	A	3	W
+

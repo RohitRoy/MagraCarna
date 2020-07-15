@@ -1,0 +1,192 @@
+!
+!==========================================================
+!---------------------- SECTION 1 -------------------------
+!                   Inner-Shell Motifs                     
+!==========================================================
+
+
+!-------------------- Magnesium Clamp ---------------------
+
+Graph:	10-Member_Ring_Single
+	+	2+_Oph
+	5	5Nu 	4	IPO 	2	SEQ 
+
+Formula:	Magnesium_Clamp
+	2Oph and not 10-Member_Ring_Single and 0Nb and 0Ob and 0Or and RNA-Inner
+
+Graph:	10-Member_Ring_Double
+	+	4+_Oph
+	9	5Nu 	8	IPO 	6	SEQ 
+	10	5Nu 	4	IPO 	2	SEQ 	
+
+Graph:	10-Member_Ring_Adjacent
+	+	3+_Oph
+	7	5Nu 	6	IPO 	4	SEQ 
+	8	5Nu 	4	IPO 	2	SEQ 
+
+Graph:	10-Member_Ring_Extended
+	+	3+_Oph
+	7	5Nu 	6	SEQ 	4	SEQ 
+	8	5Nu 	4	SEQ 
+	9	P   	8	SEQ 
+	10	5Nu  	9	SEQ 	2	SEQ 
+
+
+Formula:	10-Member_Ring
+	10-Member_Ring_Single   and 2Oph and 0Nb and 0Ob and 0Or and RNA-Inner
+	10-Member_Ring_Double   and 4Oph and 0Nb and 0Ob and 0Or and RNA-Inner
+	10-Member_Ring_Adjacent and 3Oph and 0Nb and 0Ob and 0Or and RNA-Inner
+	10-Member_Ring_Extended and 3Oph and 0Nb and 0Ob and 0Or and RNA-Inner
+
+
+!------------------------ Y-Clamp -------------------------
+
+Graph:	Y-Clamp_Structure
+	+	1+_Oph
+	3	Oph 	0	L   	1	CIS 
+	4	P   	3	IPO 
+	5	5Nu 	4	SEQ 	2	SEQ 
+	6	Oph 	0	L   	1	CIS 	3	TRS 
+	7	P   	6	IPO 
+
+Formula:	Y-Clamp
+	Y-Clamp_Structure and not 10-Member_Ring_Adjacent and not 10-Member_Ring_Extended and 3Oph and 0Nb and 0Ob and 0Or and RNA-Inner
+
+
+!------------- 10-Member Ring with Purine N7 --------------
+
+Graph:	10-Member_Ring_Purine-N7_Structure
+	+	2+_Oph
+	5	5Nu 	4	SEQ 	2	SEQ 
+	6	5Nu  	4	SEQ 
+	7	P    	6	SEQ 
+	8	R    	7	SEQ 
+	9	N7   	8	IPO  	0 	L
+
+Formula:	10-Member_Ring_Purine-N7
+	10-Member_Ring_Purine-N7_Structure and 2Oph and 1Nb and 0Ob and 0Or and RNA-Inner
+
+
+!---------------------- N-Phosphate -----------------------
+
+Graph:	G-Phosphate_Structure
+	+	1+_Oph
+	3	Ob	0	L
+	4	G	3	IPO 
+
+Formula:	G-Phosphate
+	G-Phosphate_Structure and 1Oph and 0Nb and 1Ob and 0Or and RNA-Inner
+
+Graph:	U-Phosphate_Structure
+	+	1+_Oph
+	3	Ob	0	L
+	4	U	3	IPO 
+
+Formula:	U-Phosphate
+	U-Phosphate_Structure and 1Oph and 0Nb and 1Ob and 0Or and RNA-Inner
+
+
+!-------------------- Purine-N7 Seat ----------------------
+
+Graph:	Purine-N7_Seat_Structure
+	0	MG
+	1	N7 	0	L
+	2	R 	1 	IPO 
+	3	N7 	0	L
+	4	R 	3 	IPO 
+
+Formula:	Purine-N7_Seat
+	Purine-N7_Seat_Structure and 0Oph and 2Nb and 0Ob and 0Or and RNA-Inner
+
+!------------------ G-N7 MacroChelate IPO  -------------------
+
+Graph:	G-N7_MacroChelate_I_Structure
+	0	MG
+	1	N7 	0	L
+	2	G 	1	IPO 
+	3	P 	2	IPO 
+	4	Oph	3	IPO 	0	LW1
+
+Formula:	G-N7_MacroChelate_I
+	G-N7_MacroChelate_I_Structure and 0Oph and 1Nb and 0Ob and 0Or and RNA-Inner and 1Pout and not 1+_*out
+
+
+!==========================================================
+!---------------------- SECTION 2 -------------------------
+!                   Outer-Shell Motifs                     
+!==========================================================
+
+
+!------------------- Metal Ion Zipper ---------------------
+
+Graph:	12-Member_Ring_Structure
+	+	2+_Pout
+	5	5Nu  	4 	IPO  	2	SEQ 
+
+Formula:	Metal_Ion_Zipper
+	2Pout and not 12-Member_Ring_Structure and 0Bout and 0Rout and RNA-Outer
+
+Formula:	12-Member_Ring
+	12-Member_Ring_Structure and 2Pout and 0Bout and 0Rout and RNA-Outer
+
+
+!----------------- G-N7 MacroChelate II -------------------
+
+Graph:	G-N7_MacroChelate_II_Structure
+	0	MG
+	1	N7 	0	LW1
+	2	G 	1	IPO 
+	3	P 	2	IPO 
+	4	Oph	3	IPO  	0	LW1
+
+Formula:	G-N7_MacroChelate_II_Outer
+	
+
+Formula:	G-N7_MacroChelate_II
+	G-N7_MacroChelate_II_Structure and 1Bout and 1Pout and RNA-Outer
+
+
+!----------------- G-G Metal Binding Site ------------------
+
+Graph:	G-G_Metal_Binding_Site_Base-Only
+	0	MG
+	1	Xb  	0	LW1
+	2	G   	1 	IPO 
+	3 	Xb  	0	LW1
+	4 	G   	3 	IPO 
+	5	P   	2 	SEQ  	4	IPO 	
+
+Graph:	G-G_Metal_Binding_Site_Backbone
+	+ 	G-G_Metal_Binding_Site_Base-Only
+	6	P   	2 	IPO 
+	7	5Nu 	6	SEQ 
+	8	P   	7	IPO 
+	9	Oph 	8	IPO  	0	LW1
+	10	Oph 	6	IPO  	0	LW1
+
+Graph:	G-G_Metal_Binding_Site_Distant
+	+	G-G_Metal_Binding_Site_Base-Only
+	6	P   	2 	IPO 
+	7	P   	4 	SEQ  
+	8	Oph 	0	LW1
+	9 	P   	8 	IPO 
+	10	5Nu  	9	IPO 
+	11	P   	10	SEQ 
+
+
+Formula:	G-G_Metal_Binding_Site
+	G-G_Metal_Binding_Site_Distant and 2Bout and 1Pout and 0Rout and RNA-Outer
+	G-G_Metal_Binding_Site_Backbone and 2Bout and 2Pout and 0Rout and RNA-Outer
+	G-G_Metal_Binding_Site_Base-Only and 2Bout and 0Pout and 0Rout and RNA-Outer
+
+
+!-------------------- Triple-G Motif ----------------------
+
+Graph:	Triple-G_Motif_Structure
+	+	G-G_Metal_Binding_Site_Base-Only
+	6 	P 	4 	SEQ 
+	7	G 	6 	IPO 
+	8	Xb 	7 	IPO  	0	LW1
+
+Formula:	Triple-G_Motif
+	Triple-G_Motif_Structure and 3Bout and 0Pout and 0Rout and RNA-Outer

@@ -1,0 +1,464 @@
+
+!
+!==========================================================
+!---------------------- SECTION 1 -------------------------
+!                       Base Pairs                         
+!==========================================================
+
+!---------------------- SECTION 1.1 -----------------------
+!                     Base Pair Count                      
+
+Graph:	1BP_Graph
+	0	MG
+	1	eeo	0	LBP
+
+Graph:	2BP_Graph
+	+	1BP_Graph
+	2	eeo	0	LBP
+
+Graph:	3BP_GrapB
+	+	2BP_Graph
+	3	eeo	0	LBP
+
+Graph:	4BP_GrapB
+	+	3BP_Graph
+	4	eeo	0	LBP
+
+Graph:	5BP_GrapB
+	+	4BP_Graph
+	5	eeo	0	LBP
+
+Graph:	6BP_GrapB
+	+	5BP_Graph
+	6	eeo	0	LBP
+
+Graph:	7BP_GrapB
+	+	6BP_Graph
+	7	eeo	0	LBP
+
+Graph:	8BP_GrapB
+	+	7BP_Graph
+	8	eeo	0	LBP
+
+Graph:	9BP_GrapB
+	+	8BP_Graph
+	9	eeo	0	LBP
+
+Graph:	9+BB
+	+	9BP_Graph
+	10	eeo	0	LBP
+
+
+Formula:	0BP
+	not 1BP_Graph
+
+Formula:	1BP
+	1BP_Graph and not 2BP_Graph
+
+Formula:	2BP
+	2BP_Graph and not 3BP_Graph
+
+Formula:	3BP
+	3BP_Graph and not 4BP_Graph
+
+Formula:	4BP
+	4BP_Graph and not 5BP_Graph
+
+Formula:	5BP
+	5BP_Graph and not 6BP_Graph
+
+Formula:	6BP
+	6BP_Graph and not 7BP_Graph
+
+Formula:	7BP
+	7BP_Graph and not 8BP_Graph
+
+Formula:	8BP
+	8BP_Graph and not 9BP_Graph
+
+Formula:	9BP
+	9BP_Graph and not 9+BP
+
+
+!---------------------- SECTION 1.2 -----------------------
+!         Base Pair Nucleotide Interaction Count           
+
+Graph:	1NP_0-1_Graph
+	0	MG
+	1	nt	0	LW*
+	2	nt 	0	LW*
+	3	N	1	I
+	4	N 	2	I
+	5	eeo	3	E 	4	E
+
+Formula:	1NP_0-1
+	1BP and 1NP_0-1_Graph
+
+Formula:	1NP_1-0
+	1BP and not 1NP_0-1_Graph
+
+
+Graph:	2NP_0-2_Graph
+	0	MG
+	1	nt	0	LW*
+	2	nt 	0	LW*
+	3	nt 	0	LW*
+	4	nt 	0	LW*
+	5	N 	1	I
+	6	N 	2	I
+	7	N 	3	I
+	8	N 	4	I
+	9	eeo	5	E 	6	E
+	10	eeo	7	E 	8	E
+
+Formula:	2NP_0-2
+	2BP and 2NP_0-2_Graph
+
+Formula:	2NP_1-1
+	2BP and 1NP_0-1_Graph and not 2NP_0-2_Graph
+
+Formula:	2NP_2-0
+	2BP and not 1NP_0-1_Graph
+
+
+Graph:	3NP_0-3_Graph
+	0	MG
+	1	nt	0	LW*
+	2	nt 	0	LW*
+	3	nt 	0	LW*
+	4	nt 	0	LW*
+	5	nt 	0	LW*
+	6	nt 	0	LW*
+	7	N 	1	I
+	8	N 	2	I
+	9	N 	3	I
+	10	N 	4	I
+	11	N 	5	I
+	12	N 	6	I
+	13	eeo	7	E 	8	E
+	14	eeo	9	E 	10	E
+	15	eeo	11	E 	12	E
+
+Formula:	3NP_0-3
+	3BP and 3NP_0-3_Graph
+
+Formula:	3NP_1-2
+	3BP and 2NP_0-2_Graph and not 3NP_0-3_Graph
+
+Formula:	3NP_2-1
+	3BP and 1NP_0-1_Graph and not 2NP_0-2_Graph
+
+Formula:	3NP_3-0
+	3BP and not 1NP_0-1_Graph
+
+
+Graph:	4NP_0-4_Graph
+	+	3NP_0-3_Graph
+	16	nt 	0	LW*
+	17	nt 	0	LW*
+	18	N 	16	I
+	19	N 	17	I
+	20	eeo	18	E 	19 	E
+
+Formula:	4NP_0-4
+	4BP and 4NP_0-4_Graph
+
+Formula:	4NP_1-3
+	4BP and 3NP_0-3_Graph and not 4NP_0-4_Graph
+
+Formula:	4NP_2-2
+	4BP and 2NP_0-2_Graph and not 3NP_0-3_Graph
+
+Formula:	4NP_3-1
+	4BP and 1NP_0-1_Graph and not 2NP_0-2_Graph
+
+Formula:	4NP_4-0
+	4BP and not 1NP_0-1_Graph
+
+
+Graph:	5NP_0-5_Graph
+	+	4NP_0-4_Graph
+	20	nt 	0	LW*
+	21	nt 	0	LW*
+	22	N 	20	I
+	23	N 	21	I
+	24	eeo	22	E 	23 	E
+
+Formula:	5NP_0-5
+	5BP and 5NP_0-5_Graph
+
+Formula:	5NP_1-4
+	5BP and 4NP_0-4_Graph and not 5NP_0-5_Graph
+
+Formula:	5NP_2-3
+	5BP and 3NP_0-3_Graph and not 4NP_0-4_Graph
+
+Formula:	5NP_3-2
+	5BP and 2NP_0-2_Graph and not 3NP_0-3_Graph
+
+Formula:	5NP_4-1
+	5BP and 1NP_0-1_Graph and not 2NP_0-2_Graph
+
+Formula:	5NP_5-0
+	5BP and not 1NP_0-1_Graph
+
+
+Graph:	6NP_0-6_Graph
+	+	5NP_0-5_Graph
+	25	nt 	0	LW*
+	26	nt 	0	LW*
+	27	N 	25	I
+	28	N 	26	I
+	29	eeo	27	E 	28 	E
+
+Formula:	6NP_0-6
+	6BP and 6NP_0-6_Graph
+
+Formula:	6NP_1-5
+	6BP and 5NP_0-5_Graph and not 6NP_0-6_Graph
+
+Formula:	6NP_2-4
+	6BP and 4NP_0-4_Graph and not 5NP_0-5_Graph
+
+Formula:	6NP_3-3
+	6BP and 3NP_0-3_Graph and not 4NP_0-4_Graph
+
+Formula:	6NP_4-2
+	6BP and 2NP_0-2_Graph and not 3NP_0-3_Graph
+
+Formula:	6NP_5-1
+	6BP and 1NP_0-1_Graph and not 2NP_0-2_Graph
+
+Formula:	6NP_6-0
+	6BP and not 1NP_0-1_Graph
+
+
+Graph:	7NP_0-7_Graph
+	+	6NP_0-6_Graph
+	30	nt 	0	LW*
+	31	nt 	0	LW*
+	32	N 	30	I
+	33	N 	31	I
+	34	eeo	32	E 	33 	E
+
+Formula:	7NP_0-7
+	7BP and 7NP_0-7_Graph
+
+Formula:	7NP_1-6
+	7BP and 6NP_0-6_Graph and not 7NP_0-7_Graph
+
+Formula:	7NP_2-5
+	7BP and 5NP_0-5_Graph and not 6NP_0-6_Graph
+
+Formula:	7NP_3-4
+	7BP and 4NP_0-4_Graph and not 5NP_0-5_Graph
+
+Formula:	7NP_4-3
+	7BP and 3NP_0-3_Graph and not 4NP_0-4_Graph
+
+Formula:	7NP_5-2
+	7BP and 2NP_0-2_Graph and not 3NP_0-3_Graph
+
+Formula:	7NP_6-1
+	7BP and 1NP_0-1_Graph and not 2NP_0-2_Graph
+
+Formula:	7NP_7-0
+	7BP and not 1NP_0-1_Graph
+
+
+Graph:	8NP_0-8_Graph
+	+	7NP_0-7_Graph
+	35	nt 	0	LW*
+	36	nt 	0	LW*
+	37	N 	35	I
+	38	N 	36	I
+	39	eeo	37	E 	38	E
+
+Formula:	8NP_0-8
+	8BP and 8NP_0-8_Graph
+
+Formula:	8NP_1-7
+	8BP and 7NP_0-7_Graph and not 8NP_0-8_Graph
+
+Formula:	8NP_2-6
+	8BP and 6NP_0-6_Graph and not 7NP_0-7_Graph
+
+Formula:	8NP_3-5
+	8BP and 5NP_0-5_Graph and not 6NP_0-6_Graph
+
+Formula:	8NP_4-4
+	8BP and 4NP_0-4_Graph and not 5NP_0-5_Graph
+
+Formula:	8NP_5-3
+	8BP and 3NP_0-3_Graph and not 4NP_0-4_Graph
+
+Formula:	8NP_6-2
+	8BP and 2NP_0-2_Graph and not 3NP_0-3_Graph
+
+Formula:	8NP_6-1
+	8BP and 1NP_0-1_Graph and not 2NP_0-2_Graph
+
+Formula:	8NP_7-0
+	8BP and not 1NP_0-1_Graph
+
+
+Graph:	9NP_0-9_Graph
+	+	8NP_0-8_Graph
+	40	nt 	0	LW*
+	41	nt 	0	LW*
+	42	N 	40	I
+	43	N 	41	I
+	44	eeo	42	E 	43	E
+
+Formula:	9NP_0-9
+	9BP and 9NP_0-9_Graph
+
+Formula:	9NP_1-8
+	9BP and 8NP_0-8_Graph and not 9NP_0-9_Graph
+
+Formula:	9NP_2-7
+	9BP and 7NP_0-7_Graph and not 8NP_0-8_Graph
+
+Formula:	9NP_3-6
+	9BP and 6NP_0-6_Graph and not 7NP_0-7_Graph
+
+Formula:	9NP_4-5
+	9BP and 5NP_0-5_Graph and not 6NP_0-6_Graph
+
+Formula:	9NP_5-4
+	9BP and 4NP_0-4_Graph and not 5NP_0-5_Graph
+
+Formula:	9NP_6-3
+	9BP and 3NP_0-3_Graph and not 4NP_0-4_Graph
+
+Formula:	9NP_7-2
+	9BP and 2NP_0-2_Graph and not 3NP_0-3_Graph
+
+Formula:	9NP_8-1
+	9BP and 1NP_0-1_Graph and not 2NP_0-2_Graph
+
+Formula:	9NP_9-0
+	9BP and not 1NP_0-1_Graph
+
+
+!---------------------- SECTION 1.3 -----------------------
+!                  Nucleoside Pair Count                   
+
+Graph:	1nP_Graph
+	0	MG
+	1	ns	0	LW*
+	2	N	1	I
+	3	eeo	2	E
+	4	N	3	E
+
+Graph:	2nP_Graph
+	+	1nP_Graph
+	5	ns	0	LW*
+	6	N	5	I
+	7	eeo	6	E
+	8	N	7	E
+
+Graph:	3nP_Graph
+	+	2nP_Graph
+	9	ns	0	LW*
+	10	N	9	I
+	11	eeo	10	E
+	12	N	11	E
+
+Graph:	4nP_Graph
+	+	3nP_Graph
+	13	ns	0	LW*
+	14	N	13	I
+	15	eeo	14	E
+	16	N	15	E
+
+Graph:	5nP_Graph
+	+	4nP_Graph
+	17	ns	0	LW*
+	18	N	17	I
+	19	eeo	18	E
+	20	N	19	E
+
+Graph:	6nP_Graph
+	+	5nP_Graph
+	21	ns	0	LW*
+	22	N	21	I
+	23	eeo	22	E
+	24	N	23	E
+
+Graph:	7nP_Graph
+	+	6nP_Graph
+	25	ns	0	LW*
+	26	N	25	I
+	27	eeo	26	E
+	28	N	27	E
+
+Graph:	8nP_Graph
+	+	7nP_Graph
+	29	ns	0	LW*
+	30	N	29	I
+	31	eeo	30	E
+	32	N	31	E
+
+Graph:	9nP_Graph
+	+	8nP_Graph
+	33	ns	0	LW*
+	34	N	33	I
+	35	eeo	34	E
+	36	N	35	E
+
+Graph:	9+nP_Graph
+	+	9nP_Graph
+	37	ns	0	LW*
+	38	N	37	I
+	39	eeo	38	E
+	40	N	39	E
+
+
+Formula:	0nP
+	not 1nP_Graph
+
+Formula:	1nP
+	1nP_Graph and not 2nP_Graph
+
+Formula:	2nP
+	2nP_Graph and not 3nP_Graph
+
+Formula:	3nP
+	3nP_Graph and not 4nP_Graph
+
+Formula:	4nP
+	4nP_Graph and not 5nP_Graph
+
+Formula:	5nP
+	5nP_Graph and not 6nP_Graph
+
+Formula:	6nP
+	6nP_Graph and not 7nP_Graph
+
+Formula:	7nP
+	7nP_Graph and not 8nP_Graph
+
+Formula:	8nP
+	8nP_Graph and not 9nP_Graph
+
+Formula:	9nP
+	9nP_Graph and not 9+nP_Graph
+
+
+!---------------------- SECTION 1.4 -----------------------
+!            Nucleoside Pair Interaction Count             
+
+Graph:	1nP_0-1_Graph
+	+	1nP_Graph
+	5	ns 	4	I 	0	LW*
+
+Formula:	1np_0-1
+	1np and 1nP_0-1_Graph
+
+Formula:	1np_1-0
+	1np and not 1nP_0-1_Graph
+
+
+Graph:	2np_0-2_Graph
+	+	2np_Graph

@@ -1,0 +1,1476 @@
+!==========================================================
+!----------------------- SECTION 3 ------------------------
+!         Infrequent Magnesium Binding Base Pairs          
+!==========================================================
+
+
+Graph:	AAHHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HHC	2	H
+	4	A	3	H
+
+Graph:	AAHWC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWC	2	H
+	4	A	3	W
+
+Graph:	AAHST
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HST	2	H
+	4	A	3	S
+
+Graph:	AAWHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWC	2	W
+	4	A	3	H
+
+Graph:	AAWST
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SWT	2	W
+	4	A	3	S
+
+Graph:	AASHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HST	2	S
+	4	A	3	H
+
+Graph:	AASWT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SWT	2	S
+	4	A	3	W
+
+Graph:	AASSC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SSC	2	S
+	4	A	3	S
+
+Graph:	AASST
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SST	2	S
+	4	A	3	S
+
+Graph:	ACHHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HHC	2	H
+	4	C	3	H
+
+Graph:	ACHHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HHT	2	H
+	4	C	3	H
+
+Graph:	ACHWC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWC	2	H
+	4	C	3	W
+
+Graph:	ACHWT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWT	2	H
+	4	C	3	W
+
+Graph:	ACHSC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HSC	2	H
+	4	C	3	S
+
+Graph:	ACHST
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HST	2	H
+	4	C	3	S
+
+Graph:	ACWHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWC	2	W
+	4	C	3	H
+
+Graph:	ACWHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWT	2	W
+	4	C	3	H
+
+Graph:	ACWST
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SWT	2	W
+	4	C	3	S
+
+Graph:	ACSHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HSC	2	S
+	4	C	3	H
+
+Graph:	ACSHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HST	2	S
+	4	C	3	H
+
+Graph:	ACSWC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SWC	2	S
+	4	C	3	W
+
+Graph:	ACSWT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SWT	2	S
+	4	C	3	W
+
+Graph:	ACSST
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SST	2	S
+	4	C	3	S
+
+Graph:	AGHHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HHC	2	H
+	4	G	3	H
+
+Graph:	AGHHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HHT	2	H
+	4	G	3	H
+
+Graph:	AGHWC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWC	2	H
+	4	G	3	W
+
+Graph:	AGHWT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWT	2	H
+	4	G	3	W
+
+Graph:	AGHSC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HSC	2	H
+	4	G	3	S
+
+Graph:	AGWHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWC	2	W
+	4	G	3	H
+
+Graph:	AGWHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWT	2	W
+	4	G	3	H
+
+Graph:	AGWWT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	WWT	2	W
+	4	G	3	W
+
+Graph:	AGSHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HSC	2	S
+	4	G	3	H
+
+Graph:	AGSHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HST	2	S
+	4	G	3	H
+
+Graph:	AGSWC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SWC	2	S
+	4	G	3	W
+
+Graph:	AGSWT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SWT	2	S
+	4	G	3	W
+
+Graph:	AUHHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HHC	2	H
+	4	U	3	H
+
+Graph:	AUHHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HHT	2	H
+	4	U	3	H
+
+Graph:	AUHSC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HSC	2	H
+	4	U	3	S
+
+Graph:	AUHST
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HST	2	H
+	4	U	3	S
+
+Graph:	AUWHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWC	2	W
+	4	U	3	H
+
+Graph:	AUWHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HWT	2	W
+	4	U	3	H
+
+Graph:	AUSHC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HSC	2	S
+	4	U	3	H
+
+Graph:	AUSHT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	HST	2	S
+	4	U	3	H
+
+Graph:	AUSWT
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SWT	2	S
+	4	U	3	W
+
+Graph:	AUSSC
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SSC	2	S
+	4	U	3	S
+
+Graph:	AUSST
+	0	MG
+	1	n	0	LW*
+	2	A	1	I
+	3	SST	2	S
+	4	U	3	S
+
+Graph:	CAHHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HHC	2	H
+	4	A	3	H
+
+Graph:	CAHHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HHT	2	H
+	4	A	3	H
+
+Graph:	CAHWC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWC	2	H
+	4	A	3	W
+
+Graph:	CAHWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWT	2	H
+	4	A	3	W
+
+Graph:	CAHSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HSC	2	H
+	4	A	3	S
+
+Graph:	CAHST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HST	2	H
+	4	A	3	S
+
+Graph:	CAWHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWC	2	W
+	4	A	3	H
+
+Graph:	CAWHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWT	2	W
+	4	A	3	H
+
+Graph:	CAWSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWC	2	W
+	4	A	3	S
+
+Graph:	CAWST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWT	2	W
+	4	A	3	S
+
+Graph:	CASHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HSC	2	S
+	4	A	3	H
+
+Graph:	CASHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HST	2	S
+	4	A	3	H
+
+Graph:	CASWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWT	2	S
+	4	A	3	W
+
+Graph:	CASST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SST	2	S
+	4	A	3	S
+
+Graph:	CCHHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HHC	2	H
+	4	C	3	H
+
+Graph:	CCHHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HHT	2	H
+	4	C	3	H
+
+Graph:	CCHWC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWC	2	H
+	4	C	3	W
+
+Graph:	CCHWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWT	2	H
+	4	C	3	W
+
+Graph:	CCHSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HSC	2	H
+	4	C	3	S
+
+Graph:	CCHST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HST	2	H
+	4	C	3	S
+
+Graph:	CCWHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWC	2	W
+	4	C	3	H
+
+Graph:	CCWHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWT	2	W
+	4	C	3	H
+
+Graph:	CCWWC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	WWC	2	W
+	4	C	3	W
+
+Graph:	CCWWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	WWT	2	W
+	4	C	3	W
+
+Graph:	CCWSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWC	2	W
+	4	C	3	S
+
+Graph:	CCWST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWT	2	W
+	4	C	3	S
+
+Graph:	CCSHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HSC	2	S
+	4	C	3	H
+
+Graph:	CCSHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HST	2	S
+	4	C	3	H
+
+Graph:	CCSWC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWC	2	S
+	4	C	3	W
+
+Graph:	CCSWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWT	2	S
+	4	C	3	W
+
+Graph:	CCSSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SSC	2	S
+	4	C	3	S
+
+Graph:	CCSST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SST	2	S
+	4	C	3	S
+
+Graph:	CGHHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HHC	2	H
+	4	G	3	H
+
+Graph:	CGHHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HHT	2	H
+	4	G	3	H
+
+Graph:	CGHWC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWC	2	H
+	4	G	3	W
+
+Graph:	CGHWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWT	2	H
+	4	G	3	W
+
+Graph:	CGHSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HSC	2	H
+	4	G	3	S
+
+Graph:	CGHST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HST	2	H
+	4	G	3	S
+
+Graph:	CGWHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWC	2	W
+	4	G	3	H
+
+Graph:	CGWHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWT	2	W
+	4	G	3	H
+
+Graph:	CGWSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWC	2	W
+	4	G	3	S
+
+Graph:	CGWST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWT	2	W
+	4	G	3	S
+
+Graph:	CGSHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HSC	2	S
+	4	G	3	H
+
+Graph:	CGSHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HST	2	S
+	4	G	3	H
+
+Graph:	CGSST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SST	2	S
+	4	G	3	S
+
+Graph:	CUHHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HHC	2	H
+	4	U	3	H
+
+Graph:	CUHHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HHT	2	H
+	4	U	3	H
+
+Graph:	CUHWC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWC	2	H
+	4	U	3	W
+
+Graph:	CUHWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWT	2	H
+	4	U	3	W
+
+Graph:	CUHSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HSC	2	H
+	4	U	3	S
+
+Graph:	CUHST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HST	2	H
+	4	U	3	S
+
+Graph:	CUWHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWC	2	W
+	4	U	3	H
+
+Graph:	CUWHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HWT	2	W
+	4	U	3	H
+
+Graph:	CUWWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	WWT	2	W
+	4	U	3	W
+
+Graph:	CUWST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWT	2	W
+	4	U	3	S
+
+Graph:	CUSHC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HSC	2	S
+	4	U	3	H
+
+Graph:	CUSHT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	HST	2	S
+	4	U	3	H
+
+Graph:	CUSWC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWC	2	S
+	4	U	3	W
+
+Graph:	CUSWT
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SWT	2	S
+	4	U	3	W
+
+Graph:	CUSSC
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SSC	2	S
+	4	U	3	S
+
+Graph:	CUSST
+	0	MG
+	1	n	0	LW*
+	2	C	1	I
+	3	SST	2	S
+	4	U	3	S
+
+Graph:	GAHHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HHC	2	H
+	4	A	3	H
+
+Graph:	GAHHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HHT	2	H
+	4	A	3	H
+
+Graph:	GAHWC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWC	2	H
+	4	A	3	W
+
+Graph:	GAHWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWT	2	H
+	4	A	3	W
+
+Graph:	GAHSC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HSC	2	H
+	4	A	3	S
+
+Graph:	GAHST
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HST	2	H
+	4	A	3	S
+
+Graph:	GAWHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWC	2	W
+	4	A	3	H
+
+Graph:	GAWHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWT	2	W
+	4	A	3	H
+
+Graph:	GAWWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	WWT	2	W
+	4	A	3	W
+
+Graph:	GAWSC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWC	2	W
+	4	A	3	S
+
+Graph:	GAWST
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWT	2	W
+	4	A	3	S
+
+Graph:	GASHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HSC	2	S
+	4	A	3	H
+
+Graph:	GCHHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HHC	2	H
+	4	C	3	H
+
+Graph:	GCHHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HHT	2	H
+	4	C	3	H
+
+Graph:	GCHWC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWC	2	H
+	4	C	3	W
+
+Graph:	GCHWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWT	2	H
+	4	C	3	W
+
+Graph:	GCHSC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HSC	2	H
+	4	C	3	S
+
+Graph:	GCHST
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HST	2	H
+	4	C	3	S
+
+Graph:	GCWHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWC	2	W
+	4	C	3	H
+
+Graph:	GCWHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWT	2	W
+	4	C	3	H
+
+Graph:	GCSHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HSC	2	S
+	4	C	3	H
+
+Graph:	GCSHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HST	2	S
+	4	C	3	H
+
+Graph:	GCSWC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWC	2	S
+	4	C	3	W
+
+Graph:	GCSWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWT	2	S
+	4	C	3	W
+
+Graph:	GCSST
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SST	2	S
+	4	C	3	S
+
+Graph:	GGHHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HHC	2	H
+	4	G	3	H
+
+Graph:	GGHHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HHT	2	H
+	4	G	3	H
+
+Graph:	GGHSC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HSC	2	H
+	4	G	3	S
+
+Graph:	GGWWC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	WWC	2	W
+	4	G	3	W
+
+Graph:	GGWWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	WWT	2	W
+	4	G	3	W
+
+Graph:	GGWSC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWC	2	W
+	4	G	3	S
+
+Graph:	GGWST
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWT	2	W
+	4	G	3	S
+
+Graph:	GGSHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HSC	2	S
+	4	G	3	H
+
+Graph:	GGSWC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWC	2	S
+	4	G	3	W
+
+Graph:	GGSWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWT	2	S
+	4	G	3	W
+
+Graph:	GUHHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HHC	2	H
+	4	U	3	H
+
+Graph:	GUHHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HHT	2	H
+	4	U	3	H
+
+Graph:	GUHWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWT	2	H
+	4	U	3	W
+
+Graph:	GUHSC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HSC	2	H
+	4	U	3	S
+
+Graph:	GUHST
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HST	2	H
+	4	U	3	S
+
+Graph:	GUWHC
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWC	2	W
+	4	U	3	H
+
+Graph:	GUWHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HWT	2	W
+	4	U	3	H
+
+Graph:	GUWWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	WWT	2	W
+	4	U	3	W
+
+Graph:	GUWST
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWT	2	W
+	4	U	3	S
+
+Graph:	GUSHT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	HST	2	S
+	4	U	3	H
+
+Graph:	GUSWT
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SWT	2	S
+	4	U	3	W
+
+Graph:	GUSST
+	0	MG
+	1	n	0	LW*
+	2	G	1	I
+	3	SST	2	S
+	4	U	3	S
+
+Graph:	UAHHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HHC	2	H
+	4	A	3	H
+
+Graph:	UAHHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HHT	2	H
+	4	A	3	H
+
+Graph:	UAHWC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWC	2	H
+	4	A	3	W
+
+Graph:	UAHWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWT	2	H
+	4	A	3	W
+
+Graph:	UAHSC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HSC	2	H
+	4	A	3	S
+
+Graph:	UAHST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HST	2	H
+	4	A	3	S
+
+Graph:	UAWST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWT	2	W
+	4	A	3	S
+
+Graph:	UASHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HSC	2	S
+	4	A	3	H
+
+Graph:	UASHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HST	2	S
+	4	A	3	H
+
+Graph:	UASSC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SSC	2	S
+	4	A	3	S
+
+Graph:	UASST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SST	2	S
+	4	A	3	S
+
+Graph:	UCHHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HHC	2	H
+	4	C	3	H
+
+Graph:	UCHHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HHT	2	H
+	4	C	3	H
+
+Graph:	UCHWC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWC	2	H
+	4	C	3	W
+
+Graph:	UCHWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWT	2	H
+	4	C	3	W
+
+Graph:	UCHSC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HSC	2	H
+	4	C	3	S
+
+Graph:	UCHST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HST	2	H
+	4	C	3	S
+
+Graph:	UCWHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWC	2	W
+	4	C	3	H
+
+Graph:	UCWHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWT	2	W
+	4	C	3	H
+
+Graph:	UCWWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	WWT	2	W
+	4	C	3	W
+
+Graph:	UCWSC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWC	2	W
+	4	C	3	S
+
+Graph:	UCWST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWT	2	W
+	4	C	3	S
+
+Graph:	UCSHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HSC	2	S
+	4	C	3	H
+
+Graph:	UCSHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HST	2	S
+	4	C	3	H
+
+Graph:	UCSWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWT	2	S
+	4	C	3	W
+
+Graph:	UCSSC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SSC	2	S
+	4	C	3	S
+
+Graph:	UCSST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SST	2	S
+	4	C	3	S
+
+Graph:	UGHHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HHC	2	H
+	4	G	3	H
+
+Graph:	UGHHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HHT	2	H
+	4	G	3	H
+
+Graph:	UGHWC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWC	2	H
+	4	G	3	W
+
+Graph:	UGHWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWT	2	H
+	4	G	3	W
+
+Graph:	UGHST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HST	2	H
+	4	G	3	S
+
+Graph:	UGWHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWT	2	W
+	4	G	3	H
+
+Graph:	UGWWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	WWT	2	W
+	4	G	3	W
+
+Graph:	UGWST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWT	2	W
+	4	G	3	S
+
+Graph:	UGSHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HSC	2	S
+	4	G	3	H
+
+Graph:	UGSHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HST	2	S
+	4	G	3	H
+
+Graph:	UGSWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWT	2	S
+	4	G	3	W
+
+Graph:	UGSST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SST	2	S
+	4	G	3	S
+
+Graph:	UUHHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HHC	2	H
+	4	U	3	H
+
+Graph:	UUHHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HHT	2	H
+	4	U	3	H
+
+Graph:	UUHWC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWC	2	H
+	4	U	3	W
+
+Graph:	UUHWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWT	2	H
+	4	U	3	W
+
+Graph:	UUHSC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HSC	2	H
+	4	U	3	S
+
+Graph:	UUHST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HST	2	H
+	4	U	3	S
+
+Graph:	UUWHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWC	2	W
+	4	U	3	H
+
+Graph:	UUWHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HWT	2	W
+	4	U	3	H
+
+Graph:	UUWWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	WWT	2	W
+	4	U	3	W
+
+Graph:	UUWSC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWC	2	W
+	4	U	3	S
+
+Graph:	UUWST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWT	2	W
+	4	U	3	S
+
+Graph:	UUSHC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HSC	2	S
+	4	U	3	H
+
+Graph:	UUSHT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	HST	2	S
+	4	U	3	H
+
+Graph:	UUSWC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWC	2	S
+	4	U	3	W
+
+Graph:	UUSWT
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SWT	2	S
+	4	U	3	W
+
+Graph:	UUSSC
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SSC	2	S
+	4	U	3	S
+
+Graph:	UUSST
+	0	MG
+	1	n	0	LW*
+	2	U	1	I
+	3	SST	2	S
+	4	U	3	S
+

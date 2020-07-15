@@ -1,0 +1,21 @@
+
+Graph:	Phosphate
+	0	MG
+	1	Oph	0	LW*
+
+Graph:	Ribose
+	0	MG
+	1	r 	0	LW*
+
+Graph:	Nucleobase
+	0	MG
+	1	b 	0	LW*
+
+Graph:	Hetero-O
+	0	MG
+	1	Oh 	0	LW*
+
+Graph:	Hetero-N
+	0	MG
+	1	Nh 	0	LW*
+

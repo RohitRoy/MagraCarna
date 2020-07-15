@@ -1,0 +1,175 @@
+!
+!==========================================================
+!---------------------- SECTION 1 -------------------------
+!                 Base Multiplets                    
+!==========================================================
+
+!---------------------- SECTION 1 -------------------------
+!                     Base Triplets                        
+
+! Central-Base Linear Triplet
+Graph:	bcLT_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	2	E
+	6	N	5	E
+
+! Terminal-Base Linear Triplet
+Graph:	btLT_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	4	E
+	6	N	5	E
+
+! Cyclic Triplet
+Graph:	bCT_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	4	E
+	6	N	5	E
+	7	eeo	6	E 	2	E
+
+Formula:	Linear-Triplet-Centre
+	bcLT_Graph and not bCT_Graph
+
+Formula:	Linear-Triplet-Terminal
+	btLT_Graph and not bCT_Graph
+
+Formula:	Cyclic-Triplet
+	bCT_Graph
+
+!---------------------- SECTION 1 -------------------------
+!                     Base Quartets                        
+
+! Central-Base Linear Quartet
+Graph:	bcLQ_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	2	E
+	6	N	5	E
+	7	eeo	6	E
+	8	N	7	E
+
+! Terminal-Base Linear Quartet
+Graph:	btLQ_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	4	E
+	6	N	5	E
+	7	eeo	6	E
+	8	N 	7	E
+
+! Cyclic-4 Quartet
+Graph:	b4Q_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	4	E
+	6	N	5	E
+	7	eeo	6	E
+	8	N 	7	E
+	9	eeo	8	E 	2 	E
+
+! Central-Base Star Quartet
+Graph:	bcSQ_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	2	E
+	6	N	5	E
+	7	eeo	2	E
+	8	N 	7	E
+
+! Terminal-Base Star Quartet
+Graph:	btSQ_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	4	E
+	6	N	5	E
+	7	eeo	4	E
+	8	N 	7	E
+
+! Central-Base Cyclic-3 Quartet
+Graph:	bc3Q_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	2	E
+	6	N	5	E
+	7	eeo	2	E
+	8	N 	7	E
+	9	eeo	8	E 	6	E
+
+! Cycle-Base Cyclic-3 Quartet
+Graph:	by3Q_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	4	E
+	6	N	5	E
+	7	eeo	6	E 	2	E
+	8	eeo	6	E
+	9	N 	8	E
+
+! Terminal-Base Cyclic-3 Quartet
+Graph:	bt3Q_Graph
+	0	MG
+	1	b	0	LW*
+	2	N 	1	I
+	3	eeo	2	E
+	4	N 	3	E
+	5	eeo	4	E
+	6	N	5	E
+	7	eeo	6	E
+	8	N 	7	E
+	9	eeo	8	E 	4	E
+
+Formula:	Linear-Quartet-Centre
+	bcLQ_Graph and not bc3Q_Graph and not by3Q_Graph and not b4Q_Graph
+
+Formula:	Linear-Quartet-Terminal
+	btLQ_Graph and not btSQ_Graph and not bt3Q_Graph and not by3Q_Graph and not b4Q_Graph
+
+Formula:	Star-Quartet-Centre
+	bcSQ_Graph and not bc3Q_Graph
+
+Formula:	Star-Quartet-Terminal
+	btSQ_Graph and not bt3Q_Graph
+
+Formula:	Cyclic-3-Quartet-Centre
+	bc3Q_Graph
+
+Formula:	Cyclic-3-Quartet-Terminal
+	bt3Q_Graph
+
+Formula:	Cyclic-3-Quartet-Cycle
+	by3Q_Graph
+
+Formula:	Cyclic-4-Quartet
+	b4Q_Graph
