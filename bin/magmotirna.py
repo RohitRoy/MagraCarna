@@ -153,7 +153,7 @@ def merge(filetype, folder, dataset, ids=None, **kwargs):
 
 def visualise(structure, sitesfile, site=None, assignsfile=None, context=False, waters=False):
     names = [site] if site else None
-    rnagfs = RNAMgSiteEngrapher.decode_file(sitesfile, names)
+    rnagfs = RNAMgSiteList.load(sitesfile, names)
     visualiser = RNAMgSiteContextVisualiser(structure, rnagfs)
     if site:
         visualiser.display(site, context, waters)

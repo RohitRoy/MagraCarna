@@ -6,6 +6,7 @@ import sys
 import time
 import argparse
 import numpy as np
+from numpy.linalg import norm
 from subprocess import call, Popen, PIPE
 
 from scipy.cluster.hierarchy import linkage
@@ -37,7 +38,7 @@ class MoleculeDataset(object):
 		self.organism = organism
 		self.chainsdir = chainsdir
 		self.msafile = msafile
-		# 
+		#
 		if self.chainsdir:
 			self.chains = self.chains_from_folder(ids)
 		elif self.msafile:
@@ -264,14 +265,14 @@ class EngraphedMetal(object):
 			metal = MetalLocator.nearest_metal(structure, residue, atom)
 		siteid = EngraphedMetal.get_metal_id(sitesfile, pdbid, metal)
 		sitestring = "%s % 15s % 15s" % (pdbid, siteid, str(residue))
-		# 
+		#
 		ligands = list()
 		for label, atom in cls.get_ligands(sitesfile, pdbid, siteid):
 			ligands.append("%s-%s" % (label, atom))
 		print("%s\t%s" % (sitestring, "\t".join(ligands)))
 
 	@classmethod
-	def ligands(cls, structuredir, sitesdir, chainsdir, sequence, 
+	def ligands(cls, structuredir, sitesdir, chainsdir, sequence,
 				molecule, organism, ids=None, atom=None, position=None):
 		"""
 		"""
@@ -279,7 +280,7 @@ class EngraphedMetal(object):
 		dataset = MoleculeDataset(molecule, organism, ids, chainsdir=chainsdir)
 		iterator = dataset.iterate(count=True, structuredir=structuredir, sitesdir=sitesdir, motif=sequence)
 		#
-		logged = time.time() 
+		logged = time.time()
 		print("Logging", file=sys.stderr)
 		for pdbid, chainid, count, structure, sitesfile, embeddings in iterator:
 			if time.time() - logged > 120:
@@ -308,11 +309,11 @@ class NucleotideFrame(object):
 			borg_coos = self.residue.atoms[Borgs[self.residue.name]].coos
 			#
 			rB_bond = (borg_coos - c1r_coos) # glycosidic bond
-			# 
+			#
 			p3_axis = (p_coos - o3r_coos)
-			p3_axis /= np.linalg.norm(p3_axis)
+			p3_axis /= norm(p3_axis)
 			rB_axis = rB_bond - (np.dot(rB_bond, p3_axis) * p3_axis)
-			rB_axis /= np.linalg.norm(rB_axis)
+			rB_axis /= norm(rB_axis)
 			pX_axis = np.cross(p3_axis, rB_axis)
 			p_frame = [p3_axis, rB_axis, pX_axis]
 			return p_coos, p_frame
@@ -324,14 +325,14 @@ class NucleotideFrame(object):
 			borg_coos = self.residue.atoms[Borgs[self.residue.name]].coos
 			bopp_coos = self.residue.atoms[Bopps[self.residue.name]].coos
 			foot_coos = self.residue.atoms[Bfeet[self.residue.name]].coos
-			# 
+			#
 			b_coos = (borg_coos + bopp_coos) / 2
-			bW_edge = foot_coos - bopp_coos # not as in figure.
-			# 
+			bW_edge = foot_coos - bopp_coos
+			#
 			HS_axis = bopp_coos - borg_coos
-			HS_axis /= np.linalg.norm(HS_axis)
+			HS_axis /= norm(HS_axis)
 			WR_axis = bW_edge - (np.dot(bW_edge, HS_axis) * HS_axis)
-			WR_axis /= np.linalg.norm(WR_axis)
+			WR_axis /= norm(WR_axis)
 			bX_axis = np.cross(HS_axis, WR_axis)
 			b_frame = [HS_axis, WR_axis, bX_axis]
 			return b_coos, b_frame
@@ -366,14 +367,15 @@ class NucleotideFrame(object):
 
 class MetalLocator(object):
 
-	def __init__(self, reference, ligandsfile):
+	def __init__(self, reference, ligandsfile, max_da):
 		self.reference = reference
 		self.ligands = LigandsFile(ligandsfile)
 		self.ligands.new()
 		self.metals = None
-		self.mgion = RNAMgSiteEngrapher(HBFinder(), invalids=True, relaxed=True)
+		hbfinder = HBFinder(max_da=max_da)
+		self.mgion = RNAMgSiteEngrapher(hbfinder, invalids=True, relaxed=True)
 		self.coos = None
-		# 
+		#
 		self._refframes = dict()
 
 	def refframes(self, refresidue):
@@ -409,10 +411,11 @@ class MetalLocator(object):
 						profilecoos = refframe.reverse(coos, mode)
 						if not np.isnan(profilecoos).any():
 							self.coos[metalid].append(profilecoos)
-			# 
+			#
 			order = sorted(self.metals, key=self.metal_resno)
 			self.ligands.update(self.metals, order)
 			self.reference.update(self.coos, order)
+		self.reference.finish()
 		print(time.time() - starttime)
 
 	def locus_can_frame(self, metals, locus):
@@ -547,7 +550,7 @@ class MgRNAProfile(object):
 
 	locations: a list of 5-tuples, in the format as follows
 		(pdbid, chainid, locus, locuscoos, metalid), where
-		locus is the one-indexed residue number in the MSA 
+		locus is the one-indexed residue number in the MSA
 			for the reference nucleotide used as a frame
 		locuscoos are the coordinates relative to the frame
 			calculated according to NucleotideFrame
@@ -561,6 +564,7 @@ class MgRNAProfile(object):
 		self.path = filepath
 		self.name = name
 		self.minresno = 0 # max resno for metal id written as of now
+		self.model = 0
 		self.atomno = count(1)
 		self.alignment = alignment
 		self.new()
@@ -573,26 +577,36 @@ class MgRNAProfile(object):
 		return cls(filepath, alignment, "%s:%s" % (pdbid, chainid))
 
 	def new(self):
-		lines = list()
+		lines = ["MODEL% 9d%s" % (self.model, " "*66)]
 		for locus, residue in enumerate(self.alignment, 1):
-			if not residue:
-				continue
-			residue.chain, residue.resno, residue.insco = "A", locus, ""
-			atmno = lambda atom: residue.atoms[atom].atmno
-			for atom in sorted(residue.atoms, key=atmno):
-				residue.atoms[atom].atmno = self.atomno.next()
-				lines.append(residue.atoms[atom].to_pdb_record(residue))
+			if residue:
+				residue.chain, residue.resno, residue.insco = "A", locus, ""
+				atmno = lambda atom: residue.atoms[atom].atmno
+				for atom in sorted(residue.atoms, key=atmno):
+					residue.atoms[atom].atmno = self.atomno.next()
+					lines.append(residue.atoms[atom].to_pdb_record(residue))
 		with open(self.path, 'w') as outfile:
 			outfile.write("%s\n" % "\n".join(lines))
 
+	def finish(self):
+		with open(self.path, 'a') as outfile:
+			outfile.write("ENDMDL%s\n" % (" "*74,))
+
 	def update(self, metalcoos, order):
 		if metalcoos:
-			lines = dict()
+			byresno = dict()
 			for metalid, cooslist in metalcoos.items():
 				resno = self.minresno + order.index(metalid.strip("*! "))
-				lines[resno] = (metalid, cooslist, resno)
-			lines = zip(*sorted(lines.items()))[1]
-			lines = [self.metal_pdb_record(*args) for args in lines]
+				byresno[resno] = (metalid, cooslist, resno)
+			lines = list()
+			for resno in sorted(byresno):
+				model_expected = (resno / 100000) + 1
+				if model_expected != self.model:
+					self.model = model_expected
+					self.atomno = count(1)
+					lines.append("ENDMDL%s" % (" "*74,))
+					lines.append("MODEL% 9d%s" % (self.model, " "*66))
+				lines.append(self.metal_pdb_record(*(byresno[resno])))
 			with open(self.path, 'a') as outfile:
 				outfile.write("%s\n" % "\n".join(lines))
 			self.minresno += len(order)
@@ -602,9 +616,9 @@ class MgRNAProfile(object):
 		coos, rmsd = self.agreement(cooslist)
 		residue = Residue.from_string(metalid)
 		residue.resno = resno % 10000
-		residue.chain = str(resno / 10000)
+		residue.chain = str((resno / 10000) % 10)
 		residue.insco = ""
-		# 
+		#
 		atomname = "OS" if residue.name == "OHX" else\
 		           "IR" if residue.name == "IRI" else residue.name
 		atom = Atom(atomname, residue.name, atmno, atomname, coos, None, rmsd)
@@ -623,12 +637,12 @@ def get_all_leaves(linkarray, node):
 	size = len(linkarray) + 1
 	queue = {node}
 	nonleaves = set()
-	# 
+	#
 	def check_nonleaves(nonleaves):
 		nonleaves.clear()
 		nonleaves.update(filter(lambda node: node >= size, queue))
 		return bool(len(nonleaves))
-	# 
+	#
 	while check_nonleaves(nonleaves):
 		for nonleaf in map(int, nonleaves):
 			queue.update(linkarray[nonleaf-size][:2])
@@ -642,7 +656,7 @@ class MetalCluster(object):
 	Minimum Mg-Mg distance in PDB-XRAY is 1.135 A, between
 	[MG]1677:AA and [MG]1788:AA in the structure 4v9a.
 	"""
-	
+
 	def __init__(self, ligandsfile, profilefile, chainscount):
 		self.coos = list()
 		self.rmsd = list()
@@ -653,7 +667,7 @@ class MetalCluster(object):
 		self.clusters = dict()
 		self.min10 = int(np.ceil(max(2, chainscount * 0.1)))
 		self.min01 = int(np.ceil(self.min10 * 0.1))
-		# 
+		#
 		self.read_ligands(ligandsfile)
 		self.read_profile(profilefile)
 
@@ -671,7 +685,8 @@ class MetalCluster(object):
 			structure = manager.extract_structure(breaks=False, multimodel=True)
 		begex, endex, _ = structure.chains["A"]
 		for residue in structure.residues[endex:]:
-			sitex = residue.resno + (int(residue.chain) * 10000)
+			model, chain, resno = residue.model, residue.chain, residue.resno
+			sitex = (model - 1)*100000 + int(chain) * 10000 + resno
 			atom[sitex] = list(residue.atoms.values())[0]
 		for sitex in range(self.length):
 			if sitex in atom:
@@ -686,11 +701,12 @@ class MetalCluster(object):
 		print("% 10d\t% 10d" % (self.length, nanvalued))
 
 	def cluster_sites(self):
-		self.exclude_unclusterable(3.08)
+		cutoff = 3.08
+		self.exclude_unclusterable(cutoff)
 		self.print_check(0)
-		self.agglomerative_clusters(3.08)
+		self.agglomerative_clusters(cutoff)
 		self.print_check(1)
-		self.centroid_based_clusters(3.08)
+		self.remove_small_clusters()
 		self.print_check(2)
 
 	def print_check(self, message):
@@ -717,13 +733,13 @@ class MetalCluster(object):
 			else:
 				known = set()
 			#
-			dists = np.linalg.norm(self.coos[sitex:]-self.coos[sitex], axis=1)
+			dists = norm(self.coos[sitex:]-self.coos[sitex], axis=1)
 			incidence = set(sitex + np.flatnonzero(dists <= cutoff))
 			# <= automatically excludes all nan-valued sites,
 			# since nan < x or nan > x is False for all x
 			if not len(incidence - known):
 				continue
-			# 
+			#
 			addedto = list()
 			for key in sorted(components):
 				if len(components[key] & incidence):
@@ -734,7 +750,7 @@ class MetalCluster(object):
 			if not addedto:
 				components[sitex+1] = incidence
 		coverage = set().union(*components.values())
-		# 
+		#
 		badrmsd = set(np.flatnonzero(self.rmsd > 1.0))
 		for key in set(components):
 			components[key] -= badrmsd
@@ -744,7 +760,7 @@ class MetalCluster(object):
 				sitexes = np.array(sorted(components[key]))
 				exclude = self._cluster_breaking(sitexes, cutoff)
 				components[key] -= set(exclude)
-		# 
+		#
 		coverage = set().union(*components.values())
 		self.clusters = {key: sorted(components[key]) for key in components}
 		self.clusters[0] = sorted(set(range(self.length)) - coverage)
@@ -760,7 +776,7 @@ class MetalCluster(object):
 		# clusters with average link > cutoff are parents of other nodes,
 		# so the direct children of each cluster is noted in "nodes"
 		nodes = linkarray[indices][:, (0, 1)].flatten()
-		# all those clusters that do not have any direct children with 
+		# all those clusters that do not have any direct children with
 		# average link <= cutoff are removed, so only clusters whose
 		# children have average linkage <= cutoff remain in "nodes"
 		nodes = np.array(list(set(nodes - size) - set(indices))) + size
@@ -772,50 +788,57 @@ class MetalCluster(object):
 		exclude = sorted(set(sitexes[sorted(map(int, exclude))]))
 		return exclude
 
-	def centroid_based_clusters(self, cutoff):
-		tochange = set(self.clusters) - {0}
-		highdeviation = set(np.flatnonzero(self.rmsd > 1.0))
-		for iteration in count(1):
-			canchange = defaultdict(list)
-			for cluster in tochange:
-				sitexes = self.clusters[cluster]
-				if len(sitexes) < self.min10:
-					centroid = self.coos[sitexes].mean(axis=0)
-					distances = np.linalg.norm(self.coos - centroid, axis=1)
-					nearby = np.flatnonzero(distances <= cutoff)
-					canadd = (set(nearby) - set(sitexes)) - highdeviation
-					if len(canadd) < len(sitexes)\
-					  and len(canadd) + len(sitexes) > self.min10:
-						for sitex in canadd:
-							distance = distances[sitex]
-							canchange[sitex].append((distance, cluster))
-					else:
-						self.clusters[0] += self.clusters.pop(cluster)
-			# 
-			changed = set()
-			sorter = lambda sitex: list(zip(*canchange[sitex]))[0]
-			for sitex in sorted(canchange, key=sorter):
-				for cluster in self.clusters:
-					if sitex in self.clusters[cluster]:
-						break
-				if cluster != 0:
+	def _sites_to_pass_failed_clusters(self, clusters_to_check, cutoff):
+		can_reassign = defaultdict(list)
+		baddata = set(np.flatnonzero(self.rmsd > 1.0))
+		for cluster in clusters_to_check:
+			sitexes = self.clusters[cluster]
+			if len(sitexes) < self.min10:
+				size = len(sitexes)
+				exclude = set(sitexes) | baddata
+				centroid = self.coos[sitexes].mean(axis=0)
+				distances = norm(self.coos - centroid, axis=1)
+				canadd = set(np.flatnonzero(distances <= cutoff)) - exclude
+				if len(canadd) < size and (len(canadd) + size) > self.min10:
+					for sitex in canadd:
+						can_reassign[sitex].append((distances[sitex], cluster))
+				else:
+					self.clusters[0] += self.clusters.pop(cluster)
+		return dict(can_reassign)
+
+	def _current_cluster(self, sitex):
+		for cluster in self.clusters:
+			if sitex in self.clusters[cluster]:
+				if cluster == 0:
+					return np.inf, 0
+				else:
 					sitexes = sorted(set(self.clusters[cluster]) - {sitex})
 					centroid = self.coos[sitexes].mean(axis=0)
-					distance = np.linalg.norm(self.coos[sitex] - centroid)
-					canchange[sitex].append((distance, cluster))
-				mincluster = min(canchange[sitex])[1]
-				if mincluster != cluster:
-					self.clusters[cluster].remove(sitex)
+					distance = norm(self.coos[sitex] - centroid)
+					return distance, cluster
+
+	def centroid_based_recluster(self, cutoff):
+		changed = set(self.clusters)
+		tochange = set(self.clusters) - {0}
+		while changed and changed != tochange:
+			tochange &= changed
+			can_reassign = self._sites_to_pass_failed_clusters(tochange, cutoff)
+			changed = set()
+			sorter = lambda sitex: list(zip(*can_reassign[sitex]))[0]
+			for sitex in sorted(can_reassign, key=sorter):
+				distance, clusternow = self._current_cluster(sitex)
+				can_reassign[sitex].append((distance, clusternow))
+				mincluster = min(can_reassign[sitex])[1]
+				if mincluster != clusternow:
+					self.clusters[clusternow].remove(sitex)
 					self.clusters[mincluster].append(sitex)
-					changed.update({mincluster, cluster})
-			# 
-			for cluster in set(self.clusters) - {0}:
-				if len(self.clusters[cluster]) < self.min10:
-					if cluster not in changed:
-						self.clusters[0] += self.clusters.pop(cluster)
-			tochange = changed & set(self.clusters)
-			if not changed or iteration == 10:
-				break
+					changed.update({mincluster, clusternow} - {0})
+		self.renumber_clusters()
+
+	def remove_small_clusters(self):
+		for cluster in set(self.clusters) - {0}:
+			if len(self.clusters[cluster]) < self.min10:
+				self.clusters[0] += self.clusters.pop(cluster)
 		self.renumber_clusters()
 
 	def agglomerative_clusters(self, cutoff):
@@ -830,11 +853,11 @@ class MetalCluster(object):
 			indices = np.flatnonzero(linkarray[:, 2] > cutoff)
 			# clusters with average link > cutoff are parents of other nodes,
 			# so the direct children of each cluster is noted in "nodes"
-			if not len(indices):
+			if not len(indices): # if no node where link > cutoff => include all
 				self.clusters[next(new_cluster)] = list(sitexes)
 				continue
-			# 
-			# all those clusters that do not have any direct children with 
+			#
+			# all those clusters that do not have any direct children with
 			# average link <= cutoff are removed, so only clusters whose
 			# children have average linkage <= cutoff remain in "nodes"
 			nodes = linkarray[indices][:, (0, 1)].flatten()
@@ -860,8 +883,9 @@ class MetalCluster(object):
 		for cluster in set(self.clusters) - {0}:
 			sitexes = self.clusters[cluster]
 			mgrna = [sitex for sitex in sitexes if self.sites[sitex][-1]!="*"]
-			mgrna = [sitex for sitex in mgrna if self.sites[sitex][:3]=="[MG"]
+			mgrna = [sitex for sitex in mgrna if self.sites[sitex][:4]=="[MG]"]
 			valid = [sitex for sitex in sitexes if self.sites[sitex][-1]==" "]
+			valid = [sitex for sitex in valid if self.sites[sitex][:4]!="[NA]"]
 			ligands[cluster] = self.frequent_ligands(valid)
 			ligands[cluster] |= self.frequent_ligands(mgrna)
 		return ligands
@@ -928,6 +952,19 @@ class ClusterFile(object):
 					sites.append((resno, siteid))
 		return sites
 
+	def read_all_clusters_sites(self):
+		current = None
+		clusters = defaultdict(list)
+		with open(self.path, 'r') as infile:
+			for line in infile:
+				if line.startswith("Cluster:"):
+					current = int(line.split()[1])
+				elif line.startswith("\t\t"):
+					line = line.strip("\t\n").split("\t")
+					resno, siteid = int(line[0]), line[1].lstrip()
+					clusters[current].append((resno, siteid))
+		return clusters
+
 	def read_cluster_ligands(self):
 		bycluster = dict()
 		with open(self.path, 'r') as infile:
@@ -955,7 +992,7 @@ class ClusterViewer(object):
 		self.structure = profilefile
 		self.clusterfile = ClusterFile(clusterfile)
 		self.clusters = self.clusterfile.read_cluster_names()
-		# 
+		#
 		colours = Plotter.generate_colours(len(self.clusters) - 1)
 		colours = map(lambda c: "[%s]" % c.upper().replace("#", "x"), colours)
 		self.colour = dict(zip(sorted(set(self.clusters) - {0}), colours))
@@ -978,13 +1015,20 @@ class ClusterViewer(object):
 			else:
 				print(commands)
 
+	@staticmethod
+	def get_selector(sitex):
+		resno = (sitex % 10000)
+		chain = (sitex / 10000) % 10
+		model = (sitex / 100000) + 1
+		return "%s:%s/%s" % (resno, chain, model)
+
 	def display_clusters(self, clusters):
 		script = list()
 		selectors = list()
 		for cluster in clusters:
 			selection = list()
 			for sitex, siteid in self.clusterfile.read_cluster_sites(cluster):
-				selector = "%s:%s" % (sitex % 10000, sitex / 10000)
+				selector = self.get_selector(sitex)
 				script.append('select %s; label "%s"' % (selector, siteid))
 				selection.append(selector)
 			script.append("select %s" % " or ".join(selection))
@@ -992,10 +1036,11 @@ class ClusterViewer(object):
 			selectors += selection
 		selectors = " or ".join(selectors)
 		script += ['select %s' % selectors, 'color label black', 'font label 9',
-					'hide not selected', 'zoom 0', 'display all',
-					'select :A and within(15.0, %s)' % selectors, 
+					'hide not selected', 'zoom 0', # 'display all',
+					'select :A and within(15.0, true, %s)' % selectors,
+					'display selected or %s' % selectors,
 					'cartoon 0.1', 'wireframe 0.1', 'spacefill 0.15',
-					'select :A and not selected', 'cartoon 0', 'wireframe 0.01', 'spacefill 0.05',
+					'select :A and not selected', 'cartoon 0', #'wireframe 0.01', 'spacefill 0.05',
 					'select not :A', 'spacefill 0.1', 'wireframe 0']
 		self._display(script)
 
@@ -1004,20 +1049,22 @@ class ClusterViewer(object):
 		for cluster in self.clusters:
 			selection = list()
 			for sitex, siteid in self.clusterfile.read_cluster_sites(cluster):
-				selection.append("%s:%s" % (sitex % 10000, sitex / 10000))
+				selection.append(self.get_selector(sitex))
 			script.append("select %s" % " or ".join(selection))
 			script.append("color %s" % self.colour[cluster])
 			if cluster:
 				script.append('label "%s"' % cluster)
 		script += ['select :"1"', 'font label 9', 'zoom 0',
-					'select :A', 'cartoon 0.1', 'wireframe 0.1', 'spacefill 0.15'
+					'select :A', 'cartoon 0.1', 'wireframe 0.1', 'spacefill 0.15',
 					'select not :A', 'spacefill 0.1', 'wireframe 0']
 		self._display(script)
 
 	def _display(self, script):
-		postscript = ["color background white",	"select none"]
-		script = "%s \n" % " \n".join(script + postscript)
-		command = ["jmol", self.structure, "-I"]
+		script += ["color background white", "select none"]
+		prescript = ["load MODELS {0 -1 1} %s" % self.structure,
+					 "frame all", "display *"]
+		script = "; \n".join(prescript + script)
+		command = ["jmol", "-I"]
 		with open(os.devnull, 'w') as NULL:
 			process = Popen(command, stdin=PIPE, stdout=PIPE, stderr=PIPE)
 			process.stdin.write(script)
@@ -1031,9 +1078,9 @@ def example(structuredir, resolutionsfile, msafile):
 		toprint += ["% 2s" % chainid for chainid in entry[1:]]
 		print("\t".join(toprint))
 
-def locate(structuredir, msafile, pdbid, chainid, outfile, ligandsfile):
+def locate(structuredir, msafile, pdbid, chainid, outfile, ligandsfile, max_da=3.8):
 	profile = MgRNAProfile.create(pdbid, chainid, msafile, structuredir, outfile)
-	MetalLocator(profile, ligandsfile).locate(structuredir, msafile)
+	MetalLocator(profile, ligandsfile, max_da).locate(structuredir, msafile)
 
 def cluster(ligandsfile, profilefile, clusterfile, chainscount):
 	clusterer = MetalCluster(ligandsfile, profilefile, chainscount)
@@ -1049,7 +1096,7 @@ def view(profilefile, clusterfile):
 def parse_args():
 	parser = argparse.ArgumentParser()
 	commands = parser.add_subparsers(dest="command")
-	# 
+	#
 	ligands = commands.add_parser('ligands')
 	ligands.add_argument("structuredir", metavar="STRUCTURE-FOLDER")
 	ligands.add_argument("sitesdir", metavar="CONTEXT-FOLDER")
@@ -1060,7 +1107,7 @@ def parse_args():
 	ligands.add_argument("--ids", metavar="IDS-FILE", default=None)
 	ligands.add_argument("--atom", metavar="ATOM-NAME", default=None)
 	ligands.add_argument("--position", metavar="BASE-POSITION", default=None, type=int)
-	# 
+	#
 	sequences = commands.add_parser('sequences')
 	sequences.add_argument("structuredir", metavar="BPFIND-OUTPUT-FOLDER")
 	sequences.add_argument("chainsdir", metavar="CHAINS-FOLDER")
@@ -1069,11 +1116,11 @@ def parse_args():
 	sequences.add_argument("output", metavar="OUTPUT-FILE")
 	sequences.add_argument("--ids", default=None)
 	sequences.add_argument("--msa", metavar="MSA-OUTPUT-FILE")
-	# 
+	#
 	check = commands.add_parser('check')
 	check.add_argument("msafile", metavar="MSA-OUTPUT")
 	check.add_argument("structuredir", metavar="STRUCTURE-FOLDER")
-	# 
+	#
 	locate = commands.add_parser('locate')
 	locate.add_argument("structuredir", metavar="STRUCTURE-FOLDER")
 	locate.add_argument("msafile", metavar="MSA-OUTPUT")
@@ -1081,22 +1128,23 @@ def parse_args():
 	locate.add_argument("chainid", metavar="REPRESENTATIVE-CHAIN")
 	locate.add_argument("outfile", metavar="OUTPUT-STRUCTURE-FILE")
 	locate.add_argument("ligandsfile", metavar="LIGANDS-FILE")
-	# 
+	locate.add_argument("--max-da", default="3.8", type=float)
+	#
 	view = commands.add_parser('view')
 	view.add_argument("profilefile", metavar="PROFILE-FILE")
 	view.add_argument("clusterfile", metavar="CLUSTER-FILE")
-	# 
+	#
 	example = commands.add_parser('example')
 	example.add_argument("structuredir", metavar="STRUCTURE-FOLDER")
 	example.add_argument("resolutionsfile", metavar="RESOLUTIONS-FILE")
 	example.add_argument("msafile", metavar="MSA-OUTPUT")
-	# 
+	#
 	cluster = commands.add_parser('cluster')
 	cluster.add_argument("ligandsfile", metavar="LIGANDS-FILE")
 	cluster.add_argument("profilefile", metavar="PROFILE-FILE")
 	cluster.add_argument("clusterfile", metavar="CLUSTER-FILE")
 	cluster.add_argument("chainscount", metavar="CHAINS-COUNT", type=int)
-	# 
+	#
 	return parser.parse_args()
 
 

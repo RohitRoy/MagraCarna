@@ -211,10 +211,11 @@ class Residue(object):
     REGEX = {"name": r"^\[(\w+)\]",
              "chain": r"^.*:(\w+)",
              "resno": r"^.*[\]](-?\d+)",
-             "insco": r"^.*\^(\w+)"}
+             "insco": r"^.*\^(\w+)",
+             "model": r"^.*/(\w+)*"}
 
-    def __init__(self, name=None, chain=None, structid=None, 
-                       resno=None, insco=None, serno=None):
+    def __init__(self, name=None, chain=None, structid=None,
+                       resno=None, insco=None, serno=None, model=None):
         """Initialises Residue object with given args.
 
         Args:
@@ -232,18 +233,19 @@ class Residue(object):
         self.insco = insco
         self.chain = chain
         self.index = None
+        self.model = model
         self.atoms = dict()
         self.structid = structid
 
     @classmethod
-    def from_pdb_record(cls, line, iscor=False, asdict=False):
+    def from_pdb_record(cls, line, iscor=False, asdict=False, model=None):
         """Creates Residue object from a PDB file record.
 
         Args:
             line: line of the file corresponding to the
               PDB record from which to create Residue.
-            iscor: (default False) If True, treats 'line' 
-              as a record in BPFind's .cor output file. 
+            iscor: (default False) If True, treats 'line'
+              as a record in BPFind's .cor output file.
               If False, treats 'line' as a record in a
               standard .pdb file format structure file.
             asdict: (default False) If True, returns a
@@ -253,11 +255,11 @@ class Residue(object):
         Returns:
             Residue object or a Residue properties dict,
             based on the value of 'asdict', where the name
-            chain, resno and insco are assigned. 
+            chain, resno and insco are assigned.
             See Residue for details.
         """
         name = line[17:20].strip()
-        props = {"name": name}
+        props = {"name": name, "model": model}
         if iscor:
             chain = None
             # New BPFind format does not keep chain IDS in .cor files
@@ -280,7 +282,7 @@ class Residue(object):
             table: a dict representing an MMCIF _atom_site
               category (table), mapping field names to a
               list of corresponding values in the column.
-            row_no: row number in 'table' from which to 
+            row_no: row number in 'table' from which to
               create a Residue object.
             asdict: (default False) If True, returns a
               residue properties dict. If False, returns a
@@ -289,23 +291,27 @@ class Residue(object):
         Returns:
             Residue object or a Residue properties dict,
             based on the value of 'asdict', where the name
-            chain, resno and insco are assigned. 
+            chain, resno and insco are assigned.
             See Residue for details.
         """
+        props = dict()
         try:
-            resno = table["_atom_site.auth_seq_id"][row_no]
+            props["resno"] = int(table["_atom_site.auth_seq_id"][row_no])
         except KeyError:
             resno = table["_atom_site.label_seq_id"][row_no]
             resno = table["_atom_site.id"][row_no] if resno == "." else resno
-        name = table["_atom_site.label_comp_id"][row_no]
-        chain = table["_atom_site.auth_asym_id"][row_no]
-        resno = int(resno)
+            props["resno"] = int(resno)
+        props["name"] = table["_atom_site.label_comp_id"][row_no]
+        props["chain"] = table["_atom_site.auth_asym_id"][row_no]
         try:
             insco = table["_atom_site.pdbx_PDB_ins_code"][row_no]
-            insco = "" if insco == "?" else insco
+            props["insco"] = "" if insco == "?" else insco
         except KeyError:
-            insco = ""
-        props = {"name": name, "resno": resno, "insco": insco, "chain": chain}
+            props["insco"] = ""
+        try:
+            props["model"] = table["_atom_site.pdbx_PDB_model_num"][row_no]
+        except KeyError:
+            props["model"] = None
         if asdict:
             return props
         return cls(**props)
@@ -314,7 +320,7 @@ class Residue(object):
         """Returns string representation of residue.
 
         Returns:
-            String representation to specify residue. 
+            String representation to specify residue.
             If 'resno' is assigned, uses the format used
             by RasMol to specify residues.
             Otherwise, returns string of the output of the
@@ -323,9 +329,12 @@ class Residue(object):
         if self.resno is not None:
             if self.insco:
                 properties = (self.name, self.resno, self.insco, self.chain)
-                return "[%s]%d^%s:%s" % properties
+                string = "[%s]%d^%s:%s" % properties
             else:
-                return "[%s]%d:%s" % (self.name, self.resno, self.chain)
+                string = "[%s]%d:%s" % (self.name, self.resno, self.chain)
+            if self.model:
+                string = "%s/%s" % (string, self.model)
+            return string
         return str(self.entuple())
 
     @classmethod
@@ -346,7 +355,7 @@ class Residue(object):
         Returns:
             Residue object or a Residue properties dict,
             based on the value of 'asdict', where the name
-            chain, resno and insco are assigned. 
+            chain, resno and insco are assigned.
             See Residue for details.
         """
         props = dict()
@@ -359,6 +368,8 @@ class Residue(object):
             props["resno"] = int(props["resno"])
             if "insco" not in props:
                 props["insco"] = ""
+            if "model" not in props:
+                props["model"] = None
         if asdict:
             return props
         return cls(**props)
@@ -367,13 +378,14 @@ class Residue(object):
         """Returns unique residue identifier as tuple."""
         noserno = self.serno is None # with serno > without serno
         return (noserno, self.chain, self.serno,
-                self.resno, self.insco, self.name)
+                self.resno, self.insco, self.name, self.model)
 
-    def matches(self, name=None, chain=None,
-                      serno=None, resno=None, insco=None):
+    def matches(self, name=None, chain=None, serno=None,
+                      resno=None, insco=None, model=None):
         if (name is not None and name != self.name)\
           or (chain is not None and chain != self.chain)\
-          or (serno is not None and serno != self.serno):
+          or (serno is not None and serno != self.serno)\
+          or (model is not None and model != self.model):
             return False
         if resno is not None:
             insco = insco if insco is not None else ""
@@ -398,6 +410,8 @@ class Residue(object):
             checked, or no common atom name (in last set).
         """
         try:
+            if self.model != fles.model:
+                return False
             if None not in (self.index, fles.index):
                 return self.index == fles.index
             elif None not in (self.serno, fles.serno):
@@ -462,7 +476,7 @@ class Grid(object):
 
         Returns:
             Position of the cell as a 3-tuple.
-        """        
+        """
         cell_position = np.floor((coos - self._min) / self.size)
         cell_position = tuple(int(index) for index in cell_position)
         return cell_position
@@ -528,7 +542,7 @@ class Grid(object):
             atomlist = entity.atoms.values()
             positions = set()
             for atom in atomlist:
-                positions.update(self.get_cell_position(atom.coos))
+                positions.add(self.get_cell_position(atom.coos))
             return atomlist, positions
 
     def __iter__(self):
@@ -540,7 +554,7 @@ class Grid(object):
 class Structure(object):
     """Constructs structure from coordinates.
 
-    The 'chains' attribute accounts for the nucleotide 
+    The 'chains' attribute accounts for the nucleotide
     residues in the structure that have the same chain ID.
     The beginning and ending residue indices are recorded,
     as per their order in the 'residues' attribute.
@@ -548,14 +562,14 @@ class Structure(object):
     True, 'chains' only accounts for those nucleotides
     that are linked by P-O3' linkage with a neighbouring
     nucleotide of the same chain. These nucleotides may
-    also be connected in fragments, and a breaks in the 
+    also be connected in fragments, and a breaks in the
     chain is recorded as (startex, jump). There is a break
     entry for each fragment except for the first.
         startex: Index at which a fragment starts.
         jump: Estimated number of missing residues between
           this fragment and the previous.
     When constructed with 'breaks' argument as True,
-    'chains' excludes nucleotides which are not in a 
+    'chains' excludes nucleotides which are not in a
     phospho-diester linkage, or have unusual atom names in
     the phosphate moiety.
 
@@ -581,11 +595,11 @@ class Structure(object):
     _WARN_ONE_RESIDUE_SEGT = "Removed one residue segment %%s at %%d / %d"
 
     def __init__(self, structid, residues, grid, pairs=None, breaks=False):
-        """Initialises Structure with provided 
+        """Initialises Structure with provided
 
         During construction, the residues that can be
         accounted for by the 'chains' attribute are placed
-        at the start of the list in 'residues' attribute. 
+        at the start of the list in 'residues' attribute.
         So, the order of the residues in the 'residues'
         argument may not be the retained in the 'residues'
         attribute. The index attribute of each Residue is
@@ -597,8 +611,8 @@ class Structure(object):
             grid: Grid object which grids all atoms in the
               provided 'residues'.
             pairs: (optional) a dict where (chain, serno)
-              of a residue is mapped to a dict object, 
-              that in turn maps (chain, serno) of its 
+              of a residue is mapped to a dict object,
+              that in turn maps (chain, serno) of its
               pairing residues to a 5-tuple representing
               the type of the base pair they form.
             breaks: If True, the 'chains' attribute will
@@ -844,7 +858,7 @@ class HydrogenBondFinder(object):
                         found_hbonds[(residue2, atom2)][residue1].add(atom1)
                         all_hbonds.append((residue1, atom1, residue2, atom2))
         return all_hbonds
-    
+
     def _set_verify_hbond(self, ignore_H=True):
         if ignore_H:
             self.verify_hbond = self._verify_hbond_ignoring_H
@@ -874,12 +888,12 @@ class HydrogenBondFinder(object):
 
     @classmethod
     def _is_donor(cls, residue, atom):
-        return (residue.name in cls.DONORS 
+        return (residue.name in cls.DONORS
                 and atom.name in cls.DONORS[residue.name])
 
     @classmethod
     def _is_accor(cls, residue, atom):
-        return (residue.name in cls.ACCORS 
+        return (residue.name in cls.ACCORS
                 and atom.name in cls.ACCORS[residue.name])
 
 
@@ -894,7 +908,7 @@ class PDBParser(StructureParser):
 
     _COORDINATE_SECTION_RECORDS = ("ATOM", "HETATM", "MODEL", "ENDMDL")
     _COORDINATE_RECORDS = ("ATOM", "HETATM")
-    
+
     def __init__(self, lines, iscor=False):
         self.lines = self.retrieve_coordinate_section(lines)
         self.iscor = iscor
@@ -957,11 +971,15 @@ class PDBParser(StructureParser):
         return "".join(self.lines)
 
     def extract_atoms(self):
+        model = None
+        iscor = self.iscor
         for line in self.lines:
             if line.startswith(self._COORDINATE_RECORDS):
                 atom = Atom.from_pdb_record(line, self.iscor)
-                resprops = Residue.from_pdb_record(line, self.iscor, True)
+                resprops = Residue.from_pdb_record(line, iscor, True, model)
                 yield (atom, resprops)
+            elif line.startswith("MODEL"):
+                model = int(line.split()[1])
 
 
 class MMCIFParser(StructureParser):
@@ -1051,10 +1069,9 @@ class MMCIFParser(StructureParser):
     def ensure_single_model(self):
         for (_, table), columns in zip(self.tables, self._columns):
             try:
-                model_numbers = table["_atom_site.pdbx_PDB_model_num"]
+                model_numbers = map(int, table["_atom_site.pdbx_PDB_model_num"])
             except:
                 continue
-            model_numbers = [int(model_no) for model_no in model_numbers]
             first_model = min(model_numbers)
             retain_rows = list()
             for row_no, model_number in enumerate(model_numbers):
@@ -1141,13 +1158,13 @@ class StructureFile(object):
         with open(write_to, 'w') as scratch_file:
             scratch_file.write(self._parser.convert_back_to_file_format())
 
-    def extract_residues(self, only_elements=None, 
+    def extract_residues(self, only_elements=None,
                          only_residues=None, only_ids=None):
         """Converts file into list of Residue objects.
 
         Args:
             only_elements: an optional set of elements.
-                If not None, only those Atom objects are 
+                If not None, only those Atom objects are
                 read which have elements in this set.
             only_residues: optional set of residue names.
                 If not None, Atom objects from only these
@@ -1352,7 +1369,7 @@ class SecondaryStructureManager(object):
                 if self.WARN:
                     warnings.warn("PDB Residue not found in COR %s" % residue)
         return grid
-        
+
     @staticmethod
     def _merge_residue_into_cell(cell, corres, coratom):
         for residue, atom in cell:
@@ -1363,4 +1380,3 @@ class SecondaryStructureManager(object):
                 residue.serno = corres.serno
                 return True
         return False
-
