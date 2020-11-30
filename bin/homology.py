@@ -633,7 +633,7 @@ class MgRNAProfile(object):
 		return meancoos, mean_rmsd
 
 
-def get_all_leaves(linkarray, node):
+def get_all_leaves(linkarray, node, verbose=False):
 	size = len(linkarray) + 1
 	queue = {node}
 	nonleaves = set()
@@ -647,7 +647,9 @@ def get_all_leaves(linkarray, node):
 		for nonleaf in map(int, nonleaves):
 			queue.update(linkarray[nonleaf-size][:2])
 		queue -= nonleaves
-	return queue
+	if verbose:
+		print(node, queue)
+	return sorted(map(int, queue))
 
 
 class MetalCluster(object):
@@ -706,8 +708,10 @@ class MetalCluster(object):
 		self.print_check(0)
 		self.agglomerative_clusters(cutoff)
 		self.print_check(1)
-		self.remove_small_clusters()
+		self.knowledge_based_unmerge(2.08)
 		self.print_check(2)
+		self.remove_small_clusters()
+		self.print_check(3)
 
 	def print_check(self, message):
 		singletons, clusters = self.singletons()
@@ -775,7 +779,7 @@ class MetalCluster(object):
 		indices = np.flatnonzero(linkarray[:, 2] > cutoff)
 		# clusters with average link > cutoff are parents of other nodes,
 		# so the direct children of each cluster is noted in "nodes"
-		nodes = linkarray[indices][:, (0, 1)].flatten()
+		nodes = np.array(linkarray[indices][:, (0, 1)].flatten(), dtype=int)
 		# all those clusters that do not have any direct children with
 		# average link <= cutoff are removed, so only clusters whose
 		# children have average linkage <= cutoff remain in "nodes"
@@ -783,63 +787,52 @@ class MetalCluster(object):
 		# "exclude" clusters smaller than "min01", starting with leaves
 		exclude = set(nodes[nodes < size])
 		for node in set(nodes) - exclude:
-			if linkarray[int(node - size)][3] < self.min01:
+			if linkarray[node - size][3] < self.min01:
 				exclude.update(get_all_leaves(linkarray, node))
-		exclude = sorted(set(sitexes[sorted(map(int, exclude))]))
+		exclude = sorted(set(sitexes[sorted(exclude)]))
 		return exclude
-
-	def _sites_to_pass_failed_clusters(self, clusters_to_check, cutoff):
-		can_reassign = defaultdict(list)
-		baddata = set(np.flatnonzero(self.rmsd > 1.0))
-		for cluster in clusters_to_check:
-			sitexes = self.clusters[cluster]
-			if len(sitexes) < self.min10:
-				size = len(sitexes)
-				exclude = set(sitexes) | baddata
-				centroid = self.coos[sitexes].mean(axis=0)
-				distances = norm(self.coos - centroid, axis=1)
-				canadd = set(np.flatnonzero(distances <= cutoff)) - exclude
-				if len(canadd) < size and (len(canadd) + size) > self.min10:
-					for sitex in canadd:
-						can_reassign[sitex].append((distances[sitex], cluster))
-				else:
-					self.clusters[0] += self.clusters.pop(cluster)
-		return dict(can_reassign)
-
-	def _current_cluster(self, sitex):
-		for cluster in self.clusters:
-			if sitex in self.clusters[cluster]:
-				if cluster == 0:
-					return np.inf, 0
-				else:
-					sitexes = sorted(set(self.clusters[cluster]) - {sitex})
-					centroid = self.coos[sitexes].mean(axis=0)
-					distance = norm(self.coos[sitex] - centroid)
-					return distance, cluster
-
-	def centroid_based_recluster(self, cutoff):
-		changed = set(self.clusters)
-		tochange = set(self.clusters) - {0}
-		while changed and changed != tochange:
-			tochange &= changed
-			can_reassign = self._sites_to_pass_failed_clusters(tochange, cutoff)
-			changed = set()
-			sorter = lambda sitex: list(zip(*can_reassign[sitex]))[0]
-			for sitex in sorted(can_reassign, key=sorter):
-				distance, clusternow = self._current_cluster(sitex)
-				can_reassign[sitex].append((distance, clusternow))
-				mincluster = min(can_reassign[sitex])[1]
-				if mincluster != clusternow:
-					self.clusters[clusternow].remove(sitex)
-					self.clusters[mincluster].append(sitex)
-					changed.update({mincluster, clusternow} - {0})
-		self.renumber_clusters()
 
 	def remove_small_clusters(self):
 		for cluster in set(self.clusters) - {0}:
 			if len(self.clusters[cluster]) < self.min10:
 				self.clusters[0] += self.clusters.pop(cluster)
 		self.renumber_clusters()
+
+	def knowledge_based_unmerge(self, cutoff):
+		LARGE_FLOAT = 1000000.
+		new_cluster = count(len(self.clusters)+1)
+		for cluster in sorted(set(self.clusters) - {0}):
+			merged = self._merged_clusters(self.clusters[cluster], cutoff)
+			if not merged:
+				continue
+			sitexes = np.array(self.clusters.pop(cluster))
+			matrix = squareform(pdist(self.coos[sitexes]))
+			size = len(sitexes)
+			for pair in merged:
+				matrix[pair] = matrix[pair[::-1]] = LARGE_FLOAT
+			linkarray = linkage(squareform(matrix), method='average')
+			parents = np.flatnonzero(linkarray[:, 2] > cutoff)
+			kids = np.array(linkarray[parents][:, (0, 1)].flatten(), dtype=int)
+			kids = np.array(list(set(kids - size) - set(parents))) + size
+			for node in kids:
+				new_sitexes = list(sitexes[get_all_leaves(linkarray, node)])
+				self.clusters[next(new_cluster)] = new_sitexes
+		self.renumber_clusters()
+
+	def _merged_clusters(self, sitexes, cutoff):
+		merged = list()
+		sitexes = np.array(sitexes)
+		siteids = [self.sites[sitex][:-1] for sitex in sitexes]
+		chains = np.array([re.sub(" .+:", ":", each) for each in siteids])
+		if len(set(chains)) != len(sitexes):
+			for chain in set(chains):
+				repeating = np.flatnonzero(chains == chain)
+				if len(repeating) > 1:
+					for index1, index2 in combinations(repeating, 2):
+						coos1, coos2 = self.coos[sitexes[[index1, index2]]]
+						if norm(coos1 - coos2) > cutoff:
+							merged.append((index1, index2))
+		return merged
 
 	def agglomerative_clusters(self, cutoff):
 		disappeared = set()
@@ -850,26 +843,24 @@ class MetalCluster(object):
 			sitexes = np.array(clusters[component])
 			size = len(sitexes)
 			linkarray = linkage(self.coos[sitexes], method='average')
-			indices = np.flatnonzero(linkarray[:, 2] > cutoff)
-			# clusters with average link > cutoff are parents of other nodes,
-			# so the direct children of each cluster is noted in "nodes"
-			if not len(indices): # if no node where link > cutoff => include all
+			# all nodes with average link > cutoff are called "parents"
+			parents = np.flatnonzero(linkarray[:, 2] > cutoff)
+			if not len(parents): # no parents => all nodes have link < cutoff
 				self.clusters[next(new_cluster)] = list(sitexes)
 				continue
-			#
-			# all those clusters that do not have any direct children with
-			# average link <= cutoff are removed, so only clusters whose
-			# children have average linkage <= cutoff remain in "nodes"
-			nodes = linkarray[indices][:, (0, 1)].flatten()
-			nodes = np.array(list(set(nodes - size) - set(indices))) + size
-			for node in nodes:
-				indices = sorted(map(int, get_all_leaves(linkarray, node)))
-				self.clusters[next(new_cluster)] = list(sitexes[indices])
+			# the direct children of each parent are noted in "kids"
+			kids = np.array(linkarray[parents][:, (0, 1)].flatten(), dtype=int)
+			# if a kid is also a parent => kid also has average link > cutoff
+			# kids-who-are-parents are removed => all kids have link <= cutoff
+			kids = np.array(list(set(kids - size) - set(parents))) + size
+			for node in kids:
+				new_sitexes = list(sitexes[get_all_leaves(linkarray, node)])
+				self.clusters[next(new_cluster)] = new_sitexes
 		self.renumber_clusters()
 
 	def renumber_clusters(self):
 		singletons, clusters = self.singletons()
-		order = lambda cluster: (-len(clusters[cluster]), cluster)
+		order = lambda cluster: (-len(clusters[cluster]), clusters[cluster][0])
 		order = sorted(set(clusters) - {0}, key=order)
 		clusters = {0: self.clusters.pop(0)}
 		for renumbered, cluster in enumerate(order, 1):

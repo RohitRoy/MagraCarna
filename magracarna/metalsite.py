@@ -25,7 +25,7 @@ DONORS = HydrogenBondFinder.DONORS
 
 
 class RNAMetalSiteGraph(RNAStructureGraph):
-    
+
     INNER_SHELL_NO = 1
     OUTER_SHELL_NO = 2
     SHELL_NAME = {INNER_SHELL_NO: RNAStructureGraph.LIGATION,
@@ -72,7 +72,7 @@ class RNAMetalSiteGraph(RNAStructureGraph):
 
 
 class MgSiteValidator(object):
-    
+
     _VERBOSE = False
     MIN_COORDINATION = 4
     MAX_COORDINATION = 6
@@ -81,7 +81,7 @@ class MgSiteValidator(object):
     _Q_V_CUTOFF = Decimal("0.5")
 
     # Bond valence values are from two different sources
-    # For O, N, F, S, Cl and Br, it is from 
+    # For O, N, F, S, Cl and Br, it is from
     #   "Data Mining..." by Zheng, et al.
     # For P, I, Se, Te and As, it is from
     #   "Bond Valence..." by Brese, et al.
@@ -189,7 +189,7 @@ class MgSiteValidator(object):
 
 
 class RNAMgSiteEngrapher(RNAStructureEngrapher):
-        
+
     _TYPE = "SiteGraph"
     INVALIDCHAR = "!"
     _RELAX_BY = Decimal("0.5")
@@ -210,7 +210,7 @@ class RNAMgSiteEngrapher(RNAStructureEngrapher):
             self.structid, self.residueid = siteid.split(" ")
             message = self.MESG % (self.residueid, self.structid)
             super(RNAMgSiteEngrapher.NoRNAInteraction, self).__init__(message)
-    
+
     class FailsValidation(ValueError):
         MESG = "%s in structure %s does not pass validation criteria"
         def __init__(self, siteid):
@@ -272,13 +272,16 @@ class RNAMgSiteEngrapher(RNAStructureEngrapher):
         self.graph = RNAMetalSiteGraph(self._node)
         self.graph.name = "%s %s" % (structure.structid, self.graph.name)
 
-    def detect_mgsite(self, residue, engraph):
+    def detect_shells(self, residue, engraph=False):
         self.set_residue(residue, self.structure)
         self.detect_environment()
         self.detect_inner_shell(engraph=engraph)
         if self._relaxed and len(self.inner_shell) < self.MAX_COORDINATION:
             self._relaxed_inner_shell()
         self.detect_outer_shell(engraph=engraph)
+
+    def detect_mgsite(self, residue, engraph):
+        self.detect_shells(residue, engraph)
         if not engraph:
             for entry in self.inner_shell | self.outer_shell:
                 residue = entry[0]
@@ -586,7 +589,7 @@ class RNAMgMotifCounts(RNAMgSiteContextParser):
     _MODIFIERS = (str.rjust, str.ljust, str.rjust, str.rjust)
     _ROW_LEGEND = ("category", "motif", "cindex", "mindex", "all", "valids")
     _HEADER_ROW = "Sites Present"
-    
+
     def __init__(self, table):
         self.table = table
 
@@ -708,18 +711,18 @@ class RNAMgSiteContextVisualiser(object):
                   # "select (" +site_selector+ ") and (*.P or *.O5' or *.O3' or *.OP1 or *.OP2 or not nucleic)",
                   # "wireframe 0.15", "spacefill 0.25",
                   # "select HOH and not within(3.1, MG and clickable) and protein; spacefill 0 ; wireframe 0 ; select none",
-                  # 
+                  #
                   # # bone
                   # "select nucleic and clickable ; color cartoon purple ; cartoon 0.1", "spacefill 0 ; wireframe 0",
                   # "select ("+context_selector+") and not (metal or HOH)", "spacefill 0", "wireframe 0",
-                  # "select ("+site_selector+") and nucleic", "spacefill 0.25", "wireframe 0.15", 
+                  # "select ("+site_selector+") and nucleic", "spacefill 0.25", "wireframe 0.15",
                   # "select protein and clickable; spacefill 0 ; wireframe 0", color halo chain ; halo 0.5"
-                  
+
                   # # site
                   # "select nucleic and not ("+site_selector+")", "wireframe 0 ; spacefill 0",
                   # # pair
                   # "select nucleic and clickable ; wireframe 0.15 ; spacefill 0.25"
-                  # 
+                  #
                   "select HOH and within(3.1, MG and clickable)",
                   "select selected "+("or HOH and within(3.8, selected)" if waters else ""),
                   "select HOH and not selected",
@@ -752,7 +755,7 @@ class RNAMgMotifVectorList(MotifVectorList):
     LIGATION = RNAStructureGraph.LIGATION
     WATERMED = RNAStructureGraph.WATERMED
     LIGLABELS = (LIGATION, WATERMED)
-    
+
     def __init__(self, motifgraph, assigner, invalids=True, **kwargs):
         superclass = super(RNAMgMotifVectorList, self)
         superclass.__init__(motifgraph, assigner, **kwargs)
@@ -773,4 +776,3 @@ class RNAMgMotifVectorList(MotifVectorList):
         embed_key = [part for part in embed if part in cls.LIGLABELS]
         embed_key = [int(part == cls.WATERMED) for part in embed_key]
         return (embed_key, super_key)
-
