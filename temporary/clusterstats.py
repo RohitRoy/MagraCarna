@@ -10,11 +10,11 @@ from numpy.linalg import norm, det
 from numpy.random import randint
 from numpy import mean, array, dot, cross, sqrt, ceil, flatnonzero
 from numpy import all as npall, round as npround
-import numpy as np
 import matplotlib.pyplot as plt
 
 from ..magracarna.engrid import StructureFile
 from ..bin.homology import ClusterFile
+from ..utilities.args import ArgParser
 
 
 def diff(clusterfile1, clusterfile2):
@@ -363,19 +363,67 @@ def badclusters(folder, suffix, resolutionsfile):
                 continue
             coos, _, _, siteids = zip(*cluster_atoms[cluster])
             pdbids = [each.split(" ")[0] for each in siteids]
-            chainids = [each.split(":")[1][:-1] for each in siteids]
-            chainids = array([":".join(each) for each in zip(pdbids, chainids)])
-            if len(set(chainids)) == len(chainids):
+            chains = [each.split(":")[1][:-1] for each in siteids]
+            chains = array([":".join(each) for each in zip(pdbids, chains)])
+            if len(set(chains)) == len(chains):
                 continue
             print("\tCluster : % 5d" % cluster)
-            for chainid in sorted(set(chainids)):
-                badsites = flatnonzero(chainids == chainid)
+            for chainid in sorted(set(chains)):
+                badsites = flatnonzero(chains == chainid)
+                badids = [siteids[each].strip("*! ")[5:] for each in badsites]
                 if len(badsites) > 1:
                     distances = list()
                     for site1, site2 in combinations(badsites, 2):
                         distance = npround(norm(coos[site1] - coos[site2]), 3)
                         distances.append("% 7.3f" % distance)
                     print("\t\t% 7s\t%s" % (chainid, "\t".join(distances)))
+                    for badid in badids:
+                        print("\t\t\t%s" % badid)
+
+
+def analyze_badclusters(badclustersfile, structuresdir):
+    clusters = defaultdict(dict)
+    with open(badclustersfile, 'r') as infile:
+        for line in infile:
+            if not line.strip():
+                continue
+            if not line.startswith("\t"):
+                molecule = line.strip()
+            if line.startswith("\tCluster"):
+                cluster = line.split()[2]
+            if line.startswith("\t\t") and not line.startswith("\t\t\t"):
+                chainid = line.split()[0]
+                thelist = clusters[chainid][(molecule, cluster)] = list()
+            if line.startswith("\t\t\t"):
+                thelist.append(line.strip())
+    bypdbid = defaultdict(dict)
+    for chainid in clusters.keys():
+        pdbid = chainid.split(":")[0]
+        for (molecule, cluster), metallist in clusters[chainid].items():
+            bypdbid[pdbid][(molecule, cluster)] = tuple(metallist)
+    total = len(bypdbid)
+    bycluster = defaultdict(list)
+    for count, pdbid in enumerate(sorted(bypdbid), 1):
+        print("% 5d / % 5d\t%s" % (count, total, pdbid), file=sys.stderr)
+        path = ArgParser.get_sources(structuresdir, [pdbid], ".pdb", ".cif")[0]
+        residues = set(sum(bypdbid[pdbid].values(), tuple()))
+        byresidue = dict()
+        with StructureFile(path) as structure:
+            for residue in structure.extract_residues():
+                residueid = str(residue).split("/")[0]
+                if residueid in residues:
+                    for _, atom in residue.atoms.items():
+                        if atom.atype not in ("N", "O"):
+                            break
+                    byresidue[residueid] = atom.coos
+        for clusterkey in bypdbid[pdbid]:
+            distances = list()
+            cooslist = [byresidue[each] for each in bypdbid[pdbid][clusterkey]]
+            for coos1, coos2 in combinations(cooslist, 2):
+                distances.append(npround(norm(coos1 - coos2), 3))
+            bycluster[clusterkey].append(max(distances))
+    distances = [max(bycluster[each]) for each in bycluster]
+    print(array(distances))
 
 
 def parse_args():
@@ -420,11 +468,16 @@ def parse_args():
     badclusters.add_argument("folder")
     badclusters.add_argument("suffix")
     badclusters.add_argument("resolutionsfile")
+    #
+    analyze = commands.add_parser("analyze")
+    analyze.add_argument("badclustersfile")
+    analyze.add_argument("structuresdir")
     return parser.parse_args()
 
 COMMAND = {"diff": diff, "radius": radius, "resolution": rmsd_by_resolution,
             "rmsd": rmsd, "well": well_conserved, "within": within,
-            "fromcentroid": fromcentroid, "badclusters": badclusters}
+            "fromcentroid": fromcentroid, "badclusters": badclusters,
+            "analyze": analyze_badclusters}
 
 if __name__ == "__main__":
     args = vars(parse_args())
