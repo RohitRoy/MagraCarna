@@ -1039,7 +1039,7 @@ class MMCIFParser(StructureParser):
                 model_numbers = table["_atom_site.pdbx_PDB_model_num"]
             except:
                 model_numbers = len(alternate_locs)*[""]
-
+            #
             atom_names = table["_atom_site.label_atom_id"]
             occupancies = table["_atom_site.occupancy"]
             delete_rows = list()
@@ -1069,14 +1069,14 @@ class MMCIFParser(StructureParser):
     def ensure_single_model(self):
         for (_, table), columns in zip(self.tables, self._columns):
             try:
-                model_numbers = map(int, table["_atom_site.pdbx_PDB_model_num"])
+                model_numbers = table.pop("_atom_site.pdbx_PDB_model_num")
+                columns.remove("_atom_site.pdbx_PDB_model_num")
+                model_numbers = array(map(int, model_numbers))
             except:
                 continue
-            first_model = min(model_numbers)
             retain_rows = list()
-            for row_no, model_number in enumerate(model_numbers):
-                if first_model == model_number:
-                    retain_rows.append(row_no)
+            first_model = min(model_numbers)
+            retain_rows = np.flatnonzero(model_numbers == first_model)
             for column in columns:
                 col_values = table[column]
                 table[column] = [col_values[row_no] for row_no in retain_rows]
@@ -1199,7 +1199,7 @@ class StructureFile(object):
 
     def extract_structure(self, size=7.0, breaks=True, multimodel=False,
                              altlocs=False, multiblock=False, **limits):
-        self.modify(multimodel, altlocs, multiblock) # is it necessary?
+        self.modify(multimodel, altlocs, multiblock) # is necessary
         residues = list(self.extract_residues(**limits))
         grid = Grid(residues, size)
         return Structure(self.structid, residues, grid, None, breaks)

@@ -88,8 +88,8 @@ class MoleculeDataset(object):
 	@classmethod
 	def get_structure(cls, structuredir, pdbid):
 		path = cls.get_file(structuredir, pdbid, ".pdb", ".cif")
-		with StructureFile(path, None) as manager:
-			structure = manager.extract_structure(breaks=True)
+		with StructureFile(path, None) as reader:
+			structure = reader.extract_structure(breaks=True, multimodel=False)
 		return structure, path
 
 	def chains_from_folder(self, ids):
@@ -683,8 +683,8 @@ class MetalCluster(object):
 	def read_profile(self, profilefile):
 		atom = dict()
 		nanvalued = 0
-		with StructureFile(profilefile, None) as manager:
-			structure = manager.extract_structure(breaks=False, multimodel=True)
+		with StructureFile(profilefile, None) as reader:
+			structure = reader.extract_structure(breaks=False, multimodel=True)
 		begex, endex, _ = structure.chains["A"]
 		for residue in structure.residues[endex:]:
 			model, chain, resno = residue.model, residue.chain, residue.resno
@@ -708,7 +708,7 @@ class MetalCluster(object):
 		self.print_check(0)
 		self.agglomerative_clusters(cutoff)
 		self.print_check(1)
-		self.knowledge_based_unmerge(2.08)
+		self.knowledge_based_unmerge(cutoff)
 		self.print_check(2)
 		self.remove_small_clusters()
 		self.print_check(3)
