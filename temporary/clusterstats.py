@@ -129,10 +129,13 @@ class Circumsphere(object):
 
 class DatasetClusters(object):
 
-    def __init__(self, folder, suffix, resolutionsfile):
+    def __init__(self, folder, suffix, resolutions=None):
         self.folder = folder
         self.suffix = suffix
-        self.resolution = self._read_resolutions(resolutionsfile)
+        if resolutions:
+            self.resolution = self._read_resolutions(resolutions)
+        else:
+            self.resolution = dict()
         self._min = dict()
 
     def _read_resolutions(self, resolutionsfile):
@@ -157,7 +160,7 @@ class DatasetClusters(object):
         for subfolder in sorted(os.listdir(self.folder)):
             if subfolder == "kTHM":
                 continue
-            print(subfolder) #, file=sys.stderr)
+            print(subfolder, file=sys.stderr)
             clusterfile, profile, chains = None, None, 0
             subfolder = os.path.join(self.folder, subfolder)
             for filename in os.listdir(subfolder):
@@ -180,14 +183,15 @@ class DatasetClusters(object):
             for each in structure.residues[endex:]:
                 model, chain, resno = each.model, int(each.chain), each.resno
                 sitex = (model - 1) * 100000 + int(chain) * 10000 + resno
-                resolution = self.resolution[siteidof[sitex].split(" ")[0]]
+                pdbid = siteidof[sitex].split(" ")[0]
+                resolution = self.resolution.get(pdbid, None)
                 atom = each.atoms.values()[0]
                 entry = (atom.coos, atom.bfac, resolution, siteidof[sitex])
                 cluster_atoms[clusterof[sitex]].append(entry)
         return cluster_atoms
 
     @staticmethod
-    def isreliable(siteid):
+    def mgrna_valid(siteid):
         residueid = siteid.split(" ")[1]
         if residueid.startswith("[MG]"):
             if residueid.endswith(("*", "!")):
@@ -199,20 +203,13 @@ class DatasetClusters(object):
 
     def cluster_type(self, cluster_sites, chains):
         sites = len(cluster_sites)
-        reliables = sum(int(self.isreliable(site[1])) for site in cluster_sites)
-        if sites < self.min(chains, 10):
-            return "N"
-        if reliables < 2:
-            if sites >= self.min(chains, 50):
-                return "F"
-            return "U"
-        if reliables >= self.min(chains, 50) and sites >= self.min(chains, 80):
+        if sites >= self.min(chains, 80):
             return "H"
-        if reliables >= self.min(chains, 10) and sites >= self.min(chains, 50):
+        if sites >= self.min(chains, 50):
             return "M"
-        if reliables >= self.min(chains, 10) or sites >= self.min(chains, 50):
-            return "B"
-        return "R" # min10 > reliables > 2 or sites < min50
+        if sites >= self.min(chains, 10):
+            return "R"
+        return "N" # sites < min10
 
     def profilewise(self, category=False, ):
         for profile, clusterfile, chains in self.filepaths():
@@ -230,13 +227,11 @@ class DatasetClusters(object):
             yield cluster_type, cluster_atoms
 
 
-def radius(folder, suffix, resolutionsfile):
-    dataset = DatasetClusters(folder, suffix, resolutionsfile)
-    rmsds = list()
-    tocentroid = list()
+def radius(folder, suffix):
     circumradii = list()
-    wccircumradii = list()
+    ccircumradii = list()
     maxtocentroid = list()
+    dataset = DatasetClusters(folder, suffix)
     for cluster_type, cluster_atoms in dataset.profilewise():
         for cluster in cluster_atoms:
             if cluster == 0:
@@ -244,31 +239,24 @@ def radius(folder, suffix, resolutionsfile):
             coos = zip(*cluster_atoms[cluster])[0]
             centre, radius = Circumsphere.circumsphere(coos)
             circumradii.append(radius)
-            # if radius > 3.08:
-            #     print("% 5d\t% 7.3f" % (cluster, radius))
-            if cluster_type[cluster] in ("B", "M", "H"):
-                wccircumradii.append(radius)
+            if cluster_type[cluster] in ("M", "H"):
+                ccircumradii.append(radius)
             centroid = mean(coos, axis=0)
-            cluster_tocentroid = npround(norm(coos - centroid, axis=1), 3)
-            maxtocentroid.append(max(cluster_tocentroid))
-            # tocentroid += list(cluster_tocentroid)
-    # plt.scatter(maxtocentroid, circumradii, 0.2, 'black')
-    # plt.xlabel(r'Distance from centroid to farthest point in cluster in $\AA$')
-    # plt.ylabel(r'Circumradius of sphere bounding the cluster in $\AA$')
-    # plt.savefig("radii%s.png" % suffix, dpi=300)
+            tocentroid = npround(norm(coos - centroid, axis=1), 3)
+            maxtocentroid.append(max(tocentroid))
     bincircradii = defaultdict(lambda: 0)
     bincentradii = defaultdict(lambda: 0)
-    wcbincircradii = defaultdict(lambda: 0)
+    cbincircradii = defaultdict(lambda: 0)
     for circumradius, farthestpoint in zip(circumradii, maxtocentroid):
         bincircradii[npround(circumradius, 1)] += 1
         bincentradii[npround(farthestpoint, 1)] += 1
-    for wccircumradius in wccircumradii:
-        wcbincircradii[npround(wccircumradius, 1)] += 1
+    for ccircumradius in ccircumradii:
+        cbincircradii[npround(ccircumradius, 1)] += 1
     for binvalue in sorted(set(bincircradii) | set(bincentradii)):
         output = [binvalue]
         circradius = bincircradii[binvalue] ; output.append(circradius)
         centradius = bincentradii[binvalue] ; output.append(centradius)
-        wcradius = wcbincircradii[binvalue] ; output.append(wcradius)
+        cradius = cbincircradii[binvalue] ; output.append(cradius)
         print("% 7.3f\t% 7d\t% 7d\t% 7d" % tuple(output))
 
 
@@ -294,9 +282,9 @@ def rmsd_by_resolution(folder, suffix, resolutionsfile):
             string.append("% 7s" % binned[rmsd][value])
         print("\t".join(string))
 
-def rmsd(folder, suffix, resolutionsfile):
-    dataset = DatasetClusters(folder, suffix, resolutionsfile)
+def rmsd(folder, suffix):
     rmsds = list()
+    dataset = DatasetClusters(folder, suffix)
     for _, cluster_atoms in dataset.profilewise():
         for cluster in cluster_atoms:
             rmsds += list(zip(*cluster_atoms[cluster])[1])
@@ -304,25 +292,22 @@ def rmsd(folder, suffix, resolutionsfile):
         print(rmsdvalue)
 
 
-def well_conserved(folder, suffix, resolutionsfile):
-    dataset = DatasetClusters(folder, suffix, resolutionsfile)
+def conserved(folder, suffix):
+    conserved = 0
     bytype = defaultdict(lambda: 0)
-    well_sites = 0
-    frequent_sites = 0
+    dataset = DatasetClusters(folder, suffix)
     for cluster_type, cluster_atoms in dataset.profilewise():
         for cluster in sorted(set(cluster_atoms) - {0}):
             bytype[cluster_type[cluster]] += 1
-            if cluster_type[cluster] in ("B", "M", "H"):
-                well_sites += len(cluster_atoms[cluster])
-            elif cluster_type[cluster] == "F":
-                frequent_sites += len(cluster_atoms[cluster])
-    print(well_sites, frequent_sites, bytype)
+            if cluster_type[cluster] in ("M", "H"):
+                conserved += len(cluster_atoms[cluster])
+    print(conserved, bytype)
 
 
-def within(folder, suffix, resolutionsfile):
-    dataset = DatasetClusters(folder, suffix, resolutionsfile)
+def within(folder, suffix):
     PERCENTS = (80, 90, 95, 98, 99)
     percentwise = {pct_: defaultdict(lambda: 0.0) for pct_ in PERCENTS}
+    dataset = DatasetClusters(folder, suffix)
     for cluster_type, cluster_atoms in dataset.profilewise():
         for cluster in cluster_atoms:
             if cluster == 0:
@@ -337,10 +322,10 @@ def within(folder, suffix, resolutionsfile):
         print("% 5.1f\t%s" % (binvalue, "\t".join(string)))
 
 
-def fromcentroid(folder, suffix, resolutionsfile):
-    dataset = DatasetClusters(folder, suffix, resolutionsfile)
+def fromcentroid(folder, suffix):
     distancewise = defaultdict(lambda: 0)
-    wcdistancewise = defaultdict(lambda: 0)
+    cdistancewise = defaultdict(lambda: 0)
+    dataset = DatasetClusters(folder, suffix)
     for cluster_type, cluster_atoms in dataset.profilewise():
         for cluster in cluster_atoms:
             if cluster == 0:
@@ -349,14 +334,14 @@ def fromcentroid(folder, suffix, resolutionsfile):
             tocentroid = npround(norm(coos - mean(coos, axis=0), axis=1), 1)
             for distance in tocentroid:
                 distancewise[distance] += 1
-                if cluster_type[cluster] in ("B", "M", "H"):
-                    wcdistancewise[distance] += 1
+                if cluster_type[cluster] in ("M", "H"):
+                    cdistancewise[distance] += 1
     for howfar, count in sorted(distancewise.items()):
-        print("% 5.1f\t% 7d\t% 7d" % (howfar, count, wcdistancewise[howfar]))
+        print("% 5.1f\t% 7d\t% 7d" % (howfar, count, cdistancewise[howfar]))
 
 
-def badclusters(folder, suffix, resolutionsfile):
-    dataset = DatasetClusters(folder, suffix, resolutionsfile)
+def badclusters(folder, suffix):
+    dataset = DatasetClusters(folder, suffix)
     for cluster_type, cluster_atoms in dataset.profilewise():
         for cluster in cluster_atoms:
             if cluster == 0:
@@ -437,7 +422,6 @@ def parse_args():
     radius = commands.add_parser('radius')
     radius.add_argument("folder")
     radius.add_argument("suffix")
-    radius.add_argument("resolutionsfile")
     #
     resolution = commands.add_parser('resolution')
     resolution.add_argument("folder")
@@ -447,27 +431,22 @@ def parse_args():
     rmsd = commands.add_parser('rmsd')
     rmsd.add_argument("folder")
     rmsd.add_argument("suffix")
-    rmsd.add_argument("resolutionsfile")
     #
-    well = commands.add_parser('well')
-    well.add_argument("folder")
-    well.add_argument("suffix")
-    well.add_argument("resolutionsfile")
+    conserved = commands.add_parser('conserved')
+    conserved.add_argument("folder")
+    conserved.add_argument("suffix")
     #
     within = commands.add_parser('within')
     within.add_argument("folder")
     within.add_argument("suffix")
-    within.add_argument("resolutionsfile")
     #
     fromcentroid = commands.add_parser('fromcentroid')
     fromcentroid.add_argument("folder")
     fromcentroid.add_argument("suffix")
-    fromcentroid.add_argument("resolutionsfile")
     #
     badclusters = commands.add_parser("badclusters")
     badclusters.add_argument("folder")
     badclusters.add_argument("suffix")
-    badclusters.add_argument("resolutionsfile")
     #
     analyze = commands.add_parser("analyze")
     analyze.add_argument("badclustersfile")
@@ -475,7 +454,7 @@ def parse_args():
     return parser.parse_args()
 
 COMMAND = {"diff": diff, "radius": radius, "resolution": rmsd_by_resolution,
-            "rmsd": rmsd, "well": well_conserved, "within": within,
+            "rmsd": rmsd, "conserved": conserved, "within": within,
             "fromcentroid": fromcentroid, "badclusters": badclusters,
             "analyze": analyze_badclusters}
 

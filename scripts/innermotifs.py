@@ -4,7 +4,7 @@ import os
 import sys
 import argparse
 
-from math import floor
+from math import ceil
 from decimal import Decimal
 from numpy.linalg import norm
 from collections import defaultdict
@@ -58,9 +58,11 @@ class InnerMotifsAnalyzer(object):
         matches = defaultdict(list)
         for index, (shell, atomtype, resname, count) in enumerate(definition):
             for residue, atom in (inner if shell == "I" else outer):
-                if residue.name in cls.DICTIONARY.get(resname, (resname,)):
-                    if atom in cls.DICTIONARY.get(atomtype, (atomtype,)):
+                if atom in cls.DICTIONARY.get(atomtype, (atomtype,)):
+                    if residue.name in cls.DICTIONARY.get(resname, (resname,)):
                         matches[index].append(residue)
+                    else:
+                        return None
             if len(matches[index]) != count:
                 return None
             matches[index].sort(key=lambda each: (each.resno, each.insco))
@@ -92,7 +94,7 @@ class InnerMotifsAnalyzer(object):
         for motif in sorted(self.MOTIFS):
             try:
                 match = self.check_motif(motif, inner_shell, outer_shell)
-                loci = [self.alignment.index(residue) + 1 for residue in match]
+                loci = [self.alignment.index(each) + 1 for each in match]
                 return motif, tuple(loci)
             except TypeError: # for when match == None, and can't iterate
                 continue
@@ -207,7 +209,7 @@ class MoleculeSitesDataset(MoleculeDataset):
             sites = set(self.ligands.get((pdbid, chainid), []))
             sites.update(self.off_chain_sites(structure, aligned))
             sites = self.only_mg(sites) if onlymg else sites
-            sites = self.only_valids(sites) if valids else sites
+            sites = self.mgrna_valids(sites) if valids else sites
             #
             print(message % (count, pdbid, chainid), file=sys.stderr)
             analyzer = InnerMotifsAnalyzer(structure, aligned, Decimal("3.50"))
@@ -234,7 +236,7 @@ class MoleculeSitesDataset(MoleculeDataset):
         return offchain
 
     @staticmethod
-    def only_valids(siteids):
+    def mgrna_valids(siteids):
         valids = set()
         for siteid in siteids:
             if "[MG]" not in siteid and "[NA]" not in siteid:
@@ -258,7 +260,7 @@ class Atlas(object):
     def filepaths(self):
         filepaths = list()
         for subfolder in sorted(os.listdir(self.folder)):
-            if subfolder != "23HM":
+            if subfolder not in ("05TT", "16EC", "16TT", "23EC", "23HM", "23TT", "D2GrS", "FMNrS3"):
                 continue
             clusterfile, ligandsfile, msafile = None, None, None
             subfolder = os.path.join(self.folder, subfolder)
@@ -365,16 +367,13 @@ def count_reliable(dataset, structuredir, clusterof):
     return motifs
 
 def conserved_clusters(motifcounts, sitesof, dataset):
+    chains = len(dataset.chains)
     conserved = defaultdict(set)
-    allchains = len(dataset.chains)
     for motif in motifcounts:
         for (cluster, loci), count in motifcounts[motif].items():
             if cluster != 0 and count >= 2:
-                size = len(sitesof[cluster])
-                if size >= max(int(floor(allchains * 0.50)), 2):
-                    reliable_size = len(dataset.only_valids(sitesof[cluster]))
-                    if reliable_size >= max(int(floor(allchains * 0.10)), 2):
-                        conserved[motif].add((cluster, loci))
+                if len(sitesof[cluster]) >= max(int(ceil(chains * 0.50)), 2):
+                    conserved[motif].add((cluster, loci))
     return conserved
 
 def conserved(profilesdir, structuredir, conservedfile, allmotifsfile):
@@ -464,6 +463,8 @@ def variations(profilesdir, structuredir, motifsfile, distance_tables=None,
     for entry in atlas.profilewise():
         molecule, dataset, clusterof, sitesof = entry
         conserved = conserved_motif_sites.read(molecule)
+        if not conserved:
+            continue
         for chain, structure, analyzer, inchain in dataset.iterate():
             for motif in conserved:
                 for cluster, loci in sorted(conserved[motif]):
